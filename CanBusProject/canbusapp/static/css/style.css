@@ -144,10 +144,6 @@ main .info-send table{
   transition: all 300ms ease;
 }
 
-main .info-send table:hover {
-  box-shadow: none;
-}
-
 main table tbody td {
   height: 2.8rem;
   border-bottom: 1px solid lightskyblue;
@@ -164,4 +160,9 @@ main table tbody tr:last-child {
 
 .header{
   position: sticky;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }
