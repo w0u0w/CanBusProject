@@ -128,7 +128,7 @@ aside .sidebar a:hover span {
 }
 
 main {
-  margin-top: 1.4rem;
+  margin-top: 5rem;
 }
 
 main .info-send {
@@ -162,7 +162,6 @@ main table tbody tr:last-child {
   position: sticky;
 }
 
-.center {
-  margin-left: auto;
-  margin-right: auto;
+h3 #home {
+  font-size: 10px;
 }
