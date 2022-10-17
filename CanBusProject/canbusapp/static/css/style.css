@@ -183,6 +183,7 @@ h3 #home {
   align-items: center;
   /* margin-left: 2rem; */
   flex-direction: column;
+  margin-top: 12px;
 }
 
 .right .control_panel .controls-start:hover {
