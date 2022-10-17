@@ -26,7 +26,7 @@ urlpatterns = [
     path('vcan4', views.vcan4, name="vcan4"),
     path('vcan5', views.vcan5, name="vcan5"),
     path('vcan6', views.vcan6, name="vcan6"),
-    path('vcan7', views.vcan1, name="vcan7"),
+    path('vcan7', views.vcan7, name="vcan7"),
     path('admin/', admin.site.urls),
 ]
 
