@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from mainCanBus.views import index
+from canbusapp import views
 
 urlpatterns = [
-    path('main/', index),
+    path('', include('canbusapp.urls')),
+    path('vcan0', views.vcan0, name="vcan0"),
+    path('vcan1', views.vcan1, name="vcan1"),
     path('admin/', admin.site.urls),
 ]
 
