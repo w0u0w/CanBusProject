@@ -79,22 +79,24 @@
            <h1 class="container text-info" id="home" >VCAN</h1>
            <div class="info-send">
                 <h2>Info</h2>
-               <div class="panel-body table-responsive">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>DLC</th>
-                                <th>DATA</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% block mainsection %}
-                            {% endblock %}
-                        </tbody>
-                    </table>
-               </div>
-            </div>
+                <div class="panel panel-default">
+                   <div class="panel-body table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>DLC</th>
+                                    <th>DATA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% block mainsection %}
+                                {% endblock %}
+                            </tbody>
+                        </table>
+                   </div>
+                </div>
+           </div>
        </main>
      </div>
 </body>  
