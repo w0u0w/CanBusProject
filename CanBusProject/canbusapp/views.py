@@ -34,4 +34,22 @@ def vcan0(request):
   
   
 def vcan1(request):
-  return render(request, "vcan1.html")    
+  return render(request, "vcan1.html")
+
+def vcan2(request):
+  return render(request, "vcan2.html")
+
+def vcan3(request):
+  return render(request, "vcan3.html")
+
+def vcan4(request):
+  return render(request, "vcan4.html")
+
+def vcan5(request):
+  return render(request, "vcan5.html")
+
+def vcan6(request):
+  return render(request, "vcan6.html")
+
+def vcan7(request):
+  return render(request, "vcan7.html")

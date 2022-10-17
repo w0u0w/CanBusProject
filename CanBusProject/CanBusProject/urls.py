@@ -20,7 +20,13 @@ from canbusapp import views
 urlpatterns = [
     path('', include('canbusapp.urls')),
     path('vcan0', views.vcan0, name="vcan0"),
-    path('vcan1', views.vcan1, name="vcan1"),
+    path('vcan1', views.vcan0, name="vcan1"),
+    path('vcan2', views.vcan0, name="vcan2"),
+    path('vcan3', views.vcan0, name="vcan3"),
+    path('vcan4', views.vcan0, name="vcan4"),
+    path('vcan5', views.vcan0, name="vcan5"),
+    path('vcan6', views.vcan0, name="vcan6"),
+    path('vcan7', views.vcan1, name="vcan7"),
     path('admin/', admin.site.urls),
 ]
 
