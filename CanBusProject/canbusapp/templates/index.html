@@ -76,8 +76,24 @@
          </div>
        </aside>
        <main>
-         {% block mainsection %}
-         {% endblock %}
+           <h1 class="container text-info" id="home" >VCAN</h1>
+           <div class="info-send">
+                <h2>Info</h2>
+               <ta>
+                   <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>DLC</th>
+                            <th>DATA</th>
+                        </tr>
+                   </thead>
+                   <tbody>
+                        {% block mainsection %}
+                        {% endblock %}
+                   </tbody>
+               </ta>
+            </div>
+
        </main>
      </div>
 </body>  

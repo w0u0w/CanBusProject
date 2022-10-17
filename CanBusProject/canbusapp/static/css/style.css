@@ -126,3 +126,35 @@ aside .sidebar a:hover {
 aside .sidebar a:hover span {
   margin-left: 1rem;
 }
+
+main {
+  margin-top: 1.4rem;
+}
+
+main .info-send {
+  margin-top: 2rem;
+}
+
+main .info-send table{
+  background: white;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: #1a1e21;
+  transition: all 300ms ease;
+}
+
+main .info-send table:hover {
+  box-shadow: none;
+}
+
+main table tbody td {
+  height: 2.8rem;
+  border-bottom: 1px solid lightskyblue;
+  color: #23282b;
+}
+
+main table tbody tr:last-child {
+  border: none;
+}
