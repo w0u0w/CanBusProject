@@ -154,16 +154,6 @@ main table tbody tr:last-child {
   border: none;
 }
 
-main table tbody {
-  display: block;
-  height: 300px;
-  overflow-y: auto;
-}
-
-main table tbody tr {
-  display: block;
-}
-
 .table-responsive {
     max-height:300px;
 }
