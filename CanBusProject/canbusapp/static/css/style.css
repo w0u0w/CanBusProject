@@ -128,7 +128,7 @@ aside .sidebar a:hover span {
 }
 
 main {
-  margin-top: 5rem;
+  margin-top: 7rem;
 }
 
 main .info-send {
@@ -154,12 +154,18 @@ main table tbody tr:last-child {
   border: none;
 }
 
-.table-responsive {
-    max-height:300px;
+main table tbody {
+  display: block;
+  height: 300px;
+  overflow-y: auto;
 }
 
-.header{
-  position: sticky;
+main table tbody tr {
+  display: block;
+}
+
+.table-responsive {
+    max-height:300px;
 }
 
 h3 #home {
