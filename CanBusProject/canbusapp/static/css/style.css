@@ -71,7 +71,7 @@ aside .sidebar {
   background: white;
   display: flex;
   flex-direction: column;
-  height: 86vh;
+  /*height: 86vh;*/
   position: relative;
   top: 3rem;
 }
