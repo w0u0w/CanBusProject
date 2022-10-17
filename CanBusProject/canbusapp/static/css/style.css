@@ -39,7 +39,7 @@ img {
 
 
 aside {
- height: 100hv;
+ height: 100vh;
 }
 
 aside .top {
@@ -160,4 +160,8 @@ main table tbody tr:last-child {
 
 .table-responsive {
     max-height:300px;
+}
+
+.header{
+  position: sticky;
 }
