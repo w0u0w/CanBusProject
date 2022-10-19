@@ -38,11 +38,14 @@ def generateBus(interface):
     return bus
 
 
-def generateMsg(interface):
+def generateMsg(interface, flag):
+    firstbyte = 11
+    if flag:
+        firstbyte = 1
     identification = {
         'vcan0': 0x01
     }
-    msg = can.Message(arbitration_id=identification[interface], data=[1, 2, 3, 4, 5, 6, 7, 8])
+    msg = can.Message(arbitration_id=identification[interface], data=[firstbyte, 2, 3, 4, 5, 6, 7, 8])
     return msg
 
 
@@ -64,8 +67,6 @@ def vcan0(request):
         msg = generateMsg('vcan0')
         bus.send(msg)
         time.sleep(2)
-
-
     return render(request, "vcan0.html", {'interface': 'vcan0'})
   
   
