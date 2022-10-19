@@ -6,6 +6,27 @@ import can
 import random
 import time
 
+class Tasker:
+    def __init__(self, interface):
+        self.interface = interface
+
+    def createBus(self):
+        bus = can.interface.Bus(bustype='socketcan', channel=self.interface, bitrate=250000)
+        return bus
+
+    def createMsg(self):
+        msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
+        return msg
+
+    def startTask(self, bus, msg):
+        task = bus.send_periodic(msg, 2)
+        assert isinstance(task, can.CyclicSendTaskABC)
+        return task
+
+    def stopTask(self, task):
+        task.stop()
+
+
 def index(request):
     #bus0 = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
     #anw0 = "EMPTY"
@@ -30,45 +51,15 @@ def index(request):
     #  return HttpResponse(f"Canbus app {anw0}")
     return render(request, 'index.html')
 
-def generateBus(interface):
-    bus = can.interface.Bus(bustype='socketcan', channel=interface, bitrate=250000)
-    return bus
-
-
-def generateMsg(interface, flag):
-    firstbyte = 11
-    if flag:
-        firstbyte = 1
-    identification = {
-        'vcan0': 0x01
-    }
-    msg = can.Message(arbitration_id=identification[interface], data=[firstbyte, 2, 3, 4, 5, 6, 7, 8])
-    return msg
-
-
-def startSending(bus, msg):
-    task = bus.send_periodic(msg, 1)
-    assert isinstance(task, can.CyclicSendTaskABC)
-    return task
-
-
-def stopSending(task):
-    task.stop()
 
 def vcan0(request):
-    flag = False
-    bus = generateBus('vcan0')
+    bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
     if request.method == 'POST' and 'vcan0start' in request.POST:
-        # flag = True
-        startSending(bus, msg)
+        msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
+        # bus.send(msg)
+        bus.send_periodic(msg, 5)
     if request.method == 'POST' and 'vcan0stop' in request.POST:
-        # flag = False
-        stopSending(startSending(bus, msg))
-
-    # while flag:
-    #     msg = generateMsg('vcan0', flag)
-    #     bus.send(msg)
-    #     time.sleep(2)
+        bus.stop_all_periodic_tasks()
     return render(request, "vcan0.html", {'interface': 'vcan0'})
   
   
