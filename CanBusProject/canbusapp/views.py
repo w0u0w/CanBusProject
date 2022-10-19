@@ -64,7 +64,7 @@ def vcan0(request):
         flag = False
 
     while flag:
-        msg = generateMsg('vcan0')
+        msg = generateMsg('vcan0', flag)
         bus.send(msg)
         time.sleep(2)
     return render(request, "vcan0.html", {'interface': 'vcan0'})
