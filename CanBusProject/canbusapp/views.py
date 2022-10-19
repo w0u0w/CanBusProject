@@ -6,6 +6,7 @@ import can
 import random
 import time
 
+
 class Tasker:
     def __init__(self, interface):
         self.interface = interface
@@ -53,14 +54,26 @@ def index(request):
 
 
 def vcan0(request):
-    bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
-    if request.method == 'POST' and 'vcan0start' in request.POST:
+    # bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
+    # if request.method == 'POST' and 'vcan0start' in request.POST:
+    #     msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
+    #     bus.send_periodic(msg, 3)
+    # if request.method == 'POST' and 'vcan0stop' in request.POST:
+    #     msg = can.Message(arbitration_id=0x01, data=[1, 2, 3], is_extended_id=False)
+    #     bus.send(msg)
+    #     bus.stop_all_periodic_tasks()
+
+    def onCLickStart():
+        bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000)
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
-        bus.send_periodic(msg, 3)
+        task = bus.send_periodic(msg, 3)
+        return task
+
+    if request.method == 'POST' and 'vcan0start' in request.POST:
+        onCLickStart()
     if request.method == 'POST' and 'vcan0stop' in request.POST:
-        msg = can.Message(arbitration_id=0x01, data=[1, 2, 3], is_extended_id=False)
-        bus.send(msg)
-        bus.stop_all_periodic_tasks()
+        onCLickStart().stop()
+
     return render(request, "vcan0.html", {'interface': 'vcan0'})
   
   
