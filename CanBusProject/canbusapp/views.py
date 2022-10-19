@@ -52,19 +52,23 @@ def startSending(bus, msg):
     return task
 
 
+def stopSending(task):
+    task.stop()
+
 def vcan0(request):
     flag = False
     bus = generateBus('vcan0')
     if request.method == 'POST' and 'vcan0start' in request.POST:
-        flag = True
-        # startSending(bus, msg)
+        # flag = True
+        startSending(bus, msg)
     if request.method == 'POST' and 'vcan0stop' in request.POST:
-        flag = False
+        # flag = False
+        stopSending(startSending(bus, msg))
 
-    while flag:
-        msg = generateMsg('vcan0', flag)
-        bus.send(msg)
-        time.sleep(2)
+    # while flag:
+    #     msg = generateMsg('vcan0', flag)
+    #     bus.send(msg)
+    #     time.sleep(2)
     return render(request, "vcan0.html", {'interface': 'vcan0'})
   
   
