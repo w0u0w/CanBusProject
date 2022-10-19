@@ -46,21 +46,22 @@ def generateMsg(interface):
 
 
 def startSending(bus, msg):
-    try:
-        task = bus.send_periodic(msg, 1)
-        assert isinstance(task, can.CyclicSendTaskABC)
-        return task
-    except:
-        print('Not sended')
+    task = bus.send_periodic(msg, 1)
+    assert isinstance(task, can.CyclicSendTaskABC)
+    return task
 
 
 def vcan0(request):
     bus = generateBus('vcan0')
-    msg = generateMsg('vcan0')
     if request.method == 'POST' and 'vcan0start' in request.POST:
-        startSending(bus, msg)
+        flag = True
+        # startSending(bus, msg)
     if request.method == 'POST' and 'vcan0stop' in request.POST:
-        startSending(bus, msg).stop()
+        flag = False
+
+    while flag:
+        msg = generateMsg('vcan0')
+        bus.send(msg, 1)
 
     return render(request, "vcan0.html", {'interface': 'vcan0'})
   
