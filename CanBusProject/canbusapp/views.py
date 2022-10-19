@@ -36,10 +36,7 @@ def generatedata_vcan0(request):
 
 
 def vcan0(request):
-    context = {
-        "interface": "vcan0"
-    }
-    return render(request, "vcan0.html", context)
+    return render(request, "vcan0.html", {'interface': 'vcan0'})
   
   
 def vcan1(request):
