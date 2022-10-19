@@ -54,7 +54,7 @@ def index(request):
 
 def vcan0(request):
     bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
-    task = b''
+    global task
     if request.method == 'POST' and 'vcan0start' in request.POST:
         # bus.send(msg)
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
