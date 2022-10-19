@@ -72,7 +72,7 @@ def vcan0(request):
     if request.method == 'POST' and 'vcan0start' in request.POST:
         onCLickStart(bus)
     if 'vcan0stop' in request.POST:
-        onCLickStart(bus).stop()
+        bus.stop_all_periodic_tasks()
 
     return render(request, "vcan0.html", {'interface': 'vcan0'})
   
