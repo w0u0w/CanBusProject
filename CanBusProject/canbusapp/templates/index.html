@@ -107,12 +107,13 @@
                     <div class="control">
                         <h4>Start data sending</h4>
                         <form action="/generatedata_vcan0">
-                            <button type="button" class="btn btn-info" id="start {% url %}">Start</button>
+                            {% block btnstart %}
+                            {% endblock %}
                         </form>
                     </div>
                     <div class="control">
                         <h4>Clear table</h4>
-                        <button type="button" class="btn btn-danger" id="clear {% url %}">Clear</button>
+                        <button type="button" class="btn btn-danger" id="clear">Clear</button>
                     </div>
                 </div>
             </div>

@@ -29,12 +29,17 @@ def index(request):
     #  return HttpResponse(f"Canbus app {anw0}")
     return render(request, 'index.html')
 
+
 def generatedata_vcan0(request):
     print("test")
     return HttpResponse("""<html><script>window.location.replace('/');</script></html>""")
 
+
 def vcan0(request):
-  return render(request, "vcan0.html")  
+    context = {
+        "interface": "vcan0"
+    }
+    return render(request, "vcan0.html", context)
   
   
 def vcan1(request):
