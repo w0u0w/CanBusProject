@@ -29,20 +29,21 @@ def index(request):
     #  return HttpResponse(f"Canbus app {anw0}")
     return render(request, 'index.html')
 
-
-def simplefunction():
+flag = False
+def simplefunction(flag):
     bus0 = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
-    msg0 = can.Message(arbitration_id=0x001, data=[1, 2, 3, 4, 5, 6, 7, 8])
+    msg0 = can.Message(arbitration_id=0x01, data=[1, 2, 3, 4, 5, 6, 7, 8])
     try:
-        bus0.send(msg0)
+        bus0.send_periodic(msg0, 1)
         print('Sended')
     except:
         print('Not sended')
 
 
 def vcan0(request):
-    if request.method == 'POST' and 'vcan0' in request.POST:
-        simplefunction()
+    if request.method == 'POST' and 'vcan0start' in request.POST:
+        flag = True
+        simplefunction(flag)
     return render(request, "vcan0.html", {'interface': 'vcan0'})
   
   
