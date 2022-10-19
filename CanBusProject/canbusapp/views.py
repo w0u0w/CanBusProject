@@ -34,7 +34,9 @@ def simplefunction(flag):
     bus0 = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
     msg0 = can.Message(arbitration_id=0x01, data=[1, 2, 3, 4, 5, 6, 7, 8])
     try:
-        bus0.send_periodic(msg0, 1)
+        task = bus0.send_periodic(msg0, 1)
+        assert isinstance(task, can.CyclicSendTaskABC)
+
         print('Sended')
     except:
         print('Not sended')
