@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import can
 import random
+import time
 
 def index(request):
     #bus0 = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
@@ -61,7 +62,9 @@ def vcan0(request):
 
     while flag:
         msg = generateMsg('vcan0')
-        bus.send(msg, 1)
+        bus.send(msg)
+        time.sleep(2)
+
 
     return render(request, "vcan0.html", {'interface': 'vcan0'})
   
