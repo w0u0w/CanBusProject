@@ -70,6 +70,7 @@ def vcan0(request):
         return task
 
     if request.method == 'POST' and 'vcan0start' in request.POST:
+        print(request.POST)
         onCLickStart()
     if 'vcan0stop' in request.POST:
         onCLickStart().stop()
