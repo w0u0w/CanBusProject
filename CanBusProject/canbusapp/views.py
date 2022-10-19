@@ -30,9 +30,6 @@ def index(request):
     #  return HttpResponse(f"Canbus app {anw0}")
     return render(request, 'index.html')
 
-flag = False
-
-
 def generateBus(interface):
     bus = can.interface.Bus(bustype='socketcan', channel=interface, bitrate=250000)
     return bus
@@ -56,6 +53,7 @@ def startSending(bus, msg):
 
 
 def vcan0(request):
+    flag = False
     bus = generateBus('vcan0')
     if request.method == 'POST' and 'vcan0start' in request.POST:
         flag = True
