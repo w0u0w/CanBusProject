@@ -30,22 +30,38 @@ def index(request):
     return render(request, 'index.html')
 
 flag = False
-def simplefunction(flag):
-    bus0 = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
-    msg0 = can.Message(arbitration_id=0x01, data=[1, 2, 3, 4, 5, 6, 7, 8])
-    try:
-        task = bus0.send_periodic(msg0, 1)
-        assert isinstance(task, can.CyclicSendTaskABC)
 
-        print('Sended')
+
+def generateBus(interface):
+    bus = can.interface.Bus(bustype='socketcan', channel=interface, bitrate=250000)
+    return bus
+
+
+def generateMsg(interface):
+    identification = {
+        'vcan0': 0x01
+    }
+    msg = can.Message(arbitration_id=identification[interface], data=[1, 2, 3, 4, 5, 6, 7, 8])
+    return msg
+
+
+def startSending(bus, msg):
+    try:
+        task = bus.send_periodic(msg, 1)
+        assert isinstance(task, can.CyclicSendTaskABC)
+        return task
     except:
         print('Not sended')
 
 
 def vcan0(request):
+    bus = generateBus('vcan0')
+    msg = generateMsg('vcan0')
     if request.method == 'POST' and 'vcan0start' in request.POST:
-        flag = True
-        simplefunction(flag)
+        startSending(bus, msg)
+    if request.method == 'POST' and 'vcan0stop' in request.POST:
+        startSending(bus, msg).stop()
+
     return render(request, "vcan0.html", {'interface': 'vcan0'})
   
   

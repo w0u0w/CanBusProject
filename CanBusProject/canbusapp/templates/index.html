@@ -113,8 +113,12 @@
                         </form>
                     </div>
                     <div class="control">
-                        <h4>Clear table</h4>
-                        <button type="button" class="btn btn-danger" id="clear">Clear</button>
+                        <h4>Stop data sending</h4>
+                        <form method="post">
+                            {% csrf_token %}
+                            {% block btnstart %}
+                            {% endblock %}
+                        </form>
                     </div>
                 </div>
             </div>
