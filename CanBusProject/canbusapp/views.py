@@ -40,22 +40,28 @@ def vcan0(request):
   
   
 def vcan1(request):
-  return render(request, "vcan1.html")
+  return render(request, "vcan1.html", {'interface': 'vcan1'})
+
 
 def vcan2(request):
-  return render(request, "vcan2.html")
+  return render(request, "vcan2.html", {'interface': 'vcan2'})
+
 
 def vcan3(request):
-  return render(request, "vcan3.html")
+  return render(request, "vcan3.html", {'interface': 'vcan3'})
+
 
 def vcan4(request):
-  return render(request, "vcan4.html")
+  return render(request, "vcan4.html", {'interface': 'vcan4'})
+
 
 def vcan5(request):
-  return render(request, "vcan5.html")
+  return render(request, "vcan5.html", {'interface': 'vcan5'})
+
 
 def vcan6(request):
-  return render(request, "vcan6.html")
+  return render(request, "vcan6.html", {'interface': 'vcan6'})
+
 
 def vcan7(request):
-  return render(request, "vcan7.html")
+  return render(request, "vcan7.html", {'interface': 'vcan7'})
