@@ -53,14 +53,12 @@ def index(request):
 
 
 def vcan0(request):
-    bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
-    task = bus
-    if request.method == 'POST' and 'vcan0start' in request.POST:
-        # bus.send(msg)
-        msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
-        task = bus.send_periodic(msg, 5)
-    if request.method == 'POST' and 'vcan0stop' in request.POST:
-        task.stop()
+    with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000) as bus:
+        if request.method == 'POST' and 'vcan0start' in request.POST:
+            msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
+            bus.send_periodic(msg, 3)
+        if request.method == 'POST' and 'vcan0stop' in request.POST:
+            bus.stop_all_periodic_tasks()
     return render(request, "vcan0.html", {'interface': 'vcan0'})
   
   
