@@ -30,12 +30,19 @@ def index(request):
     return render(request, 'index.html')
 
 
-def generatedata_vcan0(request):
-    print("test")
-    return HttpResponse("""<html><script>window.location.replace('/');</script></html>""")
+def simplefunction():
+    bus0 = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
+    msg0 = can.Message(arbitration_id=0x001, data=[1, 2, 3, 4, 5, 6, 7, 8])
+    try:
+        bus0.send(msg0)
+        print('Sended')
+    except:
+        print('Not sended')
 
 
 def vcan0(request):
+    if request.method == 'POST' and 'vcan0' in request.POST:
+        simplefunction()
     return render(request, "vcan0.html", {'interface': 'vcan0'})
   
   
