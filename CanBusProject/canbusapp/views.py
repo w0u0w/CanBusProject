@@ -74,7 +74,7 @@ def vcan0(request):
     #     onCLickStart(bus)
     # if 'vcan0stop' in request.POST:
     #     bus.stop_all_periodic_tasks()
-    if request.POST.get('click', False):
+    if request.POST.get('operation') == 'startsending':
         bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000)
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
         bus.send(msg)

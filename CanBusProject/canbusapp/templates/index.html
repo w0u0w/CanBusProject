@@ -151,7 +151,8 @@
         headers: {'X-CSRFToken': getCookie('csrftoken')},
         method: 'POST', // or another (GET), whatever you need
         data: {// data you need to pass to your function
-            click: true
+            click: true,
+            'operation': "startsending"
         },
         success: function (data) {
             console.log(111)
