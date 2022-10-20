@@ -84,11 +84,9 @@ def vcan0(request):
         if request.POST.get('operation') == 'stopsending':
             flag = False
 
-        if flag:
+        while flag:
             bus.send_periodic(msg, 2)
-        else:
-            # bus.stop_all_periodic_tasks()
-            pass
+
 
 
 
