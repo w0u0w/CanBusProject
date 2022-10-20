@@ -7,7 +7,7 @@ import can
 import random
 import time
 
-
+flag = False
 class Tasker:
     def __init__(self, interface):
         self.interface = interface
@@ -77,12 +77,17 @@ def vcan0(request):
 
     with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000) as bus:
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
-        task = bus.send_periodic(msg, 2)
+        # task = bus.send_periodic(msg, 2)
         if request.POST.get('operation') == 'startsending':
-            assert isinstance(task, can.CyclicSendTaskABC)
+            flag = True
 
         if request.POST.get('operation') == 'stopsending':
-            task.stop()
+            flag = False
+
+        if flag:
+            bus.send_periodic(msg, 2)
+        else:
+            bus.stop_all_periodic_tasks()
 
 
 
