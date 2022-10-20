@@ -90,7 +90,7 @@ def vcan0(request):
     if flag:
         assert isinstance(task, can.CyclicSendTaskABC)
     if not flag:
-        task.stop()
+        bus.shutdown()
 
 
 
