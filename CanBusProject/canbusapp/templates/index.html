@@ -109,7 +109,7 @@
                     <div class="control">
                         <h4>Start data sending</h4>
 <!--                        <form method="post">-->
-<!--                            {% csrf_token %}-->
+                            {% csrf_token %}
                             <button type="button" class="btn btn-info" id="{{ interface }}startId" name="{{ interface }}start">Start {{ interface }}</button>
 <!--                        </form>-->
                     </div>
@@ -136,6 +136,7 @@
             click: true
         },
         success: function (data) {
+            console.log(111)
             // success callback
             // you can process data returned by function from views.py
         }
