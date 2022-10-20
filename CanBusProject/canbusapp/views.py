@@ -79,9 +79,11 @@ def vcan0(request):
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
         # task = bus.send_periodic(msg, 2)
         if request.POST.get('operation') == 'startsending':
+            global flag
             flag = True
 
         if request.POST.get('operation') == 'stopsending':
+            global flag
             flag = False
 
         if flag:
