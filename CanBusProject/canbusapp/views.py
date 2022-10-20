@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.decorators.csrf import requires_csrf_token
 
 # Create your views here.
 from django.http import HttpResponse
@@ -52,7 +53,7 @@ def index(request):
     #  return HttpResponse(f"Canbus app {anw0}")
     return render(request, 'index.html')
 
-
+@requires_csrf_token
 def vcan0(request):
     # bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
     # if request.method == 'POST' and 'vcan0start' in request.POST:
