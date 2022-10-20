@@ -83,7 +83,6 @@ def vcan0(request):
             flag = True
 
         if request.POST.get('operation') == 'stopsending':
-            global flag
             flag = False
 
         if flag:
