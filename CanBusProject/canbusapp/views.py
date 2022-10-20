@@ -90,7 +90,6 @@ def vcan0(request):
         if flag:
             assert isinstance(task, can.CyclicSendTaskABC)
         if not flag:
-            assert not isinstance(task, can.CyclicSendTaskABC)
             task.stop()
 
 
