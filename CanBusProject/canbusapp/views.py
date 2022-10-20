@@ -89,7 +89,7 @@ def vcan0(request):
     #     time.sleep(2)
     if flag:
         assert isinstance(task, can.CyclicSendTaskABC)
-    else:
+    if not flag:
         task.stop()
 
 
