@@ -52,7 +52,7 @@ def index(request):
     #  anw0 = "message NOT sent"
     #  return HttpResponse(f"Canbus app {anw0}")
     return render(request, 'index.html')
-
+flag = False
 @csrf_exempt
 def vcan0(request):
     # bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
@@ -74,7 +74,7 @@ def vcan0(request):
     #     onCLickStart(bus)
     # if 'vcan0stop' in request.POST:
     #     bus.stop_all_periodic_tasks()
-    flag = False
+
     with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000) as bus:
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
         task = bus.send_periodic(msg, 2)
