@@ -75,23 +75,23 @@ def vcan0(request):
     # if 'vcan0stop' in request.POST:
     #     bus.stop_all_periodic_tasks()
     flag = False
-    bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000)
-    msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
-    task = bus.send_periodic(msg, 2)
-    if request.POST.get('operation') == 'startsending':
-        flag = True
-    #
-    if request.POST.get('operation') == 'stopsending':
-        flag = False
-    #
-    # while flag:
-    #     bus.send(msg)
-    #     time.sleep(2)
-    if flag:
-        assert isinstance(task, can.CyclicSendTaskABC)
-    if not flag:
-        assert not isinstance(task, can.CyclicSendTaskABC)
-        task.stop()
+    with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000) as bus:
+        msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
+        task = bus.send_periodic(msg, 2)
+        if request.POST.get('operation') == 'startsending':
+            flag = True
+        #
+        if request.POST.get('operation') == 'stopsending':
+            flag = False
+        #
+        # while flag:
+        #     bus.send(msg)
+        #     time.sleep(2)
+        if flag:
+            assert isinstance(task, can.CyclicSendTaskABC)
+        if not flag:
+            assert not isinstance(task, can.CyclicSendTaskABC)
+            task.stop()
 
 
 
