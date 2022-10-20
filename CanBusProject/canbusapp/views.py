@@ -52,7 +52,7 @@ def index(request):
     #  anw0 = "message NOT sent"
     #  return HttpResponse(f"Canbus app {anw0}")
     return render(request, 'index.html')
-flag = False
+global flag
 @csrf_exempt
 def vcan0(request):
     # bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=250000)
