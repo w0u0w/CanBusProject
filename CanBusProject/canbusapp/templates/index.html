@@ -144,6 +144,8 @@
     return cookieValue;
     }
 
+    const csrftoken = Cookies.get('csrftoken');
+
     $('#vcan0startId').click(function() {
     $.ajax({
         url: '/vcan0',
