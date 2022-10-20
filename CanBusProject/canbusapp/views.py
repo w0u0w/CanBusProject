@@ -77,16 +77,20 @@ def vcan0(request):
     flag = False
     bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000)
     msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
+    task = bus.send_periodic(msg, 2)
     if request.POST.get('operation') == 'startsending':
         flag = True
-
+    #
     if request.POST.get('operation') == 'stopsending':
         flag = False
-
-    while flag:
-        bus.send(msg)
-        time.sleep(2)
-
+    #
+    # while flag:
+    #     bus.send(msg)
+    #     time.sleep(2)
+    if flag:
+        assert isinstance(task, can.CyclicSendTaskABC)
+    else:
+        task.stop()
 
 
 
