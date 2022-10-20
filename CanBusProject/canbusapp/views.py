@@ -87,7 +87,8 @@ def vcan0(request):
         if flag:
             bus.send_periodic(msg, 2)
         else:
-            bus.stop_all_periodic_tasks()
+            # bus.stop_all_periodic_tasks()
+            pass
 
 
 
