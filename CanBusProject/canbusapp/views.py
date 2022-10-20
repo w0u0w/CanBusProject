@@ -83,6 +83,7 @@ def vcan0(request):
 
         if request.POST.get('operation') == 'stopsending':
             flag = False
+            bus.shutdown()
 
         while flag:
             bus.send(msg)
