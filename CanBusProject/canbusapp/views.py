@@ -74,12 +74,11 @@ def vcan0(request):
     #     onCLickStart(bus)
     # if 'vcan0stop' in request.POST:
     #     bus.stop_all_periodic_tasks()
-
+    global flag
     with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000) as bus:
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
         # task = bus.send_periodic(msg, 2)
         if request.POST.get('operation') == 'startsending':
-            global flag
             flag = True
 
         if request.POST.get('operation') == 'stopsending':
