@@ -85,7 +85,8 @@ def vcan0(request):
             flag = False
 
         while flag:
-            bus.send_periodic(msg, 2)
+            bus.send(msg)
+            time.sleep(2)
 
 
 
