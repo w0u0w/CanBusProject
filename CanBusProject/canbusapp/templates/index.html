@@ -108,10 +108,10 @@
                 <div class="controls">
                     <div class="control">
                         <h4>Start data sending</h4>
-                        <form method="post">
-                            {% csrf_token %}
+<!--                        <form method="post">-->
+<!--                            {% csrf_token %}-->
                             <button type="button" class="btn btn-info" id="{{ interface }}startId" name="{{ interface }}start">Start {{ interface }}</button>
-                        </form>
+<!--                        </form>-->
                     </div>
                     <div class="control">
                         <h4>Stop data sending</h4>
@@ -128,9 +128,26 @@
 </body>
 
 <script>
+    function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+    }
+
     $('#vcan0startId').click(function() {
     $.ajax({
         url: '/vcan0',
+        headers: {'X-CSRFToken': csrftoken},
         method: 'POST', // or another (GET), whatever you need
         data: {// data you need to pass to your function
             click: true
