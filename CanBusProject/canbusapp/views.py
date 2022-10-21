@@ -25,7 +25,7 @@ def vcan0(request):
         assert isinstance(task, can.CyclicSendTaskABC)
         time.sleep(2)
     if request.POST.get('operation') == 'stopsending':
-        task.stop()
+        pass
 
     return render(request, "vcan0.html", {'interface': 'vcan0', })
   
