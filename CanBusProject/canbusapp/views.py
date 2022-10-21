@@ -12,6 +12,12 @@ def startSending(bus):
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
         task = bus.send_periodic(msg, 2)
         assert isinstance(task, can.CyclicSendTaskABC)
+        while True:
+            try:
+                time.sleep(1)
+            except KeyboardInterrupt:
+                print('Stopping')
+                break
 
 
 
