@@ -16,8 +16,8 @@ def index(request):
 
 @csrf_exempt
 def vcan0(request):
-    with can.Bus(interface="virtual") as bus:
-        msg = can.Message(arbitration_id = 0x123, data = [1, 2, 3, 4, 5, 6], is_extended_id = False)
+    with can.Bus(interface="vcan0") as bus:
+        msg = can.Message(arbitration_id=0x123, data=[1, 2, 3, 4, 5, 6], is_extended_id=False)
         if request.POST.get('operation') == 'startsending':
             task = bus.send_periodic(msg, 2)
             assert isinstance(task, can.CyclicSendTaskABC)
