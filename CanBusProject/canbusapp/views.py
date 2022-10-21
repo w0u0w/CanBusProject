@@ -26,11 +26,12 @@ def vcan0(request):
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
         with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000) as bus:
             if request.POST.get('operation') == 'startsending':
-                while True:
-                    task = bus.send_periodic(msg, 2)
-                    assert isinstance(task, can.CyclicSendTaskABC)
-                    time.sleep(2)
-                    return render(request, "vcan0.html", {'interface': 'vcan0', })
+                flag = True
+            while flag:
+                task = bus.send_periodic(msg, 2)
+                assert isinstance(task, can.CyclicSendTaskABC)
+                time.sleep(2)
+                return render(request, "vcan0.html", {'interface': 'vcan0', })
 
     return render(request, "vcan0.html", {'interface': 'vcan0', })
   
