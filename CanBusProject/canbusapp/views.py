@@ -27,10 +27,13 @@ def vcan0(request):
     bus = can.interface.Bus(interface='socketcan', channel='vcan0')
     msg = can.Message(arbitration_id=0x01, data=[1, 1, 1, 1])
     myTask = createTask(bus, msg)
+    bus.send_periodic(msg, 2)
     if request.POST.get('operation') == 'startsending':
-        myTask.start()
+        pass
+        # myTask.start()
     if request.POST.get('operation') == 'stopsending':
-        myTask.stop()
+        bus.stop_all_periodic_tasks()
+        # myTask.stop()
 
     return render(request, "vcan0.html", {'interface': 'vcan0', })
   
