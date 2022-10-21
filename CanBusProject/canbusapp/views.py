@@ -31,12 +31,15 @@ def genNewMsg():
 def vcan0(request):
     bus = can.interface.Bus(interface='socketcan', channel='vcan0')
     # msg = can.Message(arbitration_id=random.randint(1, 100), data=[1, 1, 1, 1])
-    myTask = createTask(bus, genNewMsg())
+    # myTask = createTask(bus, genNewMsg())
+    bus.send_periodic(genNewMsg(), 2)
     if request.POST.get('operation') == 'startsending':
-        myTask.start()
+        pass
+        # myTask.start()
     if request.POST.get('operation') == 'stopsending':
+        bus.stop_all_periodic_tasks()
         # bus.stop_all_periodic_tasks()
-        myTask.stop()
+        # myTask.stop()
         # bus.shutdown()
 
     return render(request, "vcan0.html", {'interface': 'vcan0', })
