@@ -148,15 +148,16 @@
     $.ajax({
         url: '/vcan0',
         headers: {'X-CSRFToken': getCookie('csrftoken')},
-        method: 'POST', // or another (GET), whatever you need
-        data: {// data you need to pass to your function
+        method: 'POST',
+        data: {
             click: true,
             'operation': "startsending"
         },
         success: function (data) {
             console.log(111)
-            // success callback
-            // you can process data returned by function from views.py
+        },
+        error: (error) => {
+            console.log(error);
         }
         });
     });
@@ -165,15 +166,16 @@
     $.ajax({
         url: '/vcan0',
         headers: {'X-CSRFToken': getCookie('csrftoken')},
-        method: 'POST', // or another (GET), whatever you need
-        data: {// data you need to pass to your function
+        method: 'POST',
+        data: {
             click: true,
             'operation': "stopsending"
         },
         success: function (data) {
             console.log(101)
-            // success callback
-            // you can process data returned by function from views.py
+        },
+        error: (error) => {
+            console.log(error);
         }
         });
     });

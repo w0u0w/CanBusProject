@@ -31,7 +31,7 @@ def vcan0(request):
         if request.POST.get('operation') == 'startsending':
             startSending(bus)
 
-    return render(request, "vcan0.html", {'interface': 'vcan0'})
+    return render(request, "vcan0.html", {'interface': 'vcan0', })
   
   
 def vcan1(request):
