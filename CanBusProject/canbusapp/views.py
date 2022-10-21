@@ -10,7 +10,7 @@ import time
 
 def startSending(bus):
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
-        task = bus.send(msg)
+        task = bus.send_periodic(msg, 2)
         return task
 
 
@@ -20,9 +20,11 @@ def index(request):
 
 @csrf_exempt
 def vcan0(request):
+    global task
     with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000) as bus:
         if request.POST.get('operation') == 'startsending':
-            startSending(bus)
+            task = startSending(bus)
+
     return render(request, "vcan0.html", {'interface': 'vcan0'})
   
   
