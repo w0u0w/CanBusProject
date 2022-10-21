@@ -12,13 +12,6 @@ def startSending(bus):
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
         task = bus.send_periodic(msg, 2)
         assert isinstance(task, can.CyclicSendTaskABC)
-        while True:
-            try:
-                time.sleep(1)
-            except KeyboardInterrupt:
-                print('Stopping')
-                break
-
 
 
 def index(request):
@@ -27,8 +20,9 @@ def index(request):
 
 @csrf_exempt
 def vcan0(request):
+    flag = request.POST.get('operation')
     with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000) as bus:
-        if request.POST.get('operation') == 'startsending':
+        if flag == 'startsending':
             startSending(bus)
 
     return render(request, "vcan0.html", {'interface': 'vcan0', })
