@@ -10,30 +10,24 @@ import random
 import time
 
 
-def startSending(bus):
+def startSending(bus, request):
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
-        task = bus.send_periodic(msg, 2)
-        assert isinstance(task, can.CyclicSendTaskABC)
+        while True:
+            task = bus.send_periodic(msg, 2)
+            assert isinstance(task, can.CyclicSendTaskABC)
+            time.sleep(2)
+            render(request, "vcan0.html", {'interface': 'vcan0', })
 
 
 def index(request):
     return render(request, 'index.html')
 
-
+global flag
 @csrf_exempt
 def vcan0(request):
-    global flag
-    if request.POST:
-        if request.POST.get('operation') == 'startsending':
-            flag = True
-    msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
     with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000) as bus:
-        while flag:
-            task = bus.send_periodic(msg, 2)
-            assert isinstance(task, can.CyclicSendTaskABC)
-            time.sleep(2)
-            return render(request, "vcan0.html", {'interface': 'vcan0', })
-
+        if request.POST.get('operation') == 'startsending':
+            startSending(bus, request)
     return render(request, "vcan0.html", {'interface': 'vcan0', })
   
   
