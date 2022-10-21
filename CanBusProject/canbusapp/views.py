@@ -12,11 +12,9 @@ import time
 
 def startSending(bus, request):
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
-        while True:
-            task = bus.send_periodic(msg, 2)
-            assert isinstance(task, can.CyclicSendTaskABC)
-            time.sleep(2)
-            render(request, "vcan0.html", {'interface': 'vcan0', })
+        task = bus.send_periodic(msg, 2)
+        assert isinstance(task, can.CyclicSendTaskABC)
+        return render(request, "vcan0.html", {'interface': 'vcan0', })
 
 
 def index(request):
