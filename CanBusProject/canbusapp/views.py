@@ -31,7 +31,7 @@ def vcan0(request):
         pass
         # myTask.start()
     if request.POST.get('operation') == 'stopsending':
-        myTask.stop()
+        bus.stop_all_periodic_tasks()
 
     return render(request, "vcan0.html", {'interface': 'vcan0', })
   
