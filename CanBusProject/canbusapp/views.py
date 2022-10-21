@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 import subprocess
 import sys
-
+from threading import Thread
 # Create your views here.
 from django.http import HttpResponse
 import can
@@ -10,23 +10,26 @@ import random
 import time
 
 
-def startSending(bus, request):
+def startSending():
+    with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000) as bus:
         msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
         while True:
             bus.send(msg)
             time.sleep(2)
-            return render(request, "vcan0.html", {'interface': 'vcan0', })
+
+
+thread = Thread(target=startSending)
 
 
 def index(request):
     return render(request, 'index.html')
 
-global flag
+
 @csrf_exempt
 def vcan0(request):
-    with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000) as bus:
-        if request.POST.get('operation') == 'startsending':
-            startSending(bus, request)
+    if request.POST.get('operation') == 'startsending':
+        thread.start()
+        thread.join()
     return render(request, "vcan0.html", {'interface': 'vcan0', })
   
   
