@@ -24,7 +24,7 @@ def createTask(bus, msg):
 
 @csrf_exempt
 def vcan0(request):
-    bus = can.interface.Bus(interface='virtual', channel='vcan0')
+    bus = can.interface.Bus(interface='socketcan', channel='vcan0')
     msg = can.Message(arbitration_id=0x01, data=[1, 1, 1, 1])
     myTask = createTask(bus, msg)
     if request.POST.get('operation') == 'startsending':
