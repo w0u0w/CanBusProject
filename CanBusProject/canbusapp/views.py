@@ -22,11 +22,16 @@ def createTask(bus, msg):
     return task
 
 
+def genNewMsg():
+    msg = can.Message(arbitration_id=random.randint(1, 100), data=[1, 1, 1, 1])
+    return msg
+
+
 @csrf_exempt
 def vcan0(request):
     bus = can.interface.Bus(interface='socketcan', channel='vcan0')
-    msg = can.Message(arbitration_id=random.randint(1, 100), data=[1, 1, 1, 1])
-    myTask = createTask(bus, msg)
+    # msg = can.Message(arbitration_id=random.randint(1, 100), data=[1, 1, 1, 1])
+    myTask = createTask(bus, genNewMsg())
     if request.POST.get('operation') == 'startsending':
         myTask.start()
     if request.POST.get('operation') == 'stopsending':
