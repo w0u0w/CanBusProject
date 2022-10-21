@@ -18,7 +18,7 @@ def index(request):
 def createTask(bus, msg):
     task = bus.send_periodic(msg, 2)
     assert isinstance(task, can.RestartableCyclicTaskABC)
-    # task.stop()
+    task.stop()
     return task
 
 
@@ -27,10 +27,13 @@ def vcan0(request):
     bus = can.interface.Bus(interface='socketcan', channel='vcan0')
     msg = can.Message(arbitration_id=random.randint(1, 2), data=[1, 1, 1, 1])
     myTask = createTask(bus, msg)
+    mT = bus.send_periodic(msg, 2)
     if request.POST.get('operation') == 'startsending':
-        myTask.start()
+        pass
+        # myTask.start()
     if request.POST.get('operation') == 'stopsending':
-        myTask.stop()
+        mT.stop()
+        # myTask.stop()
     return render(request, "vcan0.html", {'interface': 'vcan0', })
   
   
