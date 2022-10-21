@@ -15,17 +15,22 @@ def index(request):
     return render(request, 'index.html')
 
 
+def createTask(bus, msg):
+    task = bus.send_periodic(msg, 2)
+    assert isinstance(task, can.CyclicSendTaskABC)
+    task.stop()
+    return task
+
+
 @csrf_exempt
 def vcan0(request):
-    global task
     bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=500000)
     msg = can.Message(arbitration_id=0x01, data=[1, 1, 1, 1])
+    myTask = createTask(bus, msg)
     if request.POST.get('operation') == 'startsending':
-        task = bus.send_periodic(msg, 2)
-        assert isinstance(task, can.CyclicSendTaskABC)
-        time.sleep(2)
+        myTask.start()
     if request.POST.get('operation') == 'stopsending':
-        pass
+        myTask.stop()
 
     return render(request, "vcan0.html", {'interface': 'vcan0', })
   
