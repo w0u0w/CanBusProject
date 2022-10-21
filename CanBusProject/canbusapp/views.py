@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from can.interface import Bus
 import subprocess
 import sys
 from threading import Thread
@@ -16,13 +17,13 @@ def index(request):
 
 @csrf_exempt
 def vcan0(request):
-    with can.Bus(interface="vcan0") as bus:
-        msg = can.Message(arbitration_id=0x123, data=[1, 2, 3, 4, 5, 6], is_extended_id=False)
-        if request.POST.get('operation') == 'startsending':
-            task = bus.send_periodic(msg, 2)
-            assert isinstance(task, can.CyclicSendTaskABC)
-            time.sleep(5)
-            task.stop()
+    can.rc['interface'] = 'socketcan'
+    can.rc['channel'] = 'vcan0'
+    can.rc['bitrate'] = 500000
+    bus = Bus(can.rc['interface'], can.rc['channel'], can.rc['bitrate'])
+    msg = can.Message(arbitration_id=0x01, data=[1, 1, 1, 1])
+    if request.POST.get('operation') == 'startsending':
+        bus.send(msg)
     return render(request, "vcan0.html", {'interface': 'vcan0', })
   
   
