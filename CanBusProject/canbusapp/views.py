@@ -24,7 +24,7 @@ def vcan0(request):
     if request.POST.get('operation') == 'startsending':
         task = bus.send_periodic(msg, 2)
     if request.POST.get('operation') == 'stopsending':
-        task.stop()
+        bus.shutdown()
 
     return render(request, "vcan0.html", {'interface': 'vcan0', })
   
