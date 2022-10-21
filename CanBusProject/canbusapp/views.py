@@ -11,14 +11,13 @@ import random
 import time
 
 
-task = None
-
 def index(request):
     return render(request, 'index.html')
 
 
 @csrf_exempt
 def vcan0(request):
+    global task
     bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=500000)
     msg = can.Message(arbitration_id=0x01, data=[1, 1, 1, 1])
     if request.POST.get('operation') == 'startsending':
