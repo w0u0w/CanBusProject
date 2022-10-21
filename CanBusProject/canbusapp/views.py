@@ -27,7 +27,6 @@ def vcan0(request):
     bus = can.interface.Bus(interface='socketcan', channel='vcan0')
     msg = can.Message(arbitration_id=random.randint(1, 2), data=[1, 1, 1, 1])
     myTask = createTask(bus, msg)
-    bus.send_periodic(msg, 2)
     if request.POST.get('operation') == 'startsending':
         myTask.start()
     if request.POST.get('operation') == 'stopsending':
