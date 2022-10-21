@@ -23,7 +23,7 @@ def vcan0(request):
             assert isinstance(task, can.CyclicSendTaskABC)
             time.sleep(2)
             task.stop()
-        return render(request, "vcan0.html", {'interface': 'vcan0', })
+    return render(request, "vcan0.html", {'interface': 'vcan0', })
   
   
 def vcan1(request):
