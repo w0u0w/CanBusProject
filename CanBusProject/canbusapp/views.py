@@ -17,10 +17,7 @@ def index(request):
 
 @csrf_exempt
 def vcan0(request):
-    can.rc['interface'] = 'socketcan'
-    can.rc['channel'] = 'vcan0'
-    can.rc['bitrate'] = 500000
-    bus = Bus(can.rc['interface'], can.rc['channel'], can.rc['bitrate'])
+    bus = can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=500000)
     msg = can.Message(arbitration_id=0x01, data=[1, 1, 1, 1])
     if request.POST.get('operation') == 'startsending':
         bus.send(msg)
