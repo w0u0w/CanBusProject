@@ -17,7 +17,7 @@ def index(request):
 
 def createTask(bus, msg):
     task = bus.send_periodic(msg, 2)
-    assert isinstance(task, can.CyclicSendTaskABC)
+    assert isinstance(task, can.RestartableCyclicTaskABC)
     task.stop()
     return task
 
