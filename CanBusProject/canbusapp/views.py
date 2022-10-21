@@ -16,7 +16,7 @@ def index(request):
 
 
 def createTask(bus, msg):
-    task = bus.send(msg, 2)
+    task = bus.send_periodic(msg, 2)
     assert isinstance(task, can.RestartableCyclicTaskABC)
     task.stop()
     return task
@@ -24,7 +24,7 @@ def createTask(bus, msg):
 
 @csrf_exempt
 def vcan0(request):
-    bus = can.ThreadSafeBus(interface='socketcan', channel='vcan0')
+    bus = can.interface.BusABC(interface='socketcan', channel='vcan0')
     msg = can.Message(arbitration_id=0x01, data=[1, 1, 1, 1])
     myTask = createTask(bus, msg)
     if request.POST.get('operation') == 'startsending':
