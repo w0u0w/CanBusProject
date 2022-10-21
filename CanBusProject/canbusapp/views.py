@@ -23,6 +23,8 @@ def vcan0(request):
     msg = can.Message(arbitration_id=0x01, data=[1, 1, 1, 1])
     if request.POST.get('operation') == 'startsending':
         task = bus.send_periodic(msg, 2)
+    if request.POST.get('operation') == 'stopsending':
+        task.stop()
 
     return render(request, "vcan0.html", {'interface': 'vcan0', })
   
