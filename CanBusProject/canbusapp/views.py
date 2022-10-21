@@ -7,35 +7,22 @@ import can
 import random
 import time
 
-flag = False
+
+def startSending(bus):
+        msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
+        task = bus.send(msg)
+        return task
 
 
 def index(request):
-    with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000) as bus:
-        msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
-        if request.POST.get('operation') == 'startsending':
-            bus.send(msg)
-        if request.POST.get('operation') == 'stopsending':
-            pass
     return render(request, 'index.html')
 
 
 @csrf_exempt
 def vcan0(request):
-    # global flag
-    # with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000) as bus:
-    #     msg = can.Message(arbitration_id=0x01, data=[1, 2], is_extended_id=False)
-    #     # task = bus.send_periodic(msg, 2)
-    #     if request.POST.get('operation') == 'startsending':
-    #         flag = True
-    #
-    #     if request.POST.get('operation') == 'stopsending':
-    #         flag = False
-    #         # bus.shutdown()
-    #
-    #     while flag:
-    #         bus.send(msg)
-    #         time.sleep(2)
+    with can.interface.Bus(bustype='socketcan', channel='vcan0', bitrate=25000) as bus:
+        if request.POST.get('operation') == 'startsending':
+            startSending(bus)
     return render(request, "vcan0.html", {'interface': 'vcan0'})
   
   
