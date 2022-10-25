@@ -20,6 +20,7 @@ def createTask(bus, msg):
 
 @csrf_exempt
 def vcan0(request):
+    proc0 = None
     if request.POST.get('operation') == 'startsending':
         proc0 = subprocess.Popen(["/home/www/code/sendcanframe", "1"])
     if request.POST.get('operation') == 'stopsending':
