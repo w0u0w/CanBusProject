@@ -1,5 +1,6 @@
 import os
 import subprocess
+import time
 
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
@@ -14,11 +15,12 @@ def index(request):
 
 @csrf_exempt
 def vcan0(request):
-    # p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", "0"])
+    # p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", "1"])
     if request.POST.get('operation') == 'startsending':
-        subprocess.Popen(["/home/www/code/sendcanframe", "1", "1"])
+        subprocess.call(["./home/www/code/sendcanframe", "1", "1"])
     if request.POST.get('operation') == 'stopsending':
-        subprocess.Popen(["/home/www/code/sendcanframe", "1", "0"])
+        subprocess.call(["./home/www/code/sendcanframe", "1", "0"])
+        # subprocess.Popen(["/home/www/code/sendcanframe", "1", "0"])
     return render(request, "vcan0.html", {'interface': 'vcan0', })
 
 
