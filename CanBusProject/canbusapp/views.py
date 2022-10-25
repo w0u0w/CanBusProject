@@ -20,7 +20,7 @@ def createTask(bus, msg):
 @csrf_exempt
 def vcan0(request):
     if request.POST.get('operation') == 'startsending':
-        call(["./sendcanframe", "1"])
+        call(["./home/www/code/sendcanframe", "1"])
     if request.POST.get('operation') == 'stopsending':
         pass
     return render(request, "vcan0.html", {'interface': 'vcan0', })
