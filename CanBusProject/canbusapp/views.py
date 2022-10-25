@@ -14,11 +14,11 @@ def index(request):
 
 @csrf_exempt
 def vcan0(request):
-    p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", "0"])
+    # p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", "0"])
     if request.POST.get('operation') == 'startsending':
-        p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", "1"])
+        subprocess.Popen(["/home/www/code/sendcanframe", "1", "1"])
     if request.POST.get('operation') == 'stopsending':
-        p0.terminate()
+        subprocess.Popen(["/home/www/code/sendcanframe", "1", "0"])
     return render(request, "vcan0.html", {'interface': 'vcan0', })
 
 
