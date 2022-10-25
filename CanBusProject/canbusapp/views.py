@@ -12,19 +12,14 @@ def index(request):
     return render(request, 'index.html')
 
 
-def createTask(bus, msg):
-    task = bus.send_periodic(msg, 2)
-    assert isinstance(task, can.RestartableCyclicTaskABC)
-    return task
-
-
 @csrf_exempt
 def vcan0(request):
-    global p0
+    p0 = subprocess
     if request.POST.get('operation') == 'startsending':
         p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", "1"])
     if request.POST.get('operation') == 'stopsending' :
         p0.kill()
+        p0.terminate()
     return render(request, "vcan0.html", {'interface': 'vcan0', })
 
 
