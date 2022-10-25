@@ -19,7 +19,6 @@ def vcan0(request):
     if request.POST.get('operation') == 'startsending':
         subprocess.call(["/home/www/code/sendcanframe", "1", "1"])
     if request.POST.get('operation') == 'stopsending':
-        subprocess.call(["cd", "/home/www/code"])
         subprocess.call(["/home/www/code/sendcanframe", "1", "0"])
         # subprocess.Popen(["/home/www/code/sendcanframe", "1", "0"])
     return render(request, "vcan0.html", {'interface': 'vcan0', })
