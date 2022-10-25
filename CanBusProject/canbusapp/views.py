@@ -1,3 +1,4 @@
+import os
 import subprocess
 
 from django.shortcuts import render
@@ -20,9 +21,9 @@ def createTask(bus, msg):
 @csrf_exempt
 def vcan0(request):
     if request.POST.get('operation') == 'startsending':
-        subprocess.Popen(["/home/www/code/sendcanframe", "1"])
+        proc0 = subprocess.Popen(["/home/www/code/sendcanframe", "1"])
     if request.POST.get('operation') == 'stopsending':
-        pass
+        os.killpg(os.getpgid(proc0))
     return render(request, "vcan0.html", {'interface': 'vcan0', })
 
 
