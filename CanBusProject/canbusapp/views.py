@@ -1,7 +1,7 @@
 import os
 import subprocess
 import time
-
+import signal
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from subprocess import call
@@ -20,11 +20,12 @@ def vcan0(request):
         status = 1
     if request.POST.get('operation') == 'stopsending':
         status = 0
+    print(status)
     if status is not None:
         p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", f"{status}"])
         if status == 0:
-            p0.kill()
-            p0.terminate()
+            print('DDDDDDDDDDDDDDDDD')
+            os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     return render(request, "vcan0.html", {'interface': 'vcan0', })
 
 
