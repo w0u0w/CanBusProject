@@ -5,17 +5,25 @@
 <h3 class="container text-info" id="home" >VCAN0 DF</h3>
 {%endblock nameteble%}
 
-{% block mainsection %}
-
+{% block idFrame %}
     {% for id in idFrame %}
-    <tr>
-        <td>
-            {{ id }}
-        </td>
-    </tr>
+        <tr>
+            <td>
+                {{ id }}
+            </td>
+        </tr>
     {% endfor %}
-{% endblock mainsection %}
+{% endblock idFrame %}
 
+{% block dlcFrame %}
+    {% for dlc in dlcFrame %}
+        <tr>
+            <td>
+                {{ dlc }}
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock dlcFrame %}
 
 
 {% block btnstop %}
