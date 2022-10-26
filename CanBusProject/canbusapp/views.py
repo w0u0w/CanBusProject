@@ -39,6 +39,7 @@ def vcan0(request):
         dlcFrameList.append(s1[1])
         dataFrameList.append(s1[2])
     print(dataFile)
+    print(len(idFrameList))
     return render(request, "vcan0.html", {'interface': 'vcan0', 'idFrame': idFrameList, 'dlcFrame': dlcFrameList, 'dataFrame': dataFrameList})
 
 
