@@ -15,17 +15,21 @@ def index(request):
 
 @csrf_exempt
 def vcan0(request):
+    dataFile = []
     status = None
     if request.POST.get('operation') == 'startsending':
         status = 1
     if request.POST.get('operation') == 'stopsending':
         status = 0
-    print(status)
+    print("STATUS OF INTERFACE VCAN0 " + str(status))
     if status is not None:
         p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", f"{status}"])
         if status == 0:
-            print('DDDDDDDDDDDDDDDDD')
             os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
+            with open("/home/www/code/data.txt") as f:
+                for line in f:
+                    dataFile.append(line.strip())
+    print(dataFile)
     return render(request, "vcan0.html", {'interface': 'vcan0', })
 
 
