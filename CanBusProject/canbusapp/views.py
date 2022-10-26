@@ -34,6 +34,7 @@ def vcan0(request):
             dataFile.append(line.strip())
     for line in dataFile:
         s1 = line.strip()
+        print(s1)
         idFrameList.append(s1[0])
         dlcFrameList.append(s1[1])
         dataFrameList.append(s1[2])
