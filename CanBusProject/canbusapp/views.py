@@ -26,10 +26,10 @@ def vcan0(request):
         p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", f"{status}"])
         if status == 0:
             os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
-            with open("/home/www/code/data.txt") as f:
-                for line in f:
-                    dataFile.append(line.strip())
-    print(dataFile)
+    with open("/home/www/code/data.txt") as f:
+        for line in f:
+            dataFile.append(line.strip())
+    print("DATA FILE: " + dataFile)
     return render(request, "vcan0.html", {'interface': 'vcan0', 'data': dataFile})
 
 
