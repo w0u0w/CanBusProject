@@ -29,7 +29,7 @@ def vcan0(request):
     with open("/home/www/code/data.txt") as f:
         for line in f:
             dataFile.append(line.strip())
-    print("DATA FILE: " + dataFile)
+    print(dataFile)
     return render(request, "vcan0.html", {'interface': 'vcan0', 'data': dataFile})
 
 
