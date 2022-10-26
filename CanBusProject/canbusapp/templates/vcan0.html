@@ -7,15 +7,28 @@
 
 {% block mainsection %}
 
-    {% for line in data %}}
+    {% for id in idFrame %}
     <tr>
         <td>
-            {{ line }}
+            {{ id }}
         </td>
     </tr>
     {% endfor %}
-
-{% endblock mainsection %}
+    {% for dlc in dlcFrame %}
+        <tr>
+            <td>
+                {{ dlc }}
+            </td>
+        </tr>
+    {% endfor %}
+    {% for data in dataFrame %}
+            <tr>
+                <td>
+                    {{ data }}
+                </td>
+            </tr>
+        {% endfor %}
+    {% endblock mainsection %}
 
 
 

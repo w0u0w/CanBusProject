@@ -16,6 +16,9 @@ def index(request):
 @csrf_exempt
 def vcan0(request):
     dataFile = []
+    idFrameList = []
+    dlcFrameList = []
+    dataFrameList = []
     status = None
     if request.POST.get('operation') == 'startsending':
         status = 1
@@ -29,8 +32,13 @@ def vcan0(request):
     with open("/home/www/code/data.txt") as f:
         for line in f:
             dataFile.append(line.strip())
+    for line in dataFile:
+        s1 = line.strip()
+        idFrameList.append(s1[0])
+        dlcFrameList.append(s1[1])
+        dataFrameList.append(s1[2])
     print(dataFile)
-    return render(request, "vcan0.html", {'interface': 'vcan0', 'data': dataFile})
+    return render(request, "vcan0.html", {'interface': 'vcan0', 'idFrame': idFrameList, 'dlcFrame': dlcFrameList, 'dataFrame': dataFrameList})
 
 
 def vcan1(request):
