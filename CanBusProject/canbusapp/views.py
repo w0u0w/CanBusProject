@@ -30,7 +30,7 @@ def vcan0(request):
                 for line in f:
                     dataFile.append(line.strip())
     print(dataFile)
-    return render(request, "vcan0.html", {'interface': 'vcan0', })
+    return render(request, "vcan0.html", {'interface': 'vcan0', 'data': dataFile})
 
 
 def vcan1(request):

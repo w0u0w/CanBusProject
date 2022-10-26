@@ -6,7 +6,13 @@
 {%endblock nameteble%}
 
 {% block mainsection %}
-
+<td>
+    {% for line in data %}}
+        <tr>
+            {{ line }}
+        </tr>
+    {% endfor %}
+</td>
 {% endblock mainsection %}
 
 
