@@ -34,12 +34,17 @@ def vcan0(request):
             dataFile.append(line.strip())
     for line in dataFile:
         s1 = line.strip().split()
-        print(s1)
+        # print(s1)
         idFrameList.append(s1[0])
         dlcFrameList.append(s1[1])
         dataFrameList.append(s1[2])
-    print(dataFile)
-    return render(request, "vcan0.html", {'interface': 'vcan0', 'idFrame': idFrameList, 'dlcFrame': dlcFrameList, 'dataFrame': dataFrameList})
+    # print(dataFile)
+    queue = {
+        'idList': idFrameList,
+        'dlcList': dlcFrameList,
+        'dataList': dataFrameList
+    }
+    return render(request, "vcan0.html", {'interface': 'vcan0', 'queueList': queue})
 
 
 def vcan1(request):

@@ -6,24 +6,16 @@
 {%endblock nameteble%}
 
 {% block tableData %}
-    {% for id in idFrame %}
+    {% for queue in queueList %}
         <tr>
             <td>
-                {{ id }}
+                queue.idList
             </td>
-        </tr>
-    {% endfor %}
-    {% for dlc in dlcFrame %}
-        <tr>
             <td>
-                {{ id }}
+                queue.dlcList
             </td>
-        </tr>
-    {% endfor %}
-    {% for data in dataFrame %}
-        <tr>
             <td>
-                {{ data }}
+                queue.dataList
             </td>
         </tr>
     {% endfor %}
