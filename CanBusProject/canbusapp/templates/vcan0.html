@@ -6,7 +6,7 @@
 {%endblock nameteble%}
 
 {% block tableData %}
-    {% for queue in queueList %}
+    {% for queue in queueList.values %}
         <tr>
             <td>
                 {{ queue.idList }}
