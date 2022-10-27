@@ -160,7 +160,7 @@
                url: '/vcan0',
                headers: {'X-CSRFToken': getCookie('csrftoken')},
                   success: function(data) {
-                  $('#refresh-table').html(data);
+                    $('#refresh-table').DataTable().ajax.reload();
                   }
             });
         }, 5000)
