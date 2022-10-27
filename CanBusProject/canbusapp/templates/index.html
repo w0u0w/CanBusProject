@@ -149,21 +149,23 @@
             },
             success: function (data) {
                 console.log('VCAN0: start sending')
+                alert('VCAN0: start sending')
+                // Refresh the Table every 5 seconds
+                setInterval(function(){
+                    $.ajax({
+                       url: '/vcan0',
+                       headers: {'X-CSRFToken': getCookie('csrftoken')},
+                          success: function(data) {
+                          $('#refresh-table').html($(data).find('#refresh-table').html());
+                          }
+                    });
+                }, 5000)
             },
             error: (error) => {
                 console.log(error);
             }
             });
-        // Refresh the Table every 5 seconds
-        setInterval(function(){
-            $.ajax({
-               url: '/vcan0',
-               headers: {'X-CSRFToken': getCookie('csrftoken')},
-                  success: function(data) {
-                  $('#refresh-table').html($(data).find('#refresh-table').html());
-                  }
-            });
-        }, 5000)
+
     });
 
     $('#vcan0stopId').click(function() {
@@ -177,6 +179,8 @@
         },
         success: function (data) {
             console.log('VCAN0: stop sending')
+            alert('VCAN0: stop sending')
+            // clearInterval(autoRefreshTable)
         },
         error: (error) => {
             console.log(error);
