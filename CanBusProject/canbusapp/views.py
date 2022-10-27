@@ -44,6 +44,7 @@ def vcan0(request):
         'dlcList': dlcFrameList,
         'dataList': dataFrameList
     }
+    print(queue)
     return render(request, "vcan0.html", {'interface': 'vcan0', 'queueList': queue})
 
 
