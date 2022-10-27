@@ -86,20 +86,22 @@
            <div class="info-send">
                <div class="center">
                    <div class="table-responsive">
-                    <table class="table table-hover" id="refresh-table">
-                        <thead class="header">
-                            <tr>
-                                <th>ID</th>
-                                <th>DLC</th>
-                                <th>DATA</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% block tableData %}
-                            {% endblock%}
-                        </tbody>
-                    </table>
-                    </div>
+                       <div class="tableFixHead">
+                           <table class="table table-hover" id="refresh-table">
+                                <thead class="header">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>DLC</th>
+                                        <th>DATA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% block tableData %}
+                                    {% endblock%}
+                                </tbody>
+                            </table>
+                       </div>
+                   </div>
                </div>
            </div>
        </main>
@@ -150,7 +152,7 @@
             success: function (data) {
                 console.log('VCAN0: start sending')
                 alert('VCAN0: start sending')
-                // Refresh the Table every 5 seconds
+                // Refresh the Table every 3 seconds
                 setInterval(function(){
                     $.ajax({
                        url: '/vcan0',
@@ -159,7 +161,7 @@
                           $('#refresh-table').html($(data).find('#refresh-table').html());
                           }
                     });
-                }, 5000)
+                }, 3000)
             },
             error: (error) => {
                 console.log(error);
@@ -180,6 +182,7 @@
         success: function (data) {
             console.log('VCAN0: stop sending')
             alert('VCAN0: stop sending')
+            location.reload();
             // clearInterval(autoRefreshTable)
         },
         error: (error) => {
