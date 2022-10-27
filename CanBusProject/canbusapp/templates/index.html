@@ -86,7 +86,7 @@
            <div class="info-send">
                <div class="center">
                    <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table class="table table-hover" id="refresh-table">
                         <thead class="header">
                             <tr>
                                 <th>ID</th>
@@ -109,17 +109,11 @@
                 <div class="controls">
                     <div class="control">
                         <h4>Start data sending</h4>
-<!--                        <form method="post">-->
-<!--                            {% csrf_token %}-->
-                            <button type="button" class="btn btn-info" id="{{ interface }}startId" name="{{ interface }}start">Start {{ interface }}</button>
-<!--                        </form>-->
+                        <button type="button" class="btn btn-info" id="{{ interface }}startId" name="{{ interface }}start">Start {{ interface }}</button>
                     </div>
                     <div class="control">
                         <h4>Stop data sending</h4>
-<!--                        <form method="post">-->
-<!--                            {% csrf_token %}-->
-                            <button type="button" class="btn btn-danger" id="{{ interface }}stopId" name="{{ interface }}stop">Stop {{ interface }}</button>
-<!--                        </form>-->
+                        <button type="button" class="btn btn-danger" id="{{ interface }}stopId" name="{{ interface }}stop">Stop {{ interface }}</button>
                     </div>
                 </div>
             </div>
@@ -145,21 +139,31 @@
     // const csrftoken = Cookies.get('csrftoken');
 
     $('#vcan0startId').click(function() {
-    $.ajax({
-        url: '/vcan0',
-        headers: {'X-CSRFToken': getCookie('csrftoken')},
-        method: 'POST',
-        data: {
-            click: true,
-            'operation': "startsending"
-        },
-        success: function (data) {
-            console.log('VCAN0: start sending')
-        },
-        error: (error) => {
-            console.log(error);
-        }
-        });
+        $.ajax({
+            url: '/vcan0',
+            headers: {'X-CSRFToken': getCookie('csrftoken')},
+            method: 'POST',
+            data: {
+                click: true,
+                'operation': "startsending"
+            },
+            success: function (data) {
+                console.log('VCAN0: start sending')
+            },
+            error: (error) => {
+                console.log(error);
+            }
+            });
+        // Refresh the Table every 5 seconds
+        setInterval(function(){
+            $.ajax({
+               url: '/vcan0',
+               headers: {'X-CSRFToken': getCookie('csrftoken')},
+                  success: function(data) {
+                  $('#refresh-table').html(data);
+                  }
+            });
+        }, 5000)
     });
 
     $('#vcan0stopId').click(function() {
