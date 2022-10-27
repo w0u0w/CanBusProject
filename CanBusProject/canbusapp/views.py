@@ -44,8 +44,9 @@ def vcan0(request):
         'dlcList': dlcFrameList,
         'dataList': dataFrameList
     }
-    print(queue)
-    return render(request, "vcan0.html", {'interface': 'vcan0', 'queueList': queue})
+    all_rows = list(zip(*queue.values()))
+    print(all_rows)
+    return render(request, "vcan0.html", {'interface': 'vcan0', 'all_rows': all_rows})
 
 
 def vcan1(request):

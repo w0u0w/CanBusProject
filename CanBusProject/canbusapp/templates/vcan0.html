@@ -6,17 +6,11 @@
 {%endblock nameteble%}
 
 {% block tableData %}
-    {% for queue in queueList.values %}
+    {% for row in all_rows %}
         <tr>
-            <td>
-                {{ queue.idList }}
-            </td>
-            <td>
-                {{ queue.dlcList }}
-            </td>
-            <td>
-                {{ queue.dataList }}
-            </td>
+            {% for value in row %}
+                <td>value</td>
+            {% endfor %}
         </tr>
     {% endfor %}
 {% endblock tableData %}
