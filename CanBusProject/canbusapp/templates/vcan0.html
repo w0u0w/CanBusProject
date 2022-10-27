@@ -5,7 +5,7 @@
 <h3 class="container text-info" id="home" >VCAN0 DF</h3>
 {%endblock nameteble%}
 
-{% block idFrame %}
+{% block tableData %}
     {% for id in idFrame %}
         <tr>
             <td>
@@ -13,16 +13,14 @@
             </td>
         </tr>
     {% endfor %}
-{% endblock idFrame %}
-
-{% block dlcFrame %}
     {% for dlc in dlcFrame %}
-
-                {{ dlc }}
-
-
+        <tr>
+            <td>
+                {{ id }}
+            </td>
+        </tr>
     {% endfor %}
-{% endblock dlcFrame %}
+{% endblock tableData %}
 
 
 {% block btnstop %}
