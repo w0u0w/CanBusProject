@@ -35,11 +35,11 @@ def vcan0(request):
     for line in dataFile:
         s1 = line.strip()
         print(s1)
+        print(s1.strip())
         idFrameList.append(s1[0])
         dlcFrameList.append(s1[1])
         dataFrameList.append(s1[2])
     print(dataFile)
-    print(len(idFrameList))
     return render(request, "vcan0.html", {'interface': 'vcan0', 'idFrame': idFrameList, 'dlcFrame': dlcFrameList, 'dataFrame': dataFrameList})
 
 
