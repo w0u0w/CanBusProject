@@ -14,7 +14,7 @@ def base(request):
 
 
 def terminalPage(requset):
-    return render(requset, 'terminal.html/')
+    return render(requset, 'terminal.html')
 
 
 def index(request):
