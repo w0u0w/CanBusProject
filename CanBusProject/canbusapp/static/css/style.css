@@ -193,7 +193,7 @@ h3 #home {
   box-shadow: none;
 }
 
-/*.nav-link*/
-/*{*/
-/*  font-size: 100px;*/
-/*}*/
+.nav-link
+{
+  font-size: 2rem;
+}
