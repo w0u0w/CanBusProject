@@ -31,9 +31,9 @@ def vcan0(request):
             os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     with open("/home/www/code/data.txt") as f:
         for line in f:
-            dataFile.append(line.strip())
+            dataFile.append(line.strip("#"))
     for line in dataFile:
-        s1 = line.split("#")
+        s1 = line.strip().split("#")
         # print(s1)
         idFrameList.append(s1[0])
         dlcFrameList.append(1)
