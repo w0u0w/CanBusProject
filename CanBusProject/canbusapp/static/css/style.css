@@ -192,3 +192,8 @@ h3 #home {
 .right .control_panel .controls-start:hover {
   box-shadow: none;
 }
+
+.nav-link
+{
+  font-size: 100px;
+}
