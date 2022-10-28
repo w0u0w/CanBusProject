@@ -127,7 +127,7 @@ aside .sidebar a:hover span {
   margin-left: 1rem;
 }
 
-.tableFixHead          { overflow: auto; height: 100px; }
+.tableFixHead          { overflow: auto; }
 .tableFixHead thead th { position: sticky; top: 0; z-index: 1; }
 
 main {
