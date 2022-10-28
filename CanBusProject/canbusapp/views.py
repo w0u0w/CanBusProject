@@ -37,7 +37,7 @@ def vcan0(request):
         print(s1)
         print(s1[1])
         idFrameList.append(s1[0])
-        dlcFrameList.append(1)
+        dlcFrameList.append(s1[1])
         dataFrameList.append(s1[2])
     print(dataFile)
     queue = {
