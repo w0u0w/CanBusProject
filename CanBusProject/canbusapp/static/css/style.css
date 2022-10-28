@@ -142,7 +142,7 @@ main .info-send table{
   background: white;
   width: 100%;
   padding: 10px;
-  text-align: center;
+  /*text-align: center;*/
   border-radius:6px;
   box-shadow: #1a1e21;
   transition: all 300ms ease;
