@@ -13,9 +13,9 @@ def base(request):
     return render(request, 'base.html')
 
 
-def terminalPage(requset, number):
+def terminalPage(requset, tmIndex):
     context = {
-        'tmIndex': number,
+        'tmIndex': tmIndex,
     }
     return render(requset, 'terminal.html', context)
 
