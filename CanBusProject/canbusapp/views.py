@@ -58,7 +58,12 @@ def vcan(request, icIndex):
     }
     all_rows = list(zip(*queue.values()))
     print(all_rows)
-    return render(request, "vcan0.html", {'interface': 'vcan0', 'all_rows': all_rows, 'icIndex': icIndex})
+    context = {
+        'icIndex': icIndex,
+        'interface': 'vcan0',
+        'all_rows': all_rows
+    }
+    return render(request, "vcan0.html", context)
 
 
 def vcan1(request):

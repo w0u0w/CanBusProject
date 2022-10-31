@@ -31,6 +31,6 @@ register_converter(TerminalChecker, 'ic')
 urlpatterns = [
     path('', views.base, name='base'),
     path('terminal/<tm:tmIndex>/', views.terminalPage, name='terminalNumber'),
-    path('terminal/<tm:tmIndex>/vcan/<ic:icIndex>/', views.vcan, name='vacnInterface'),
+    path('terminal/<tm:tmIndex>/vcan/<int:icIndex>/', views.vcan, name='vcanInterface'),
 
 ]
