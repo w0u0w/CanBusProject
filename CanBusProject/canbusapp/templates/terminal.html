@@ -2,5 +2,9 @@
 
 <!-- Page content -->
 {% block terminalsContent %}
-<h1 class="container text-info" id="home" >TERMINAL {{ tmIndex }}</h1>
+<h2 class="container text-center" id="home" >TERMINAL {{ tmIndex }}</h2>
+<div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" id="switchActInt">
+  <label class="form-check-label" for="switchActInt">Activate interfaces</label>
+</div>
 {% endblock terminalsContent %}
