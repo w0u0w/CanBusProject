@@ -25,7 +25,7 @@ def index(request):
 
 
 @csrf_exempt
-def vcan0(request):
+def vcan(request, icIndex):
     dataFile = []
     idFrameList = []
     dlcFrameList = []
@@ -58,7 +58,7 @@ def vcan0(request):
     }
     all_rows = list(zip(*queue.values()))
     print(all_rows)
-    return render(request, "vcan0.html", {'interface': 'vcan0', 'all_rows': all_rows})
+    return render(request, "vcan0.html", {'interface': 'vcan0', 'all_rows': all_rows, 'icIndex': icIndex})
 
 
 def vcan1(request):
