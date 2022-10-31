@@ -5,12 +5,18 @@
 <h2 class="text-center" id="home" >TERMINAL {{ tmIndex }}</h2>
 <div class="container">
   <div class="row row-cols-2">
-    <div class="col-md">
+    <div class="col-md bg-white">
         <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" id="switchActIntForTerm{{ tmIndex }}">
               <label class="form-check-label" for="switchActIntForTerm{{ tmIndex }}">Activate interfaces</label>
+              <label class="checkbox-inline bootstrap-switch-noPad" for="switchActIntForTerm{{ tmIndex }}">
+                <input type="checkbox" id="switchActIntForTerm{{ tmIndex }}" name="switchActIntForTerm{{ tmIndex }}" data-size="small" value="Active" data-on-text="Active" data-on-color="success" data-off-text="Deactive" data-off-color="warning" tabindex="13">
+              </label>
         </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+
+</script>
 {% endblock terminalsContent %}
