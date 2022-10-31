@@ -25,7 +25,7 @@ def index(request):
 
 
 @csrf_exempt
-def vcan(request, icIndex):
+def vcan(request, icIndex, tmIndex):
     dataFile = []
     idFrameList = []
     dlcFrameList = []
@@ -60,6 +60,7 @@ def vcan(request, icIndex):
     print(all_rows)
     context = {
         'icIndex': icIndex,
+        'tmIndex': tmIndex,
         'interface': 'vcan0',
         'all_rows': all_rows
     }
