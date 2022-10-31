@@ -150,7 +150,7 @@ main .info-send table{
 }
 
 main table tbody td {
-  height: 4rem;
+  height: 4.8rem;
   border-bottom: 1px solid lightskyblue;
   color: #23282b;
 }
