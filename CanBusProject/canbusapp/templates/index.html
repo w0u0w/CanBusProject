@@ -17,70 +17,7 @@
 </head>  
 <body>  
      <div class="container">
-       <aside>
-         <div class="top">
-           <div class="logo">
-             <img src="static/images/logo.png">
-             <h2>PROMTECH</h2>
-           </div>
-           <div class="close" id="close-btn">
-             <span class="material-symbols-outlined">
-              close
-             </span>
-           </div>
-         </div>
-         <div class="sidebar">
-           <a href="{% url 'vcan0' %}" class="text-decoration-none text-reset {% if navbar == 'vcan0' %} active {% endif %}">
-             <span class="material-symbols-outlined">
-                space_dashboard
-             </span>
-             <h3>Vcan 0</h3>
-           </a>
-           <a href="{% url 'vcan1' %}" class="text-decoration-none text-reset" color="balck">
-             <span class="material-symbols-outlined">
-                space_dashboard
-             </span>
-             <h3>Vcan 1</h3>
-           </a>
-           <a href="{% url 'vcan2' %}" class="text-decoration-none text-reset" color="balck">
-             <span class="material-symbols-outlined">
-                space_dashboard
-             </span>
-             <h3>Vcan 2</h3>
-           </a>
-           <a href="{% url 'vcan3' %}" class="text-decoration-none text-reset" color="balck">
-             <span class="material-symbols-outlined">
-                space_dashboard
-             </span>
-             <h3>Vcan 3</h3>
-           </a>
-           <a href="{% url 'vcan4' %}" class="text-decoration-none text-reset" color="balck">
-             <span class="material-symbols-outlined">
-                space_dashboard
-             </span>
-             <h3>Vcan 4</h3>
-           </a>
-           <a href="{% url 'vcan5' %}" class="text-decoration-none text-reset" color="balck">
-             <span class="material-symbols-outlined">
-                space_dashboard
-             </span>
-             <h3>Vcan 5</h3>
-           </a>
-           <a href="{% url 'vcan6' %}" class="text-decoration-none text-reset" color="balck">
-             <span class="material-symbols-outlined">
-                space_dashboard
-             </span>
-             <h3>Vcan 6</h3>
-           </a>
-           <a href="{% url 'vcan7' %}" class="text-decoration-none text-reset" color="balck">
-             <span class="material-symbols-outlined">
-                space_dashboard
-             </span>
-             <h3>Vcan 7</h3>
-           </a>
-         </div>
-       </aside>
-       <main>
+        <main>
            {% block nameteble %}
            {%endblock%}
            <div class="info-send">
@@ -105,22 +42,23 @@
                </div>
            </div>
        </main>
-       <div class="right">
-            <div class="control_panel">
-                <h2>Control panel</h2>
-                <div class="controls">
-                    <div class="control">
-                        <h4>Start data sending</h4>
-                        <button type="button" class="btn btn-info" id="{{ interface }}startId" name="{{ interface }}start">Start {{ interface }}</button>
-                    </div>
-                    <div class="control">
-                        <h4>Stop data sending</h4>
-                        <button type="button" class="btn btn-danger" id="{{ interface }}stopId" name="{{ interface }}stop">Stop {{ interface }}</button>
-                    </div>
-                </div>
-            </div>
-       </div>
      </div>
+<!--       <div class="right">-->
+<!--            <div class="control_panel">-->
+<!--                <h2>Control panel</h2>-->
+<!--                <div class="controls">-->
+<!--                    <div class="control">-->
+<!--                        <h4>Start data sending</h4>-->
+<!--                        <button type="button" class="btn btn-info" id="{{ interface }}startId" name="{{ interface }}start">Start {{ interface }}</button>-->
+<!--                    </div>-->
+<!--                    <div class="control">-->
+<!--                        <h4>Stop data sending</h4>-->
+<!--                        <button type="button" class="btn btn-danger" id="{{ interface }}stopId" name="{{ interface }}stop">Stop {{ interface }}</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--       </div>-->
+<!--     </div>-->
 <script type="text/javascript">
     function getCookie(name) {
         let cookieValue = null;
