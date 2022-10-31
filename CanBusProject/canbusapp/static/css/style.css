@@ -135,13 +135,14 @@ main {
 }
 
 main .info-send {
-  margin-top: 2rem;
+  margin-top: 0.8rem;
 }
 
 main .info-send table{
   background: white;
   width: 100%;
   padding: 10px;
+  margin: 2rem;
   /*text-align: center;*/
   border-radius:6px;
   box-shadow: #1a1e21;
@@ -149,7 +150,7 @@ main .info-send table{
 }
 
 main table tbody td {
-  height: 2.8rem;
+  height: 4rem;
   border-bottom: 1px solid lightskyblue;
   color: #23282b;
 }
