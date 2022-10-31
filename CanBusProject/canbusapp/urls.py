@@ -1,8 +1,22 @@
 from django.urls import path
-
+from django.urls import include, path, register_converter
 from . import views
+
+
+class TerminalChecker:
+    regex = '[1-2]'
+
+    def to_python(self, value):
+        return int(value)
+
+    def to_url(self, value):
+        return str(value)
+
+
+register_converter(TerminalChecker, 'tm')
 
 urlpatterns = [
     path('', views.base, name='base'),
-    path('terminal/', views.terminalPage, name='terminal'),
+    path('terminal/<tm:tmIndex>/', views.terminalPage, name='terminalNumber'),
+
 ]

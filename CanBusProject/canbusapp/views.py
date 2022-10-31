@@ -13,8 +13,11 @@ def base(request):
     return render(request, 'base.html')
 
 
-def terminalPage(requset):
-    return render(requset, 'terminal.html')
+def terminalPage(requset, number):
+    context = {
+        'tmIndex': number,
+    }
+    return render(requset, 'terminal.html', context)
 
 
 def index(request):
