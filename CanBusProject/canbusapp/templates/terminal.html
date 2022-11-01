@@ -22,7 +22,7 @@
                       <td id="t{{tmIndex}}statusvacn0">Sleep</td>
                       <td>
                         <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan0startId" name="t {{tmIndex}} vcan 0 start">Start</button>
-                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan0stopId" name="t{{tmIndex}}vcan0stop">Stop</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan0stopId" name="t {{tmIndex}} vcan 0 stop">Stop</button>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/0/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -31,7 +31,7 @@
                       <td  id="t{{tmIndex}}statusvacn1">Sleep</td>
                       <td>
                         <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan1startId" name="t {{tmIndex}} vcan 1 start">Start</button>
-                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan1stopId" name="t{{tmIndex}}vcan1stop">Stop</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan1stopId" name="t {{tmIndex}} vcan 1 stop">Stop</button>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/1/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -40,7 +40,7 @@
                       <td  id="t{{tmIndex}}statusvacn2">Sleep</td>
                       <td>
                         <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan2startId" name="t {{tmIndex}} vcan 2 start">Start</button>
-                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan2stopId" name="t{{tmIndex}}vcan2stop">Stop</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan2stopId" name="t {{tmIndex}} vcan 2 stop">Stop</button>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/2/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -49,7 +49,7 @@
                       <td  id="t{{tmIndex}}statusvacn3">Sleep</td>
                       <td>
                         <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan3startId" name="t {{tmIndex}} vcan 3 start">Start</button>
-                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan3stopId" name="t{{tmIndex}}vcan3stop">Stop</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan3stopId" name="t {{tmIndex}} vcan 3 stop">Stop</button>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/3/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -58,7 +58,7 @@
                       <td  id="t{{tmIndex}}statusvacn4">Sleep</td>
                       <td>
                         <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan4startId" name="t {{tmIndex}} vcan 4 start">Start</button>
-                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan4stopId" name="t{{tmIndex}}vcan4stop">Stop</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan4stopId" name="t {{tmIndex}} vcan 4 stop">Stop</button>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/4/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -67,7 +67,7 @@
                       <td  id="t{{tmIndex}}statusvacn5">Sleep</td>
                       <td>
                         <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan5startId" name="t {{tmIndex}} vcan 5 start">Start</button>
-                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan5stopId" name="t{{tmIndex}}vcan5stop">Stop</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan5stopId" name="t {{tmIndex}} vcan 5 stop">Stop</button>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/5/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -76,7 +76,7 @@
                       <td  id="t{{tmIndex}}statusvacn6">Sleep</td>
                       <td>
                         <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan6startId" name="t {{tmIndex}} vcan 6 start">Start</button>
-                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan6stopId" name="t{{tmIndex}}vcan6stop">Stop</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan6stopId" name="t {{tmIndex}} vcan 6 stop">Stop</button>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/6/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -85,7 +85,7 @@
                       <td  id="t{{tmIndex}}statusvacn7">Sleep</td>
                       <td>
                         <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan7startId" name="t {{tmIndex}} vcan 7 start">Start</button>
-                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan7stopId" name="t{{tmIndex}}vcan7stop">Stop</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan7stopId" name="t {{tmIndex}} vcan 7 stop">Stop</button>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/7/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -122,7 +122,7 @@
    var canterminal = getTerminalAndInterface[1];
    var canInterface = getTerminalAndInterface[3];
    var actionBtn = getTerminalAndInterface[4];
-   var currentStatusOfInterface = $('#t'+ canterminal +'statusvacn' + canInterface);
+   var currentStatusOfInterface = $('#t'+ canterminal +'statusvacn' + canInterface)[0];
    alert('action on interface vcan' + canInterface + ' on terminal ' + canterminal + 'current status ' + currentStatusOfInterface + 'clicked btn ' + actionBtn);
 
   });
