@@ -125,6 +125,7 @@
    var currentStatusOfInterface = $('#t'+ canterminal +'statusvacn' + canInterface);
    // alert('action on interface vcan' + canInterface + ' on terminal ' + canterminal + ' current status ' + currentStatusOfInterface + 'clicked btn ' + actionBtn);
    if (actionBtn === 'start') {
+     alert(currentStatusOfInterface.text());
      if (currentStatusOfInterface.text() === 'Sleep') {
        currentStatusOfInterface.text('Sending');
      }
@@ -133,6 +134,7 @@
      }
    }
    if (actionBtn === 'stop') {
+     alert(currentStatusOfInterface.text());
      if (currentStatusOfInterface.text() === 'Sending') {
        currentStatusOfInterface.text('Sleep');
      }
