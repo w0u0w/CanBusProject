@@ -76,58 +76,21 @@
         return cookieValue;
     }
 
-    // const csrftoken = Cookies.get('csrftoken');
+    // $( document ).ready(function() {
+    //     console.log( "ready!" );
+    //     setInterval(function(){
+    //                 $.ajax({
+    //                    url: '/vcan0',
+    //                    headers: {'X-CSRFToken': getCookie('csrftoken')},
+    //                       success: function(data) {
+    //                       $('#refresh-table').html($(data).find('#refresh-table').html());
+    //                       }
+    //                 });
+    //             }, 3000)
+    // });
 
-    $('#vcan0startId').click(function() {
-        $.ajax({
-            url: '/vcan0',
-            headers: {'X-CSRFToken': getCookie('csrftoken')},
-            method: 'POST',
-            data: {
-                click: true,
-                'operation': "startsending"
-            },
-            success: function (data) {
-                console.log('VCAN0: start sending')
-                alert('VCAN0: start sending')
-                // Refresh the Table every 3 seconds
-                setInterval(function(){
-                    $.ajax({
-                       url: '/vcan0',
-                       headers: {'X-CSRFToken': getCookie('csrftoken')},
-                          success: function(data) {
-                          $('#refresh-table').html($(data).find('#refresh-table').html());
-                          }
-                    });
-                }, 3000)
-            },
-            error: (error) => {
-                console.log(error);
-            }
-            });
 
-    });
 
-    $('#vcan0stopId').click(function() {
-    $.ajax({
-        url: '/vcan0',
-        headers: {'X-CSRFToken': getCookie('csrftoken')},
-        method: 'POST',
-        data: {
-            click: true,
-            'operation': "stopsending"
-        },
-        success: function (data) {
-            console.log('VCAN0: stop sending')
-            alert('VCAN0: stop sending')
-            // location.reload();
-            // clearInterval(autoRefreshTable)
-        },
-        error: (error) => {
-            console.log(error);
-        }
-        });
-    });
 </script>
 </body>
 </html>

@@ -167,14 +167,48 @@
    if (actionBtn === 'start') {
      if (currentStatusOfInterface.text() === 'Sleep') {
        currentStatusOfInterface.text('Sending');
+       $.ajax({
+            url: '/terminal/' + canterminal + '/',
+            headers: {'X-CSRFToken': getCookie('csrftoken')},
+            method: 'POST',
+            data: {
+                click: true,
+                'operation': "startsending"
+            },
+            success: function (data) {
+                console.log('VCAN' + canInterface + ': start sending')
+                alert('VCAN' + canInterface + ': start sending')
+            },
+                // Refresh the Table every 3 seconds
+            error: (error) => {
+                console.log(error);
+            }
+            });
      }
    }
    if (actionBtn === 'stop') {
      if (currentStatusOfInterface.text() === 'Sending') {
        currentStatusOfInterface.text('Sleep');
+       $.ajax({
+        url: '/terminal/' + canterminal + '/',
+        headers: {'X-CSRFToken': getCookie('csrftoken')},
+        method: 'POST',
+        data: {
+            click: true,
+            'operation': "stopsending"
+        },
+        success: function (data) {
+            console.log('VCAN' + canInterface + ': stop sending')
+            alert('VCAN' + canInterface + ': stop sending')
+        },
+        error: (error) => {
+            console.log(error);
+        }
+        });
      }
    }
 
   });
+
 </script>
 {% endblock terminalsContent %}
