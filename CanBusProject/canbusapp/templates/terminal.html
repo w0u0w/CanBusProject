@@ -21,8 +21,13 @@
                       <td>vcan0</td>
                       <td id="t{{tmIndex}}statusvacn0">Sleep</td>
                       <td>
-                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan0startId" name="t {{tmIndex}} vcan 0 start">Start</button>
-                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan0stopId" name="t {{tmIndex}} vcan 0 stop">Stop</button>
+<!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan0startId" name="t {{tmIndex}} vcan 0 start">Start</button>-->
+<!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan0stopId" name="t {{tmIndex}} vcan 0 stop">Stop</button>-->
+                        <div class="input-group mb-3">
+                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan0startId" name="t {{tmIndex}} vcan 0 start">Button</button>
+                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan0stopId" name="t {{tmIndex}} vcan 0 stop">Button</button>
+                          <input type="text" class="form-control" placeholder="" aria-label="Example text with two button addons">
+                        </div>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/0/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
