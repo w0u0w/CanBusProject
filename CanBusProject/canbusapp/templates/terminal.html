@@ -156,7 +156,7 @@
         return cookieValue;
     }
 
-  $(document).on("click", function (event) {
+  $(document).on("click", "button", function (event) {
    var clickedBtnName = event.target.name;
    var getTerminalAndInterface = clickedBtnName.split(" ");
    var canterminal = getTerminalAndInterface[1];
