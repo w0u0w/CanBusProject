@@ -21,7 +21,7 @@
                       <td>vcan0</td>
                       <td>Sleep</td>
                       <td>
-                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan0startId" name="t{{tmIndex}}vcan0start">Start</button>
+                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan0startId" name="t {{tmIndex}} vcan 0 start">Start</button>
                         <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan0stopId" name="t{{tmIndex}}vcan0stop">Stop</button>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/0/" class="text-decoration-none text-reset">Go to logs</a></td>
@@ -117,8 +117,9 @@
     }
 
   $(document).on("click", function (event) {
-   var clickedBtnName = event.target.name // or var clickedBtnID = this.id
-   alert('you clicked on button #' + clickedBtnName);
+   var clickedBtnName = event.target.name // or var clickedBtnID = this.i
+   var getTerminalAndInterface = clickedBtnName.split()
+   alert('you clicked on button #' + getTerminalAndInterface);
   });
 </script>
 {% endblock terminalsContent %}
