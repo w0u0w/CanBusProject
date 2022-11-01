@@ -118,8 +118,10 @@
 
   $(document).on("click", function (event) {
    var clickedBtnName = event.target.name // or var clickedBtnID = this.i
-   var getTerminalAndInterface = clickedBtnName.split(" ")
-   alert('you clicked on button #' + getTerminalAndInterface);
+   var getTerminalAndInterface = clickedBtnName.split(" ");
+   var terminal = getTerminalAndInterface[1]
+   var interface = getTerminalAndInterface[3]
+    alert('you start sending interface vcan' + interface + 'on terminal ' + terminal);
   });
 </script>
 {% endblock terminalsContent %}
