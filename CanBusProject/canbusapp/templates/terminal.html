@@ -123,7 +123,12 @@
    var canInterface = getTerminalAndInterface[3];
    var actionBtn = getTerminalAndInterface[4];
    var currentStatusOfInterface = $('#t'+ canterminal +'statusvacn' + canInterface).text();
-   alert('action on interface vcan' + canInterface + ' on terminal ' + canterminal + 'current status ' + currentStatusOfInterface + 'clicked btn ' + actionBtn);
+   alert('action on interface vcan' + canInterface + ' on terminal ' + canterminal + ' current status ' + currentStatusOfInterface + 'clicked btn ' + actionBtn);
+   if (actionBtn === 'start') {
+     if (currentStatusOfInterface === 'Sleep') {
+       $('#t'+ canterminal +'statusvacn' + canInterface).val('Sending');
+     }
+   }
 
   });
 </script>
