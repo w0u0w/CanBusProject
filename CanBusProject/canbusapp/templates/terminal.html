@@ -118,7 +118,7 @@
 
   $(document).on("click", function (event) {
    var clickedBtnName = event.target.name // or var clickedBtnID = this.i
-   var getTerminalAndInterface = clickedBtnName.split()
+   var getTerminalAndInterface = clickedBtnName.split(" ")
    alert('you clicked on button #' + getTerminalAndInterface);
   });
 </script>
