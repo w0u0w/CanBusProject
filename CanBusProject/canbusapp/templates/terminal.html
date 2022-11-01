@@ -168,7 +168,7 @@
      if (currentStatusOfInterface.text() === 'Sleep') {
        currentStatusOfInterface.text('Sending');
        $.ajax({
-            url: 'vcan0.html',
+            url: '/terminal/'+ canterminal + '/',
             headers: {'X-CSRFToken': getCookie('csrftoken')},
             method: 'POST',
             data: {
@@ -190,7 +190,7 @@
      if (currentStatusOfInterface.text() === 'Sending') {
        currentStatusOfInterface.text('Sleep');
        $.ajax({
-        url: 'vcan0.html',
+        url: '/terminal/'+ canterminal + '/',
         headers: {'X-CSRFToken': getCookie('csrftoken')},
         method: 'POST',
         data: {

@@ -13,11 +13,20 @@ def base(request):
     return render(request, 'base.html')
 
 
-def terminalPage(requset, tmIndex):
+def terminalPage(request, tmIndex):
+    status = None
+    if request.POST.get('operation') == 'startsending':
+        status = 1
+    if request.POST.get('operation') == 'stopsending':
+        status = 0
+    if status is not None:
+        p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", f"{status}"])
+        if status == 0:
+            os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     context = {
         'tmIndex': tmIndex,
     }
-    return render(requset, 'terminal.html', context)
+    return render(request, 'terminal.html', context)
 
 
 def index(request):
