@@ -35,7 +35,7 @@ def vcan(request, icIndex, tmIndex):
         status = 1
     if request.POST.get('operation') == 'stopsending':
         status = 0
-    print("STATUS OF INTERFACE VCAN0 " + str(status))
+    print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + str(icIndex) + "" + str(status))
     if status is not None:
         p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", f"{status}"])
         if status == 0:
@@ -61,35 +61,7 @@ def vcan(request, icIndex, tmIndex):
     context = {
         'icIndex': icIndex,
         'tmIndex': tmIndex,
-        'interface': 'vcan0',
+        'interface': 'vcan0', #обязательно поменять
         'all_rows': all_rows
     }
     return render(request, "vcan0.html", context)
-
-
-def vcan1(request):
-    return render(request, "vcan1.html", {'interface': 'vcan1'})
-
-
-def vcan2(request):
-    return render(request, "vcan2.html", {'interface': 'vcan2'})
-
-
-def vcan3(request):
-    return render(request, "vcan3.html", {'interface': 'vcan3'})
-
-
-def vcan4(request):
-    return render(request, "vcan4.html", {'interface': 'vcan4'})
-
-
-def vcan5(request):
-    return render(request, "vcan5.html", {'interface': 'vcan5'})
-
-
-def vcan6(request):
-    return render(request, "vcan6.html", {'interface': 'vcan6'})
-
-
-def vcan7(request):
-    return render(request, "vcan7.html", {'interface': 'vcan7'})

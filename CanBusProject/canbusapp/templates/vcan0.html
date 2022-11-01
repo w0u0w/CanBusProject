@@ -2,7 +2,7 @@
 
 <!-- Page content -->
 {% block nameteble %}
-<h3 class="container text-info" id="home" >VCAN0 DF</h3>
+<h3 class="container text-info" id="home" >TERMINAL {{ tmIndex }} VCAN{{ icIndex }} DF</h3>
 {%endblock nameteble%}
 
 {% block tableData %}
@@ -14,8 +14,3 @@
         </tr>
     {% endfor %}
 {% endblock tableData %}
-
-
-{% block btnstop %}
-<button type="button" class="btn btn-danger" id="{{ interface }} stop" name="{{ interface }}stop">Stop {{ interface }}</button>
-{% endblock btnstop %}
