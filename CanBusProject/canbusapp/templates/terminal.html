@@ -116,9 +116,9 @@
         return cookieValue;
     }
 
-  $(document).on("click", function () {
-   var clickedBtnID = $(this).attr('id'); // or var clickedBtnID = this.id
-   alert('you clicked on button #' + clickedBtnID);
+  $(document).on("click", function (event) {
+   var clickedBtnName = event.target.name // or var clickedBtnID = this.id
+   alert('you clicked on button #' + clickedBtnName);
   });
 </script>
 {% endblock terminalsContent %}
