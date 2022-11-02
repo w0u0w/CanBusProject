@@ -11,27 +11,25 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <main  id="refresh-table">
+    <main  id="refresh-table" >
        {% block nameteble %}
        {%endblock%}
        <div class="info-send">
            <div class="center">
                <div class="table-responsive">
-                   <div class="tableFixHead">
-                       <table class="table table-hover" >
-                            <thead class="header">
-                                <tr>
-                                    <th>ID</th>
-                                    <th>DLC</th>
-                                    <th>DATA</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% block tableData %}
-                                {% endblock%}
-                            </tbody>
-                        </table>
-                   </div>
+                   <table class="table table-hover" >
+                        <thead class="header">
+                            <tr>
+                                <th>ID</th>
+                                <th>DLC</th>
+                                <th>DATA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% block tableData %}
+                            {% endblock%}
+                        </tbody>
+                    </table>
                </div>
            </div>
        </div>
