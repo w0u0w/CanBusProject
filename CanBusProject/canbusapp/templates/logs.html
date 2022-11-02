@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <main>
+    <main  id="refresh-table">
        {% block nameteble %}
        {%endblock%}
        <div class="info-send">
@@ -26,7 +26,7 @@
                                     <th>DATA</th>
                                 </tr>
                             </thead>
-                            <tbody id="refresh-table">
+                            <tbody>
                                 {% block tableData %}
                                 {% endblock%}
                             </tbody>
