@@ -29,8 +29,12 @@ def terminalPage(request, tmIndex):
     return render(request, 'terminal.html', context)
 
 
-def index(request):
-    return render(request, 'index.html')
+def logs(request, icIndex, tmIndex):
+    context = {
+        'icIndex': icIndex,
+        'tmIndex': tmIndex
+    }
+    return render(request, 'logs.html', context)
 
 
 @csrf_exempt
