@@ -42,6 +42,7 @@
         var getStringParam = $('h3[id="home"]').split(" ");
         var tmIndex = getStringParam[1];
         var icIndex = getStringParam[3];
+        alert(getStringParam);
         setInterval (function(){
                         $.ajax({
                            url: '/terminal/' + tmIndex + '/' + icIndex,
