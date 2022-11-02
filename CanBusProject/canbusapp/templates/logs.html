@@ -59,7 +59,7 @@
         alert(getStringParam);
         setInterval (function(){
                         $.ajax({
-                           url: '/terminal/' + tmIndex + '/' + icIndex,
+                           url: '/terminal/' + tmIndex + '/vcan/' + icIndex + '/',
                            headers: {'X-CSRFToken': getCookie('csrftoken')},
                               success: function(data) {
                               $('#refresh-table').html(data);
