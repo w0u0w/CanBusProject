@@ -13,19 +13,18 @@ def base(request):
     return render(request, 'base.html')
 
 
-def terminalPage(request, tmIndex, icIndex):
+def terminalPage(request, tmIndex):
     status = None
     if request.POST.get('operation') == 'startsending':
         status = 1
     if request.POST.get('operation') == 'stopsending':
         status = 0
-    print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + str(icIndex) + "" + str(status))
+    print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + "" + str(status))
     if status is not None:
         p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", f"{status}"])
         if status == 0:
             os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     context = {
-        'icIndex': icIndex,
         'tmIndex': tmIndex
     }
     return render(request, 'terminal.html', context)
