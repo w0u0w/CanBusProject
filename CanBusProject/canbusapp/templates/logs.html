@@ -18,7 +18,7 @@
            <div class="center">
                <div class="table-responsive">
                    <div class="tableFixHead">
-                       <table class="table table-hover" id="refresh-table">
+                       <table class="table table-hover" >
                             <thead class="header">
                                 <tr>
                                     <th>ID</th>
@@ -26,7 +26,7 @@
                                     <th>DATA</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="refresh-table">
                                 {% block tableData %}
                                 {% endblock%}
                             </tbody>
