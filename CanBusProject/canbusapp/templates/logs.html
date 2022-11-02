@@ -39,7 +39,21 @@
 </body>
 <script type="text/javascript">
     $(window).on('load', function() {
-        var getStringParam = $('h3[id="home"]').text();
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        var getStringParam = $('h3[id="home"]').text().split(" ");
         var tmIndex = getStringParam[1];
         var icIndex = getStringParam[3];
         alert(getStringParam);
