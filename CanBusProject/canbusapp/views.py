@@ -13,18 +13,20 @@ def base(request):
     return render(request, 'base.html')
 
 
-def terminalPage(request, tmIndex):
+def terminalPage(request, tmIndex, icIndex):
     status = None
     if request.POST.get('operation') == 'startsending':
         status = 1
     if request.POST.get('operation') == 'stopsending':
         status = 0
+    print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + str(icIndex) + "" + str(status))
     if status is not None:
         p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", f"{status}"])
         if status == 0:
             os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     context = {
-        'tmIndex': tmIndex,
+        'icIndex': icIndex,
+        'tmIndex': tmIndex
     }
     return render(request, 'terminal.html', context)
 
@@ -43,16 +45,6 @@ def vcan(request, icIndex, tmIndex):
     idFrameList = []
     dlcFrameList = []
     dataFrameList = []
-    status = None
-    if request.POST.get('operation') == 'startsending':
-        status = 1
-    if request.POST.get('operation') == 'stopsending':
-        status = 0
-    print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + str(icIndex) + "" + str(status))
-    if status is not None:
-        p0 = subprocess.Popen(["/home/www/code/sendcanframe", "1", f"{status}"])
-        if status == 0:
-            os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     with open("/home/www/code/data.txt") as f:
         for line in f:
             dataFile.append(line.strip())
