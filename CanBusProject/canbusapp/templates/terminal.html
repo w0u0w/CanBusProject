@@ -166,7 +166,8 @@
             method: 'POST',
             data: {
                 click: true,
-                'operation': "startsending"
+                'operation': "startsending",
+                'vcan': canInterface
             },
             success: function (data) {
                 console.log('VCAN' + canInterface + ': start sending')
