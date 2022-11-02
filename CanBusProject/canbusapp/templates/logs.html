@@ -37,5 +37,21 @@
        </div>
     </main>
 </body>
+<script type="text/javascript">
+    $(window).on('load', function() {
+        var getStringParam = $('h3[id="home"]').split(" ");
+        var tmIndex = getStringParam[1];
+        var icIndex = getStringParam[3];
+        setInterval (function(){
+                        $.ajax({
+                           url: '/terminal/' + tmIndex + '/' + icIndex,
+                           headers: {'X-CSRFToken': getCookie('csrftoken')},
+                              success: function(data) {
+                              $('#refresh-table').html(data);
+                              }
+                        });
+        }, 5000)
+    });
+</script>
 </html>
 
