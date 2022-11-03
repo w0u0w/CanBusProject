@@ -15,7 +15,7 @@ def base(request):
 
 def terminalPage(request, tmIndex):
     status = None
-    interfaceId = "0x1"
+    interfaceId = "1"
     if request.POST.get('operation') == 'startsending':
         status = 1
         interfaceId += (str(request.POST.get('vcan')) + str(tmIndex))
