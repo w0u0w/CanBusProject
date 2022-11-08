@@ -22,9 +22,9 @@
                       <td>
                         <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan0startId" name="t {{tmIndex}} vcan 0 start">Start</button>
                         <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan0stopId" name="t {{tmIndex}} vcan 0 stop">Stop</button>
-                        <label for="customRange3" class="form-label">Change data</label>
-                        <input type="range" class="form-range" min="0" max="100.00" step="0.01" id="customRange3" onInput="$('#rangeval').html($(this).val())">
-                        <span id="rangeval">0<!-- Default value --></span>
+                        <label for="customRange3vcan0" class="form-label"></label>
+                        <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan0" onInput="$('#rangeval').html($(this).val())">
+                        <span id="t {{tmIndex}} vcan 0 value" >50<!-- Default value --></span>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/0/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -32,13 +32,11 @@
                       <td>vcan1</td>
                       <td  id="t{{tmIndex}}statusvacn1">Sleep</td>
                       <td>
-<!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan1startId" name="t {{tmIndex}} vcan 1 start">Start</button>-->
-<!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan1stopId" name="t {{tmIndex}} vcan 1 stop">Stop</button>-->
-                        <div class="input-group mb-5">
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan1startId" name="t {{tmIndex}} vcan 1 start">Start</button>
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan1stopId" name="t {{tmIndex}} vcan 1 stop">Stop</button>
-                          <input type="text" class="form-control" placeholder="" aria-label="Example text with two button addons">
-                        </div>
+                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan1startId" name="t {{tmIndex}} vcan 1 start">Start</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan1stopId" name="t {{tmIndex}} vcan 1 stop">Stop</button>
+                        <label for="customRange3vcan1" class="form-label"></label>
+                        <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan1" onInput="$('#rangeval').html($(this).val())">
+                        <span id="t {{tmIndex}} vcan 1 value" >50<!-- Default value --></span>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/1/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -46,13 +44,11 @@
                       <td>vcan2</td>
                       <td  id="t{{tmIndex}}statusvacn2">Sleep</td>
                       <td>
-<!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan2startId" name="t {{tmIndex}} vcan 2 start">Start</button>-->
-<!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan2stopId" name="t {{tmIndex}} vcan 2 stop">Stop</button>-->
-                        <div class="input-group mb-5">
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan2startId" name="t {{tmIndex}} vcan 2 start">Start</button>
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan2stopId" name="t {{tmIndex}} vcan 2 stop">Stop</button>
-                          <input type="text" class="form-control" placeholder="" aria-label="Example text with two button addons">
-                        </div>
+                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan2startId" name="t {{tmIndex}} vcan 2 start">Start</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan2stopId" name="t {{tmIndex}} vcan 2 stop">Stop</button>
+                        <label for="customRange3vcan2" class="form-label"></label>
+                        <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan2" onInput="$('#rangeval').html($(this).val())">
+                        <span id="t {{tmIndex}} vcan 2 value" >50<!-- Default value --></span>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/2/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -60,13 +56,11 @@
                       <td>vcan3</td>
                       <td  id="t{{tmIndex}}statusvacn3">Sleep</td>
                       <td>
-<!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan3startId" name="t {{tmIndex}} vcan 3 start">Start</button>-->
-<!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan3stopId" name="t {{tmIndex}} vcan 3 stop">Stop</button>-->
-                        <div class="input-group mb-5">
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan3startId" name="t {{tmIndex}} vcan 3 start">Start</button>
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan3stopId" name="t {{tmIndex}} vcan 3 stop">Stop</button>
-                          <input type="text" class="form-control" placeholder="" aria-label="Example text with two button addons">
-                        </div>
+                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan3startId" name="t {{tmIndex}} vcan 3 start">Start</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan3stopId" name="t {{tmIndex}} vcan 3 stop">Stop</button>
+                        <label for="customRange3vcan3" class="form-label"></label>
+                        <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan3" onInput="$('#rangeval').html($(this).val())">
+                        <span id="t {{tmIndex}} vcan 3 value" >50<!-- Default value --></span>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/3/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -74,13 +68,11 @@
                       <td>vcan4</td>
                       <td  id="t{{tmIndex}}statusvacn4">Sleep</td>
                       <td>
-<!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan4startId" name="t {{tmIndex}} vcan 4 start">Start</button>-->
-<!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan4stopId" name="t {{tmIndex}} vcan 4 stop">Stop</button>-->
-                        <div class="input-group mb-5">
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan4startId" name="t {{tmIndex}} vcan 4 start">Start</button>
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan4stopId" name="t {{tmIndex}} vcan 4 stop">Stop</button>
-                          <input type="text" class="form-control" placeholder="" aria-label="Example text with two button addons">
-                        </div>
+                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan4startId" name="t {{tmIndex}} vcan 4 start">Start</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan4stopId" name="t {{tmIndex}} vcan 4 stop">Stop</button>
+                        <label for="customRange3vcan4" class="form-label"></label>
+                        <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan4" onInput="$('#rangeval').html($(this).val())">
+                        <span id="t {{tmIndex}} vcan 4 value" >50<!-- Default value --></span>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/4/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -88,13 +80,11 @@
                       <td>vcan5</td>
                       <td  id="t{{tmIndex}}statusvacn5">Sleep</td>
                       <td>
-<!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan5startId" name="t {{tmIndex}} vcan 5 start">Start</button>-->
-<!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan5stopId" name="t {{tmIndex}} vcan 5 stop">Stop</button>-->
-                        <div class="input-group mb-5">
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan5startId" name="t {{tmIndex}} vcan 5 start">Start</button>
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan5stopId" name="t {{tmIndex}} vcan 5 stop">Stop</button>
-                          <input type="text" class="form-control" placeholder="" aria-label="Example text with two button addons">
-                        </div>
+                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan5startId" name="t {{tmIndex}} vcan 5 start">Start</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan5stopId" name="t {{tmIndex}} vcan 5 stop">Stop</button>
+                        <label for="customRange3vcan5" class="form-label"></label>
+                        <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan5" onInput="$('#rangeval').html($(this).val())">
+                        <span id="t {{tmIndex}} vcan 5 value" >50<!-- Default value --></span>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/5/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -102,13 +92,11 @@
                       <td>vcan6</td>
                       <td  id="t{{tmIndex}}statusvacn6">Sleep</td>
                       <td>
-<!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan6startId" name="t {{tmIndex}} vcan 6 start">Start</button>-->
-<!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan6stopId" name="t {{tmIndex}} vcan 6 stop">Stop</button>-->
-                        <div class="input-group mb-5">
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan6startId" name="t {{tmIndex}} vcan 6 start">Start</button>
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan6stopId" name="t {{tmIndex}} vcan 6 stop">Stop</button>
-                          <input type="text" class="form-control" placeholder="" aria-label="Example text with two button addons">
-                        </div>
+                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan6startId" name="t {{tmIndex}} vcan 6 start">Start</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan6stopId" name="t {{tmIndex}} vcan 6 stop">Stop</button>
+                        <label for="customRange3vcan6" class="form-label"></label>
+                        <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan6" onInput="$('#rangeval').html($(this).val())">
+                        <span id="t {{tmIndex}} vcan 6 value" >50<!-- Default value --></span>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/6/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -116,13 +104,11 @@
                       <td>vcan7</td>
                       <td  id="t{{tmIndex}}statusvacn7">Sleep</td>
                       <td>
-<!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan7startId" name="t {{tmIndex}} vcan 7 start">Start</button>-->
-<!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan7stopId" name="t {{tmIndex}} vcan 7 stop">Stop</button>-->
-                        <div class="input-group mb-5">
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan7startId" name="t {{tmIndex}} vcan 7 start">Start</button>
-                          <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan7stopId" name="t {{tmIndex}} vcan 7 stop">Stop</button>
-                          <input type="text" class="form-control" placeholder="" aria-label="Example text with two button addons">
-                        </div>
+                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan7startId" name="t {{tmIndex}} vcan 7 start">Start</button>
+                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan7stopId" name="t {{tmIndex}} vcan 7 stop">Stop</button>
+                        <label for="customRange3vcan7" class="form-label"></label>
+                        <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan7" onInput="$('#rangeval').html($(this).val())">
+                        <span id="t {{tmIndex}} vcan 7 value" >50<!-- Default value --></span>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/7/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -154,7 +140,6 @@
    var canInterface = getTerminalAndInterface[3];
    var actionBtn = getTerminalAndInterface[4];
    var currentStatusOfInterface = $('#t'+ canterminal +'statusvacn' + canInterface);
-   alert('action on interface vcan' + canInterface + ' on terminal ' + canterminal + ' current status ' + currentStatusOfInterface + 'clicked btn ' + actionBtn);
    if (actionBtn === 'start') {
      if (currentStatusOfInterface.text() === 'Sleep') {
        currentStatusOfInterface.text('Sending');
@@ -171,7 +156,6 @@
                 console.log('VCAN' + canInterface + ': start sending')
                 alert('VCAN' + canInterface + ': start sending')
             },
-                // Refresh the Table every 3 seconds
             error: (error) => {
                 console.log(error);
             }
