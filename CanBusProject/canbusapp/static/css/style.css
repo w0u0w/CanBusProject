@@ -75,3 +75,7 @@ h3 #home {
 {
   font-size: 1.5rem;
 }
+
+.form-range {
+width: 50% !important;
+}
