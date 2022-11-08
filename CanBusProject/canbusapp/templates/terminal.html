@@ -23,12 +23,15 @@
                         <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan0startId" name="t {{tmIndex}} vcan 0 start">Start</button>
                         <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan0stopId" name="t {{tmIndex}} vcan 0 stop">Stop</button>
                         <label for="customRange3vcan0" class="form-label"></label>
-                        <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan0" onInput="$('#t{{tmIndex}}vcan0value').html($(this).val())">
-                          <div class="col-md-3">
-                            <label for="validationCustom05" class="form-label">Value</label>
-                            <input type="text" class="form-control" id="validationCustom05">
-                            <span id="t{{tmIndex}}vcan0value" >50<!-- Default value --></span>
-                          </div>
+                        <input type="range" class="form-range" list="tickmarks" min="0" max="100.00" step="0.01" id="customRange3vcan0" onInput="$('#t{{tmIndex}}vcan0value').html($(this).val())" value="0">
+                        <datalist id="tickmarks">
+                          <option value="0"></option>
+                          <option value="25"></option>
+                          <option value="50"></option>
+                          <option value="75"></option>
+                          <option value="100"></option>
+                        </datalist>
+                        <input type="text" id="t{{tmIndex}}vcan0value" value="">
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/0/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
