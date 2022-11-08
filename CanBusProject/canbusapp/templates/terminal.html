@@ -28,7 +28,7 @@
                                 <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan0stopId" name="t {{tmIndex}} vcan 0 stop">Stop</button>
                               </div>
                               <div class="col-xs-2">
-                                <input type=number step=0.01 class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan0"  id="t{{tmIndex}}vcan0value" onInput="updateRangeInput({{tmIndex}}, this, this.value);">
+                                <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan0"  id="t{{tmIndex}}vcan0value" onInput="updateRangeInput({{tmIndex}}, this, this.value);">
                                 <script type="text/javascript">
                                   function updateRangeInput(terminalIndex, txtInput, val) {
                                         var tmIndex = terminalIndex;
@@ -39,15 +39,10 @@
                               </div>
                           </div>
                           <div class="col-xs-2">
-                              <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan0" onInput="updateTextInput({{tmIndex}},this, this.value);" value="0">
+                              <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan0" onInput="updateTextInput({{tmIndex}}, 0, this.value);" value="0">
                           </div>
                           <script type="text/javascript">
-                              function updateTextInput(terminalIndex, slider, val) {
-                                var tmIndex = terminalIndex;
-                                var rangeSlider = slider;
-                                var sliderValue = val;
-                                document.getElementById('t' + tmIndex + 'vcan0value').value=sliderValue;
-                              }
+
                           </script>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/0/" class="text-decoration-none text-reset">Go to logs</a></td>
@@ -62,11 +57,11 @@
                                 <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan1stopId" name="t {{tmIndex}} vcan 1 stop">Stop</button>
                               </div>
                               <div class="col-xs-2">
-                                <input type="text" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan1"  id="t{{tmIndex}}vcan1value" value="">
+                                <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan1"  id="t{{tmIndex}}vcan1value" value="">
                               </div>
                           </div>
                           <div class="col-xs-2">
-                                <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan1" onInput="$('#t{{tmIndex}}vcan1value').html($(this).val())" value="0">
+                                <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan1" onInput="updateTextInput({{tmIndex}}, 1, this.value);" value="0">
                           </div>
 <!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan1startId" name="t {{tmIndex}} vcan 1 start">Start</button>-->
 <!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan1stopId" name="t {{tmIndex}} vcan 1 stop">Stop</button>-->
@@ -86,11 +81,11 @@
                             <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan2stopId" name="t {{tmIndex}} vcan 2 stop">Stop</button>
                           </div>
                           <div class="col-xs-2">
-                            <input type="text" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan2"  id="t{{tmIndex}}vcan2value" value="">
+                            <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan2"  id="t{{tmIndex}}vcan2value" value="">
                           </div>
                         </div>
                         <div class="col-xs-2">
-                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan2" onInput="$('#t{{tmIndex}}vcan2value').html($(this).val())" value="0">
+                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan2" onInput="updateTextInput({{tmIndex}}, 2, this.value);" value="0">
                         </div>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/2/" class="text-decoration-none text-reset">Go to logs</a></td>
@@ -107,11 +102,11 @@
                             <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan3stopId" name="t {{tmIndex}} vcan 3 stop">Stop</button>
                           </div>
                           <div class="col-xs-2">
-                            <input type="text" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan3"  id="t{{tmIndex}}vcan3value" value="">
+                            <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan3"  id="t{{tmIndex}}vcan3value" value="">
                           </div>
                         </div>
                         <div class="col-xs-2">
-                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan3" onInput="$('#t{{tmIndex}}vcan3value').html($(this).val())" value="0">
+                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan3" onInput="updateTextInput({{tmIndex}}, 3, this.value);" value="0">
                         </div>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/3/" class="text-decoration-none text-reset">Go to logs</a></td>
@@ -128,11 +123,11 @@
                             <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan4stopId" name="t {{tmIndex}} vcan 4 stop">Stop</button>
                           </div>
                           <div class="col-xs-2">
-                            <input type="text" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan4"  id="t{{tmIndex}}vcan4value" value="">
+                            <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan4"  id="t{{tmIndex}}vcan4value" value="">
                           </div>
                         </div>
                         <div class="col-xs-2">
-                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan4" onInput="$('#t{{tmIndex}}vcan4value').html($(this).val())" value="0">
+                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan4" onInput="updateTextInput({{tmIndex}}, 4, this.value);" value="0">
                         </div>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/4/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
@@ -148,11 +143,11 @@
                             <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan5stopId" name="t {{tmIndex}} vcan 5 stop">Stop</button>
                           </div>
                           <div class="col-xs-2">
-                            <input type="text" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan5"  id="t{{tmIndex}}vcan5value" value="">
+                            <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan5"  id="t{{tmIndex}}vcan5value" value="">
                           </div>
                         </div>
                         <div class="col-xs-2">
-                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan5" onInput="$('#t{{tmIndex}}vcan5value').html($(this).val())" value="0">
+                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan5" onInput="updateTextInput({{tmIndex}}, 5, this.value);" value="0">
                         </div>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/5/" class="text-decoration-none text-reset">Go to logs</a></td>
@@ -169,11 +164,11 @@
                             <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan6stopId" name="t {{tmIndex}} vcan 6 stop">Stop</button>
                           </div>
                           <div class="col-xs-2">
-                            <input type="text" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan6"  id="t{{tmIndex}}vcan6value" value="">
+                            <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan6"  id="t{{tmIndex}}vcan6value" value="">
                           </div>
                         </div>
                         <div class="col-xs-2">
-                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan6" onInput="$('#t{{tmIndex}}vcan6value').html($(this).val())" value="0">
+                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan6" onInput="updateTextInput({{tmIndex}}, 6, this.value);" value="0">
                         </div>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/6/" class="text-decoration-none text-reset">Go to logs</a></td>
@@ -190,11 +185,11 @@
                             <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan7stopId" name="t {{tmIndex}} vcan 7 stop">Stop</button>
                           </div>
                           <div class="col-xs-2">
-                            <input type="text" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan7"  id="t{{tmIndex}}vcan7value" value="">
+                            <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan7"  id="t{{tmIndex}}vcan7value" value="">
                           </div>
                         </div>
                         <div class="col-xs-2">
-                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan7" onInput="$('#t{{tmIndex}}vcan7value').html($(this).val())" value="0">
+                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan7" onInput="updateTextInput({{tmIndex}}, 7, this.value);" value="0">
                         </div>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/7/" class="text-decoration-none text-reset">Go to logs</a></td>
@@ -205,7 +200,13 @@
     </div>
 </main>
 <script type="text/javascript">
-  function getCookie(name) {
+    function updateTextInput(terminalIndex, interfaceIndex, val) {
+        var tmIndex = terminalIndex;
+        var intIndex = interfaceIndex;
+        var sliderValue = val;
+        document.getElementById('t' + tmIndex + 'vcan'+ intIndex +'value').value=sliderValue;
+    }
+    function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
             const cookies = document.cookie.split(';');
@@ -220,58 +221,58 @@
         return cookieValue;
     }
 
-  $(document).on("click", "button", function (event) {
-   var clickedBtnName = event.target.name;
-   var getTerminalAndInterface = clickedBtnName.split(" ");
-   var canterminal = getTerminalAndInterface[1];
-   var canInterface = getTerminalAndInterface[3];
-   var actionBtn = getTerminalAndInterface[4];
-   var currentStatusOfInterface = $('#t'+ canterminal +'statusvacn' + canInterface);
-   if (actionBtn === 'start') {
-     if (currentStatusOfInterface.text() === 'Sleep') {
-       currentStatusOfInterface.text('Sending');
-       $.ajax({
+    $(document).on("click", "button", function (event) {
+       var clickedBtnName = event.target.name;
+       var getTerminalAndInterface = clickedBtnName.split(" ");
+       var canterminal = getTerminalAndInterface[1];
+       var canInterface = getTerminalAndInterface[3];
+       var actionBtn = getTerminalAndInterface[4];
+       var currentStatusOfInterface = $('#t'+ canterminal +'statusvacn' + canInterface);
+       if (actionBtn === 'start') {
+         if (currentStatusOfInterface.text() === 'Sleep') {
+           currentStatusOfInterface.text('Sending');
+           $.ajax({
+                url: '/terminal/'+ canterminal + '/',
+                headers: {'X-CSRFToken': getCookie('csrftoken')},
+                method: 'POST',
+                data: {
+                    click: true,
+                    'operation': "startsending",
+                    'vcan': canInterface
+                },
+                success: function (data) {
+                    console.log('VCAN' + canInterface + ': start sending')
+                    alert('VCAN' + canInterface + ': start sending')
+                },
+                error: (error) => {
+                    console.log(error);
+                }
+                });
+         }
+       }
+       if (actionBtn === 'stop') {
+         if (currentStatusOfInterface.text() === 'Sending') {
+           currentStatusOfInterface.text('Sleep');
+           $.ajax({
             url: '/terminal/'+ canterminal + '/',
             headers: {'X-CSRFToken': getCookie('csrftoken')},
             method: 'POST',
             data: {
                 click: true,
-                'operation': "startsending",
-                'vcan': canInterface
+                'operation': "stopsending"
             },
             success: function (data) {
-                console.log('VCAN' + canInterface + ': start sending')
-                alert('VCAN' + canInterface + ': start sending')
+                console.log('VCAN' + canInterface + ': stop sending')
+                alert('VCAN' + canInterface + ': stop sending')
             },
             error: (error) => {
                 console.log(error);
             }
             });
-     }
-   }
-   if (actionBtn === 'stop') {
-     if (currentStatusOfInterface.text() === 'Sending') {
-       currentStatusOfInterface.text('Sleep');
-       $.ajax({
-        url: '/terminal/'+ canterminal + '/',
-        headers: {'X-CSRFToken': getCookie('csrftoken')},
-        method: 'POST',
-        data: {
-            click: true,
-            'operation': "stopsending"
-        },
-        success: function (data) {
-            console.log('VCAN' + canInterface + ': stop sending')
-            alert('VCAN' + canInterface + ': stop sending')
-        },
-        error: (error) => {
-            console.log(error);
-        }
-        });
-     }
-   }
+         }
+       }
 
-  });
+      });
 
 </script>
 {% endblock terminalsContent %}
