@@ -15,10 +15,11 @@ def base(request):
 
 def terminalPage(request, tmIndex):
     status = None
-    interfaceId = "1"
+    interfaceId = 256
     if request.POST.get('operation') == 'startsending':
         status = 1
-        interfaceId += (str(request.POST.get('vcan')) + str(tmIndex))
+        if request.POST.get('vcan') == 0:
+            interfaceId1 = interfaceId + request.POST.get('vcan')
     if request.POST.get('operation') == 'stopsending':
         status = 0
     print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + "" + str(status))
