@@ -28,7 +28,14 @@
                                 <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan0stopId" name="t {{tmIndex}} vcan 0 stop">Stop</button>
                               </div>
                               <div class="col-xs-2">
-                                <input type="text" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan0"  id="t{{tmIndex}}vcan0value">
+                                <input type="text" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan0"  id="t{{tmIndex}}vcan0value" onInput="updateRangeInput({{tmIndex}}, this, this.value);">
+                                <script type="text/javascript">
+                                  function updateRangeInput(terminalIndex, txtInput, val) {
+                                        var tmIndex = terminalIndex;
+                                        var txtValue = val;
+                                        document.getElementById('customRange3vcan0').value=txtValue;
+                                  }
+                                </script>
                               </div>
                           </div>
                           <div class="col-xs-2">
@@ -39,7 +46,6 @@
                                 var tmIndex = terminalIndex;
                                 var rangeSlider = slider;
                                 var sliderValue = val;
-                                console.log(slider);
                                 document.getElementById('t' + tmIndex + 'vcan0value').value=sliderValue;
                               }
                           </script>
