@@ -34,11 +34,18 @@
                       <td>vcan1</td>
                       <td  id="t{{tmIndex}}statusvacn1">Sleep</td>
                       <td>
-                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan1startId" name="t {{tmIndex}} vcan 1 start">Start</button>
-                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan1stopId" name="t {{tmIndex}} vcan 1 stop">Stop</button>
-                        <input class="form-control" type="text" id="t{{tmIndex}}vcan1value" value="">
-                        <label for="customRange3vcan1" class="form-label"></label>
-                        <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan1" onInput="$('#t{{tmIndex}}vcan1value').html($(this).val())" value="0">
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend" id="button-addon3">
+                                <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan1startId" name="t {{tmIndex}} vcan 1 start">Start</button>
+                                <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan1stopId" name="t {{tmIndex}} vcan 1 stop">Stop</button>
+                              </div>
+                              <input type="text" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3"  id="t{{tmIndex}}vcan1value" value="">
+                              <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="customRange3vcan1" onInput="$('#t{{tmIndex}}vcan1value').html($(this).val())" value="0">
+                          </div>
+<!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan1startId" name="t {{tmIndex}} vcan 1 start">Start</button>-->
+<!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan1stopId" name="t {{tmIndex}} vcan 1 stop">Stop</button>-->
+<!--                        <input class="form-control" type="text" id="t{{tmIndex}}vcan1value" value="">-->
+
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/1/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
