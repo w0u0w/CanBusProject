@@ -29,12 +29,6 @@
                       <td>
 <!--                              <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan0startId" name="t {{tmIndex}} vcan 0 start">Start</button>-->
 <!--                              <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan0stopId" name="t {{tmIndex}} vcan 0 stop">Stop</button>-->
-                          <div class="input-group mb-3">
-                              <div class="input-group-prepend" id="button-addon3vcan0">
-                                <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan0startId" name="t {{tmIndex}} vcan 0 start">Start</button>
-                                <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan0stopId" name="t {{tmIndex}} vcan 0 stop">Stop</button>
-                              </div>
-                          </div>
                           <div class="row">
                               <div class="col col-1">
                                   <p>vcan0</p>
@@ -77,6 +71,12 @@
                               </div>
                               <div class="col col-2">
                                   <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan3"  id="t{{tmIndex}}vcan3value" onInput="updateRangeInput({{tmIndex}}, 3, this.value);">
+                              </div>
+                          </div>
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend" id="button-addon3vcan0">
+                                <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan0startId" name="t {{tmIndex}} vcan 0 start">Start</button>
+                                <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan0stopId" name="t {{tmIndex}} vcan 0 stop">Stop</button>
                               </div>
                           </div>
                       </td>
