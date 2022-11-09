@@ -14,6 +14,13 @@ def base(request):
 
 
 def terminalPage(request, tmIndex):
+    dataFile = []
+    idFrameList = []
+    dlcFrameList = []
+    dataFrameList = []
+
+
+
     status = None
     interfaceId = 256
     if request.POST.get('operation') == 'startsending':
@@ -28,26 +35,6 @@ def terminalPage(request, tmIndex):
         p0 = subprocess.Popen(["/home/www/code/sendcanframe", interfaceId, f"{status}"])
         if status == 0:
             os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
-    context = {
-        'tmIndex': tmIndex
-    }
-    return render(request, 'terminal.html', context)
-
-
-def logs(request, icIndex, tmIndex):
-    context = {
-        'icIndex': icIndex,
-        'tmIndex': tmIndex
-    }
-    return render(request, 'logs.html', context)
-
-
-@csrf_exempt
-def vcan(request, icIndex, tmIndex):
-    dataFile = []
-    idFrameList = []
-    dlcFrameList = []
-    dataFrameList = []
     with open("/home/www/code/data.txt") as f:
         for line in f:
             dataFile.append(line.strip())
@@ -67,9 +54,26 @@ def vcan(request, icIndex, tmIndex):
     all_rows = list(zip(*queue.values()))
     print(all_rows)
     context = {
+        'tmIndex': tmIndex,
+        'all_rows': all_rows
+    }
+    return render(request, 'terminal.html', context)
+
+
+def logs(request, icIndex, tmIndex):
+    context = {
+        'icIndex': icIndex,
+        'tmIndex': tmIndex
+    }
+    return render(request, 'logs.html', context)
+
+
+@csrf_exempt
+def vcan(request, icIndex, tmIndex):
+
+    context = {
         'icIndex': icIndex,
         'tmIndex': tmIndex,
         'interface': 'vcan0', #обязательно поменять
-        'all_rows': all_rows
     }
     return render(request, "vcan0.html", context)
