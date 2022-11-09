@@ -29,7 +29,7 @@ def terminalPage(request, tmIndex):
 
     print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + "" + str(status))
     if status is not None:
-        p0 = subprocess.Popen(["/home/www/code/sendcanframe", tmIndex, f"{status}"])
+        p0 = subprocess.Popen(["/home/www/code/sendcanframe", str(tmIndex), f"{status}"])
         if status == 0:
             os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     with open("/home/www/code/data.txt") as f:
