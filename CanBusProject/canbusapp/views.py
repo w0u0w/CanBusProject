@@ -19,20 +19,17 @@ def terminalPage(request, tmIndex):
     dlcFrameList = []
     dataFrameList = []
 
-
-
     status = None
     interfaceId = 256
+
     if request.POST.get('operation') == 'startsending':
         status = 1
-        if request.POST.get('vcan') == 0:
-            interfaceId1 = interfaceId + request.POST.get('vcan')
     if request.POST.get('operation') == 'stopsending':
         status = 0
+
     print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + "" + str(status))
     if status is not None:
-        print(interfaceId)
-        p0 = subprocess.Popen(["/home/www/code/sendcanframe", interfaceId, f"{status}"])
+        p0 = subprocess.Popen(["/home/www/code/sendcanframe", tmIndex, f"{status}"])
         if status == 0:
             os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     with open("/home/www/code/data.txt") as f:

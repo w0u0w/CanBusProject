@@ -64,7 +64,7 @@ main table tbody tr:last-child {
 }
 
 .table-responsive {
-    max-height:500px;
+    max-height:200px;
 }
 
 h3 #home {
