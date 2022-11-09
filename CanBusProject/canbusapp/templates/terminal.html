@@ -83,142 +83,70 @@
                       <td><a href="/terminal/{{ tmIndex }}/vcan/0/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
 
-<!--                    <tr>-->
-<!--                      <td>vcan1</td>-->
-<!--                      <td  id="t{{tmIndex}}statusvacn1">Sleep</td>-->
-<!--                      <td>-->
-<!--                          <div class="input-group mb-3">-->
-<!--                              <div class="input-group-prepend" id="button-addon3vcan1">-->
-<!--                                <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan1startId" name="t {{tmIndex}} vcan 1 start">Start</button>-->
-<!--                                <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan1stopId" name="t {{tmIndex}} vcan 1 stop">Stop</button>-->
-<!--                              </div>-->
-<!--                          </div>-->
-
-<!--&lt;!&ndash;                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan1startId" name="t {{tmIndex}} vcan 1 start">Start</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan1stopId" name="t {{tmIndex}} vcan 1 stop">Stop</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <input class="form-control" type="text" id="t{{tmIndex}}vcan1value" value="">&ndash;&gt;-->
-<!--                      </td>-->
-<!--                      <td><a href="/terminal/{{ tmIndex }}/vcan/1/" class="text-decoration-none text-reset">Go to logs</a></td>-->
-<!--                    </tr>-->
-
-
-<!--                    <tr>-->
-<!--                      <td>vcan2</td>-->
-<!--                      <td  id="t{{tmIndex}}statusvacn2">Sleep</td>-->
-<!--                      <td>-->
-<!--&lt;!&ndash;                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan2startId" name="t {{tmIndex}} vcan 2 start">Start</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan2stopId" name="t {{tmIndex}} vcan 2 stop">Stop</button>&ndash;&gt;-->
-<!--                        <div class="input-group mb-3">-->
-<!--                          <div class="input-group-prepend" id="button-addon3vcan2">-->
-<!--                            <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan2startId" name="t {{tmIndex}} vcan 2 start">Start</button>-->
-<!--                            <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan2stopId" name="t {{tmIndex}} vcan 2 stop">Stop</button>-->
-<!--                          </div>-->
-<!--                          <div class="col-xs-2">-->
-<!--                            <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan2"  id="t{{tmIndex}}vcan2value" onInput="updateRangeInput({{tmIndex}}, 2, this.value);">-->
-<!--                          </div>-->
-<!--                        </div>-->
-<!--                      </td>-->
-<!--                      <td><a href="/terminal/{{ tmIndex }}/vcan/2/" class="text-decoration-none text-reset">Go to logs</a></td>-->
-<!--                    </tr>-->
-
-<!--                    <tr>-->
-<!--                      <td>vcan3</td>-->
-<!--                      <td  id="t{{tmIndex}}statusvacn3">Sleep</td>-->
-<!--                      <td>-->
-<!--&lt;!&ndash;                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan3startId" name="t {{tmIndex}} vcan 3 start">Start</button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan3stopId" name="t {{tmIndex}} vcan 3 stop">Stop</button>&ndash;&gt;-->
-<!--                        <div class="input-group mb-3">-->
-<!--                          <div class="input-group-prepend" id="button-addon3vcan3">-->
-<!--                            <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan3startId" name="t {{tmIndex}} vcan 3 start">Start</button>-->
-<!--                            <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan3stopId" name="t {{tmIndex}} vcan 3 stop">Stop</button>-->
-<!--                          </div>-->
-<!--                          -->
-<!--                        </div>-->
-<!--                      </td>-->
-<!--                      <td><a href="/terminal/{{ tmIndex }}/vcan/3/" class="text-decoration-none text-reset">Go to logs</a></td>-->
-<!--                    </tr>-->
                     <tr>
-                      <td>vcan4</td>
+                      <td>
+                          <ul class="list-group list-group-flush">
+                              <li class="list-group-item">vcan4</li>
+                              <li class="list-group-item">vcan5</li>
+                              <li class="list-group-item">vcan6</li>
+                              <li class="list-group-item">vcan7</li>
+                          </ul>
+                      </td>
                       <td  id="t{{tmIndex}}statusvacn4">Sleep</td>
                       <td>
 <!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan4startId" name="t {{tmIndex}} vcan 4 start">Start</button>-->
 <!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan4stopId" name="t {{tmIndex}} vcan 4 stop">Stop</button>-->
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend" id="button-addon3vcan4">
-                            <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan4startId" name="t {{tmIndex}} vcan 4 start">Start</button>
-                            <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan4stopId" name="t {{tmIndex}} vcan 4 stop">Stop</button>
+                          <div class="row">
+                              <div class="col col-1">
+                                  <p>vcan4</p>
+                              </div>
+                              <div class="col col-md-5">
+                                  <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan4" onInput="updateTextInput({{tmIndex}}, 4, this.value);" value="0">
+                              </div>
+                              <div class="col col-2">
+                                  <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan4"  id="t{{tmIndex}}vcan4value" onInput="updateRangeInput({{tmIndex}}, 4, this.value);">
+                              </div>
                           </div>
-                          <div class="col-xs-2">
-                            <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan4"  id="t{{tmIndex}}vcan4value" onInput="updateRangeInput({{tmIndex}}, 4, this.value);">
+                          <div class="row">
+                              <div class="col col-1">
+                                  <p>vcan5</p>
+                              </div>
+                              <div class="col col-md-5">
+                                  <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan5" onInput="updateTextInput({{tmIndex}}, 5, this.value);" value="0">
+                              </div>
+                              <div class="col col-2">
+                                  <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan5"  id="t{{tmIndex}}vcan5value" onInput="updateRangeInput({{tmIndex}}, 5, this.value);">
+                              </div>
                           </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan4" onInput="updateTextInput({{tmIndex}}, 4, this.value);" value="0">
-                        </div>
+                          <div class="row">
+                              <div class="col col-1">
+                                  <p>vcan6</p>
+                              </div>
+                              <div class="col col-md-5">
+                                  <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan6" onInput="updateTextInput({{tmIndex}}, 6, this.value);" value="0">
+                              </div>
+                              <div class="col col-2">
+                                  <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan6"  id="t{{tmIndex}}vcan6value" onInput="updateRangeInput({{tmIndex}}, 6, this.value);">
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-1">
+                                  <p>vcan7</p>
+                              </div>
+                              <div class="col col-md-5">
+                                  <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan7" onInput="updateTextInput({{tmIndex}}, 7, this.value);" value="0">
+                              </div>
+                              <div class="col col-2">
+                                  <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan7"  id="t{{tmIndex}}vcan7value" onInput="updateRangeInput({{tmIndex}}, 7, this.value);">
+                              </div>
+                          </div>
+                          <div class="input-group mb-3">
+                              <div class="input-group-prepend" id="button-addon3vcan4">
+                                <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan4startId" name="t {{tmIndex}} vcan 4 start">Start</button>
+                                <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan4stopId" name="t {{tmIndex}} vcan 4 stop">Stop</button>
+                              </div>
+                          </div>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/4/" class="text-decoration-none text-reset">Go to logs</a></td>
-                    </tr>
-                    <tr>
-                      <td>vcan5</td>
-                      <td  id="t{{tmIndex}}statusvacn5">Sleep</td>
-                      <td>
-<!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan5startId" name="t {{tmIndex}} vcan 5 start">Start</button>-->
-<!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan5stopId" name="t {{tmIndex}} vcan 5 stop">Stop</button>-->
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend" id="button-addon3vcan5">
-                            <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan5startId" name="t {{tmIndex}} vcan 5 start">Start</button>
-                            <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan5stopId" name="t {{tmIndex}} vcan 5 stop">Stop</button>
-                          </div>
-                          <div class="col-xs-2">
-                            <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan5"  id="t{{tmIndex}}vcan5value" onInput="updateRangeInput({{tmIndex}}, 5, this.value);">
-                          </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan5" onInput="updateTextInput({{tmIndex}}, 5, this.value);" value="0">
-                        </div>
-                      </td>
-                      <td><a href="/terminal/{{ tmIndex }}/vcan/5/" class="text-decoration-none text-reset">Go to logs</a></td>
-                    </tr>
-                    <tr>
-                      <td>vcan6</td>
-                      <td  id="t{{tmIndex}}statusvacn6">Sleep</td>
-                      <td>
-<!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan6startId" name="t {{tmIndex}} vcan 6 start">Start</button>-->
-<!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan6stopId" name="t {{tmIndex}} vcan 6 stop">Stop</button>-->
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend" id="button-addon3vcan6">
-                            <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan6startId" name="t {{tmIndex}} vcan 6 start">Start</button>
-                            <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan6stopId" name="t {{tmIndex}} vcan 6 stop">Stop</button>
-                          </div>
-                          <div class="col-xs-2">
-                            <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan6"  id="t{{tmIndex}}vcan6value" onInput="updateRangeInput({{tmIndex}}, 6, this.value);">
-                          </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan6" onInput="updateTextInput({{tmIndex}}, 6, this.value);" value="0">
-                        </div>
-                      </td>
-                      <td><a href="/terminal/{{ tmIndex }}/vcan/6/" class="text-decoration-none text-reset">Go to logs</a></td>
-                    </tr>
-                    <tr>
-                      <td>vcan7</td>
-                      <td  id="t{{tmIndex}}statusvacn7">Sleep</td>
-                      <td>
-<!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan7startId" name="t {{tmIndex}} vcan 7 start">Start</button>-->
-<!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan7stopId" name="t {{tmIndex}} vcan 7 stop">Stop</button>-->
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend" id="button-addon3vcan7">
-                            <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan7startId" name="t {{tmIndex}} vcan 7 start">Start</button>
-                            <button class="btn btn-outline-secondary" type="button" id="t{{tmIndex}}vcan7stopId" name="t {{tmIndex}} vcan 7 stop">Stop</button>
-                          </div>
-                          <div class="col-xs-2">
-                            <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan7"  id="t{{tmIndex}}vcan7value" onInput="updateRangeInput({{tmIndex}}, 7, this.value);">
-                          </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan7" onInput="updateTextInput({{tmIndex}}, 7, this.value);" value="0">
-                        </div>
-                      </td>
-                      <td><a href="/terminal/{{ tmIndex }}/vcan/7/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
                   </tbody>
                 </table>
