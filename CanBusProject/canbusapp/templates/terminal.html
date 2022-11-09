@@ -44,29 +44,39 @@
                                   <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan0"  id="t{{tmIndex}}vcan0value" onInput="updateRangeInput({{tmIndex}}, 0, this.value);">
                               </div>
                           </div>
-
-                              <ul class="list-group">
-                                  <li class="list-group-item">
-
-                                  </li>
-                                  <li class="list-group-item">
-                                      <label for="t{{tmIndex}}customRange3vcan1">vcan1</label>
-                                      <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan1" onInput="updateTextInput({{tmIndex}}, 1, this.value);" value="0">
-                                      <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan1"  id="t{{tmIndex}}vcan1value" onInput="updateRangeInput({{tmIndex}}, 1, this.value);">
-                                  </li>
-                                  <li class="list-group-item">
-                                      <label for="t{{tmIndex}}customRange3vcan2">vcan2</label>
-                                      <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan2" onInput="updateTextInput({{tmIndex}}, 2, this.value);" value="0">
-                                      <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan2"  id="t{{tmIndex}}vcan2value" onInput="updateRangeInput({{tmIndex}}, 2, this.value);">
-                                  </li>
-                                  <li class="list-group-item">
-                                      <label for="t{{tmIndex}}customRange3vcan3">vcan3</label>
-                                      <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan3" onInput="updateTextInput({{tmIndex}}, 3, this.value);" value="0">
-                                      <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan3"  id="t{{tmIndex}}vcan3value" onInput="updateRangeInput({{tmIndex}}, 3, this.value);">
-                                  </li>
-                              </ul>
-
-
+                          <div class="row">
+                              <div class="col col-1">
+                                  <p>vcan1</p>
+                              </div>
+                              <div class="col col-md-5">
+                                  <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan1" onInput="updateTextInput({{tmIndex}}, 1, this.value);" value="0">
+                              </div>
+                              <div class="col col-2">
+                                  <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan1"  id="t{{tmIndex}}vcan1value" onInput="updateRangeInput({{tmIndex}}, 1, this.value);">
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-1">
+                                  <p>vcan2</p>
+                              </div>
+                              <div class="col col-md-5">
+                                  <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan2" onInput="updateTextInput({{tmIndex}}, 2, this.value);" value="0">
+                              </div>
+                              <div class="col col-2">
+                                  <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan2"  id="t{{tmIndex}}vcan2value" onInput="updateRangeInput({{tmIndex}}, 2, this.value);">
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col col-1">
+                                  <p>vcan3</p>
+                              </div>
+                              <div class="col col-md-5">
+                                  <input type="range" class="form-range"  min="0" max="100.00" step="0.01" id="t{{tmIndex}}customRange3vcan3" onInput="updateTextInput({{tmIndex}}, 3, this.value);" value="0">
+                              </div>
+                              <div class="col col-2">
+                                  <input type=number step=0.01 min="0" max="100" class="form-control" placeholder="" aria-label="Value" aria-describedby="button-addon3vcan3"  id="t{{tmIndex}}vcan3value" onInput="updateRangeInput({{tmIndex}}, 3, this.value);">
+                              </div>
+                          </div>
                       </td>
                       <td><a href="/terminal/{{ tmIndex }}/vcan/0/" class="text-decoration-none text-reset">Go to logs</a></td>
                     </tr>
