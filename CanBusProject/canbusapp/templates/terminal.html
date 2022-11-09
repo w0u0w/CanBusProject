@@ -91,7 +91,7 @@
                               <li class="list-group-item">vcan7</li>
                           </ul>
                       </td>
-                      <td  class="t{{tmIndex}}statusvcan">Sleep</td>
+                      <td></td>
                       <td>
 <!--                        <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan4startId" name="t {{tmIndex}} vcan 4 start">Start</button>-->
 <!--                        <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan4stopId" name="t {{tmIndex}} vcan 4 stop">Stop</button>-->
@@ -227,7 +227,7 @@
        var canterminal = getTerminalAndInterface[1];
        var actionBtn = getTerminalAndInterface[3];
        var currentStatusOfInterface = $('.t'+ canterminal +'statusvcan');
-       console.log(currentStatusOfInterface);
+       console.log(currentStatusOfInterface.text());
        if (actionBtn === 'start') {
          if (currentStatusOfInterface.text() === 'Sleep') {
            currentStatusOfInterface.text('Sending');
