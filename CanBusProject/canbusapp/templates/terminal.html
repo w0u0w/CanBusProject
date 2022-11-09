@@ -163,7 +163,7 @@
         </div>
     </div>
 
-    <div class="info-send">
+    <div class="log_get">
         <div class="center">
             <table class="table">
                 <thead>
@@ -173,6 +173,10 @@
                         <th>DATA</th>
                     </tr>
                 </thead>
+                <tbody>
+                    {% block tableData %}
+                    {% endblock %}
+                </tbody>
             </table>
         </div>
     </div>
