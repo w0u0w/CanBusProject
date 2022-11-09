@@ -223,6 +223,7 @@
     $(document).on("click", "button", function (event) {
        var clickedBtnName = event.target.name;
        var getTerminalAndInterface = clickedBtnName.split(" ");
+       console.log(getTerminalAndInterface);
        var canterminal = getTerminalAndInterface[1];
        var actionBtn = getTerminalAndInterface[3];
        var currentStatusOfInterface = $('.t'+ canterminal +'statusvcan');
