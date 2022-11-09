@@ -165,24 +165,26 @@
 
     <div class="log_get">
         <div class="center">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>DLC</th>
-                        <th>DATA</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for row in all_rows %}
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
                         <tr>
-                            {% for value in row %}
-                                <td>{{ value }}</td>
-                            {% endfor %}
+                            <th>ID</th>
+                            <th>DLC</th>
+                            <th>DATA</th>
                         </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {% for row in all_rows %}
+                            <tr>
+                                {% for value in row %}
+                                    <td>{{ value }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </main>
