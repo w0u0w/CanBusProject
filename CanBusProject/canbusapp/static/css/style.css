@@ -79,3 +79,15 @@ h3 #home {
 .form-range {
 width: 100% !important;
 }
+
+main .log_get {
+  margin-top: 0.8rem;
+}
+
+main .log_get table{
+  background: white;
+  width: 100%;
+  border-radius:6px;
+  box-shadow: #1a1e21;
+  transition: all 300ms ease;
+}
