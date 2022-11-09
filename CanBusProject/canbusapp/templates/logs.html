@@ -27,15 +27,11 @@
                         </thead>
                         <tbody>
                             <tr>
-                                {{all_rows}}
+                                <td>
+                                    {{}}
+                                </td>
                             </tr>
-                            {% for row in all_rows %}
-                                <tr>
-                                    {% for value in row %}
-                                        <td>{{ value }}</td>
-                                    {% endfor %}
-                                </tr>
-                            {% endfor %}
+                            {
                         </tbody>
                     </table>
                </div>
