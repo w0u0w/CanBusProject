@@ -227,7 +227,7 @@
        var canterminal = getTerminalAndInterface[1];
        var actionBtn = getTerminalAndInterface[3];
        var currentStatusOfInterface = $('.t'+ canterminal +'statusvcan');
-       console.log(actionBtn);
+       console.log(currentStatusOfInterface);
        if (actionBtn === 'start') {
          if (currentStatusOfInterface.text() === 'Sleep') {
            currentStatusOfInterface.text('Sending');
