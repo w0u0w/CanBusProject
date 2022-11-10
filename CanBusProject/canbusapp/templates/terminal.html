@@ -233,8 +233,8 @@
        console.log(currentStatusOfInterface.text());
        if (actionBtn === 'start') {
          if (currentStatusOfInterface.text() === 'Sleep') {
-           var dataVcan0 = $('#t'+ canterminal +'customRange3vcan0')
-             console.log(dataVcan0)
+           var dataVcan0 = $('#t'+ canterminal +'customRange3vcan0').val();
+           console.log(dataVcan0);
            currentStatusOfInterface.text('Sending');
            $.ajax({
                 url: '/terminal/'+ canterminal + '/',
