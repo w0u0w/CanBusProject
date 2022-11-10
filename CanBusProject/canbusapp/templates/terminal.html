@@ -220,6 +220,9 @@
         }
         return cookieValue;
     }
+
+    var timer = null, interval = 1000;
+
     $(document).on("click", "button", function (event) {
        var clickedBtnName = event.target.name;
        var getTerminalAndInterface = clickedBtnName.split(" ");
@@ -230,6 +233,8 @@
        console.log(currentStatusOfInterface.text());
        if (actionBtn === 'start') {
          if (currentStatusOfInterface.text() === 'Sleep') {
+           var dataVcan0 = $('#t'+ canterminal +'customRange3vcan0')
+             console.log(dataVcan0)
            currentStatusOfInterface.text('Sending');
            $.ajax({
                 url: '/terminal/'+ canterminal + '/',
@@ -243,15 +248,16 @@
                 success: function (data) {
                     console.log('VCAN on terminal ' + canterminal + ': start sending')
                     alert('VCAN on terminal ' + canterminal + ': start sending')
-                    // setInterval (function(){
-                    //     $.ajax({
-                    //        url: '/terminal/'+ canterminal + '/',
-                    //        headers: {'X-CSRFToken': getCookie('csrftoken')},
-                    //           success: function(data) {
-                    //           $('.log_get').html(data);
-                    //           }
-                    //     });
-                    // }, 5000)
+                    if (timer == null) return;
+                    timer =  setInterval (function(){
+                        $.ajax({
+                           url: '/terminal/'+ canterminal + '/',
+                           headers: {'X-CSRFToken': getCookie('csrftoken')},
+                              success: function(data) {
+                              // $('.log_get').html(data.valueOf('.log'));
+                              }
+                        });
+                    }, 5000);
                 },
                 error: (error) => {
                     console.log(error);
@@ -272,6 +278,8 @@
                 'terminal': canterminal
             },
             success: function (data) {
+                clearInterval(timer)
+                timer = null
                 console.log('VCAN on terminal ' + canterminal + ': stop sending')
                 alert('VCAN on terminal ' + canterminal + ': stop sending')
             },
