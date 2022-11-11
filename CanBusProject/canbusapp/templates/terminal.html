@@ -234,7 +234,6 @@
        if (actionBtn === 'start') {
          if (currentStatusOfInterface.text() === 'Sleep') {
            var dataVcan0 = $('#t'+ canterminal +'customRange3vcan0').val();
-           console.log(dataVcan0);
            currentStatusOfInterface.text('Sending');
            $.ajax({
                 url: '/terminal/'+ canterminal + '/',
@@ -254,10 +253,10 @@
                            url: '/terminal/'+ canterminal + '/',
                            headers: {'X-CSRFToken': getCookie('csrftoken')},
                               success: function(data) {
-                              // $('.log_get').html(data.valueOf('.log'));
+                              $('.log_get').html(data.valueOf('.log'));
                               }
                         });
-                    }, 5000);
+                    }, 1000);
                 },
                 error: (error) => {
                     console.log(error);
