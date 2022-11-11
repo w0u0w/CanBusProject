@@ -251,8 +251,8 @@
                            headers: {'X-CSRFToken': getCookie('csrftoken')},
                               success: function(data) {
                               // $('.log_get').html(data.valueOf('.log'));
-                                  var dataVcan0 = $('t' + canterminal + 'vcan3value');
-                                  console.log(123);
+                                  var dataVcan0 = $('t' + canterminal + 'vcan3value').val();
+                                  console.log(dataVcan0);
                               }
                         });
                     }, 1000);
