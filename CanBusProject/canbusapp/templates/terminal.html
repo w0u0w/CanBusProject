@@ -226,11 +226,9 @@
     $(document).on("click", "button", function (event) {
        var clickedBtnName = event.target.name;
        var getTerminalAndInterface = clickedBtnName.split(" ");
-       console.log(getTerminalAndInterface);
        var canterminal = getTerminalAndInterface[1];
        var actionBtn = getTerminalAndInterface[3];
        var currentStatusOfInterface = $('.t'+ canterminal +'statusvcan');
-       console.log(currentStatusOfInterface.text());
 
        if (actionBtn === 'start') {
          if (currentStatusOfInterface.text() === 'Sleep') {
@@ -246,7 +244,6 @@
                 },
                 success: function (data) {
                     console.log('VCAN on terminal ' + canterminal + ': start sending')
-                    alert('VCAN on terminal ' + canterminal + ': start sending')
                     if (timer == null) return;
                     timer =  setInterval (function(){
                         $.ajax({
@@ -255,7 +252,7 @@
                               success: function(data) {
                               // $('.log_get').html(data.valueOf('.log'));
                                   var dataVcan0 = $('#t'+ canterminal +'customRange3vcan0').val();
-                                  console.log(dataVcan0);
+                                  console.log($('#t'+ canterminal +'customRange3vcan0'));
                               }
                         });
                     }, 1000);
