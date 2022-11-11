@@ -244,7 +244,7 @@
                 },
                 success: function (data) {
                     console.log('VCAN on terminal ' + canterminal + ': start sending')
-                    if (timer == null) return;
+                    if (timer !== null) return;
                     timer =  setInterval (function(){
                         $.ajax({
                            url: '/terminal/'+ canterminal + '/',
