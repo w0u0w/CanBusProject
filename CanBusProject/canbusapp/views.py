@@ -10,6 +10,7 @@ import random
 
 
 def datatobyte(number):
+    print(number)
     number = number * (65535 / 100)
     return number
 
