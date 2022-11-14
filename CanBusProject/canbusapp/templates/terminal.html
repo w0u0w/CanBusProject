@@ -246,14 +246,14 @@
                     console.log('VCAN on terminal ' + canterminal + ': start sending')
                     if (timer !== null) return;
                     timer =  setInterval (function(){
-                        var dataVcan0 = parseFloat(document.getElementById('t' + canterminal + 'vcan0value').value);
-                        var dataVcan1 = parseFloat(document.getElementById('t' + canterminal + 'vcan1value').value);
-                        var dataVcan2 = parseFloat(document.getElementById('t' + canterminal + 'vcan2value').value);
-                        var dataVcan3 = parseFloat(document.getElementById('t' + canterminal + 'vcan3value').value);
-                        var dataVcan4 = parseFloat(document.getElementById('t' + canterminal + 'vcan4value').value);
-                        var dataVcan5 = parseFloat(document.getElementById('t' + canterminal + 'vcan5value').value);
-                        var dataVcan6 = parseFloat(document.getElementById('t' + canterminal + 'vcan6value').value);
-                        var dataVcan7 = parseFloat(document.getElementById('t' + canterminal + 'vcan7value').value);
+                        var dataVcan0 = $('#t' + canterminal + 'vcan0value').val();
+                        var dataVcan1 = $('#t' + canterminal + 'vcan1value').val();
+                        var dataVcan2 = $('#t' + canterminal + 'vcan2value').val();
+                        var dataVcan3 = $('#t' + canterminal + 'vcan3value').val();
+                        var dataVcan4 = $('#t' + canterminal + 'vcan4value').val();
+                        var dataVcan5 = $('#t' + canterminal + 'vcan5value').val();
+                        var dataVcan6 = $('#t' + canterminal + 'vcan6value').val();
+                        var dataVcan7 = $('#t' + canterminal + 'vcan7value').val();
                         var dataVcanList = [
                               dataVcan0,
                               dataVcan1,
