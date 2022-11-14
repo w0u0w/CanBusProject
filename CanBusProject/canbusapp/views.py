@@ -32,7 +32,7 @@ def terminalPage(request, tmIndex):
         if operation == 'stopsending':
             status = 0
         if operation == 'dataVcanPost':
-            dataVcanList = request.POST.getlist('dataVcan')
+            dataVcanList = request.POST.getlist('dataVcan[]')
             print(dataVcanList)
             vcan0 = datatobyte(dataVcanList[0])
             vcan1 = datatobyte(dataVcanList[1])
