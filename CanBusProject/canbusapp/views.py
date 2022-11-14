@@ -9,6 +9,11 @@ import can
 import random
 
 
+def datatobyte(number):
+    number = number * (65535 / 100)
+    return number
+
+
 def base(request):
     return render(request, 'base.html')
 
@@ -20,18 +25,32 @@ def terminalPage(request, tmIndex):
     dataFrameList = []
 
     status = None
-    interfaceId = 256
 
     if request.POST.get('operation') == 'startsending':
         status = 1
     if request.POST.get('operation') == 'stopsending':
         status = 0
-
-    print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + "" + str(status))
-    if status is not None:
-        p0 = subprocess.Popen(["/home/www/code/sendcanframe", str(tmIndex), f"{status}"])
-        if status == 0:
-            os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
+    if request.POST.get('operation') == 'dataVcanPost':
+        dataVcanList = request.POST.get('dataVcanList')
+        vcan0 = datatobyte(dataVcanList["vcan0"])
+        vcan1 = datatobyte(dataVcanList["vcan1"])
+        vcan2 = datatobyte(dataVcanList["vcan2"])
+        vcan3 = datatobyte(dataVcanList["vcan3"])
+        vcan4 = datatobyte(dataVcanList["vcan4"])
+        vcan5 = datatobyte(dataVcanList["vcan5"])
+        vcan6 = datatobyte(dataVcanList["vcan6"])
+        vcan7 = datatobyte(dataVcanList["vcan7"])
+        print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + "" + str(status))
+        if status is not None:
+            p0 = subprocess.Popen(
+                [
+                    "/home/www/code/testing",
+                    str(tmIndex),
+                    f"{status}",
+                    vcan0, vcan1, vcan2, vcan3, vcan4, vcan5, vcan6, vcan7
+                ])
+            if status == 0:
+                os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     with open("/home/www/code/data.txt") as f:
         for line in f:
             dataFile.append(line.strip())

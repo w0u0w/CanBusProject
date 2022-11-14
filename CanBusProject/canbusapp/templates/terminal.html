@@ -246,31 +246,40 @@
                     console.log('VCAN on terminal ' + canterminal + ': start sending')
                     if (timer !== null) return;
                     timer =  setInterval (function(){
+                        var dataVcan0 = $('#t' + canterminal + 'vcan0value').val();
+                        var dataVcan1 = $('#t' + canterminal + 'vcan1value').val();
+                        var dataVcan2 = $('#t' + canterminal + 'vcan2value').val();
+                        var dataVcan3 = $('#t' + canterminal + 'vcan3value').val();
+                        var dataVcan4 = $('#t' + canterminal + 'vcan4value').val();
+                        var dataVcan5 = $('#t' + canterminal + 'vcan5value').val();
+                        var dataVcan6 = $('#t' + canterminal + 'vcan6value').val();
+                        var dataVcan7 = $('#t' + canterminal + 'vcan7value').val();
+                        var dataVcanList = {
+                          "vcan0": dataVcan0,
+                          "vcan1": dataVcan1,
+                          "vcan2": dataVcan2,
+                          "vcan3": dataVcan3,
+                          "vcan4": dataVcan4,
+                          "vcan5": dataVcan5,
+                          "vcan6": dataVcan6,
+                          "vcan7": dataVcan7,
+                          }
                         $.ajax({
-                           url: '/terminal/'+ canterminal + '/',
                            headers: {'X-CSRFToken': getCookie('csrftoken')},
+                           url: '/terminal/'+ canterminal + '/',
+                           method: 'POST',
+                           data: {
+                                'operation': "dataVcanPost",
+                                'terminal': canterminal,
+                                'dataVcan': dataVcanList
+                            },
                               success: function(data) {
                               // $('.log_get').html(data.valueOf('.log'));
-                                  var dataVcan0 = $('#t' + canterminal + 'vcan0value').val();
-                                  var dataVcan1 = $('#t' + canterminal + 'vcan1value').val();
-                                  var dataVcan2 = $('#t' + canterminal + 'vcan2value').val();
-                                  var dataVcan3 = $('#t' + canterminal + 'vcan3value').val();
-                                  var dataVcan4 = $('#t' + canterminal + 'vcan4value').val();
-                                  var dataVcan5 = $('#t' + canterminal + 'vcan5value').val();
-                                  var dataVcan6 = $('#t' + canterminal + 'vcan6value').val();
-                                  var dataVcan7 = $('#t' + canterminal + 'vcan7value').val();
-                                  var dataVcanList = {
-                                      "vcan0": dataVcan0,
-                                      "vcan1": dataVcan1,
-                                      "vcan2": dataVcan2,
-                                      "vcan3": dataVcan3,
-                                      "vcan4": dataVcan4,
-                                      "vcan5": dataVcan5,
-                                      "vcan6": dataVcan6,
-                                      "vcan7": dataVcan7,
-                                  }
                                   console.log(dataVcanList);
-                              }
+                              },
+                              error: (error) => {
+                                  console.log(error);
+                                }
                         });
                     }, 1000);
                 },
