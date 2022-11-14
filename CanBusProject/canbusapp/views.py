@@ -31,7 +31,7 @@ def terminalPage(request, tmIndex):
     if request.POST.get('operation') == 'stopsending':
         status = 0
     if request.POST.get('operation') == 'dataVcanPost':
-        dataVcanList = request.POST.get('dataVcanList')
+        dataVcanList = request.POST.get('dataVcan')
         print(dataVcanList)
         vcan0 = datatobyte(dataVcanList["vcan0"])
         vcan1 = datatobyte(dataVcanList["vcan1"])
