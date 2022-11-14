@@ -32,6 +32,7 @@ def terminalPage(request, tmIndex):
         status = 0
     if request.POST.get('operation') == 'dataVcanPost':
         dataVcanList = request.POST.get('dataVcanList')
+        print(dataVcanList)
         vcan0 = datatobyte(dataVcanList["vcan0"])
         vcan1 = datatobyte(dataVcanList["vcan1"])
         vcan2 = datatobyte(dataVcanList["vcan2"])
