@@ -25,33 +25,34 @@ def terminalPage(request, tmIndex):
     dataFrameList = []
 
     status = None
-
-    if request.POST.get('operation') == 'startsending':
-        status = 1
-    if request.POST.get('operation') == 'stopsending':
-        status = 0
-    if request.POST.get('operation') == 'dataVcanPost':
-        dataVcanList = request.POST.get('dataVcan')
-        print(dataVcanList)
-        vcan0 = datatobyte(dataVcanList["vcan0"])
-        vcan1 = datatobyte(dataVcanList["vcan1"])
-        vcan2 = datatobyte(dataVcanList["vcan2"])
-        vcan3 = datatobyte(dataVcanList["vcan3"])
-        vcan4 = datatobyte(dataVcanList["vcan4"])
-        vcan5 = datatobyte(dataVcanList["vcan5"])
-        vcan6 = datatobyte(dataVcanList["vcan6"])
-        vcan7 = datatobyte(dataVcanList["vcan7"])
-        print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + "" + str(status))
-        if status is not None:
-            p0 = subprocess.Popen(
-                [
-                    "/home/www/code/testing",
-                    str(tmIndex),
-                    f"{status}",
-                    vcan0, vcan1, vcan2, vcan3, vcan4, vcan5, vcan6, vcan7
-                ])
-            if status == 0:
-                os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
+    if request.method == 'POST':
+        operation = request.POST.get('operation')
+        if operation == 'startsending':
+            status = 1
+        if operation == 'stopsending':
+            status = 0
+        if operation == 'dataVcanPost':
+            dataVcanList = request.POST.get('dataVcan')
+            print(dataVcanList)
+            vcan0 = datatobyte(dataVcanList[0])
+            vcan1 = datatobyte(dataVcanList[1])
+            vcan2 = datatobyte(dataVcanList[2])
+            vcan3 = datatobyte(dataVcanList[3])
+            vcan4 = datatobyte(dataVcanList[4])
+            vcan5 = datatobyte(dataVcanList[5])
+            vcan6 = datatobyte(dataVcanList[6])
+            vcan7 = datatobyte(dataVcanList[7])
+            print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + "" + str(status))
+            if status is not None:
+                p0 = subprocess.Popen(
+                    [
+                        "/home/www/code/testing",
+                        str(tmIndex),
+                        f"{status}",
+                        vcan0, vcan1, vcan2, vcan3, vcan4, vcan5, vcan6, vcan7
+                    ])
+                if status == 0:
+                    os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     with open("/home/www/code/data.txt") as f:
         for line in f:
             dataFile.append(line.strip())

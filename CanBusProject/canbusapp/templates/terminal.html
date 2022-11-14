@@ -254,16 +254,16 @@
                         var dataVcan5 = $('#t' + canterminal + 'vcan5value').val();
                         var dataVcan6 = $('#t' + canterminal + 'vcan6value').val();
                         var dataVcan7 = $('#t' + canterminal + 'vcan7value').val();
-                        var dataVcanList = {
-                          "vcan0": dataVcan0,
-                          "vcan1": dataVcan1,
-                          "vcan2": dataVcan2,
-                          "vcan3": dataVcan3,
-                          "vcan4": dataVcan4,
-                          "vcan5": dataVcan5,
-                          "vcan6": dataVcan6,
-                          "vcan7": dataVcan7,
-                          }
+                        var dataVcanList = [
+                              dataVcan0,
+                              dataVcan1,
+                              dataVcan2,
+                              dataVcan3,
+                              dataVcan4,
+                              dataVcan5,
+                              dataVcan6,
+                              dataVcan7
+                          ]
                         $.ajax({
                            headers: {'X-CSRFToken': getCookie('csrftoken')},
                            url: '/terminal/'+ canterminal + '/',
@@ -305,7 +305,6 @@
                 clearInterval(timer)
                 timer = null
                 console.log('VCAN on terminal ' + canterminal + ': stop sending')
-                alert('VCAN on terminal ' + canterminal + ': stop sending')
             },
             error: (error) => {
                 console.log(error);
