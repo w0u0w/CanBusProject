@@ -246,14 +246,14 @@
                     console.log('VCAN on terminal ' + canterminal + ': start sending')
                     if (timer !== null) return;
                     timer =  setInterval (function(){
-                        var dataVcan0 = document.getElementById('t' + canterminal + 'vcan0value').value;
-                        var dataVcan1 = document.getElementById('t' + canterminal + 'vcan1value').value;
-                        var dataVcan2 = document.getElementById('t' + canterminal + 'vcan2value').value;
-                        var dataVcan3 = document.getElementById('t' + canterminal + 'vcan3value').value;
-                        var dataVcan4 = document.getElementById('t' + canterminal + 'vcan4value').value;
-                        var dataVcan5 = document.getElementById('t' + canterminal + 'vcan5value').value;
-                        var dataVcan6 = document.getElementById('t' + canterminal + 'vcan6value').value;
-                        var dataVcan7 = document.getElementById('t' + canterminal + 'vcan7value').value;
+                        var dataVcan0 = parseFloat(document.getElementById('t' + canterminal + 'vcan0value').value);
+                        var dataVcan1 = parseFloat(document.getElementById('t' + canterminal + 'vcan1value').value);
+                        var dataVcan2 = parseFloat(document.getElementById('t' + canterminal + 'vcan2value').value);
+                        var dataVcan3 = parseFloat(document.getElementById('t' + canterminal + 'vcan3value').value);
+                        var dataVcan4 = parseFloat(document.getElementById('t' + canterminal + 'vcan4value').value);
+                        var dataVcan5 = parseFloat(document.getElementById('t' + canterminal + 'vcan5value').value);
+                        var dataVcan6 = parseFloat(document.getElementById('t' + canterminal + 'vcan6value').value);
+                        var dataVcan7 = parseFloat(document.getElementById('t' + canterminal + 'vcan7value').value);
                         var dataVcanList = [
                               dataVcan0,
                               dataVcan1,
