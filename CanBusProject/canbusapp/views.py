@@ -9,12 +9,6 @@ import can
 import random
 
 
-def datatobyte(number):
-    print(number)
-    number = number * (65535 / 100)
-    return number
-
-
 def base(request):
     return render(request, 'base.html')
 
@@ -35,26 +29,25 @@ def terminalPage(request, tmIndex):
         if operation == 'dataVcanPost':
             dataVcanList = request.POST.getlist('dataVcan[]')
             print(dataVcanList)
-            vcan0 = datatobyte(dataVcanList[0])
-            vcan1 = datatobyte(dataVcanList[1])
-            vcan2 = datatobyte(dataVcanList[2])
-            vcan3 = datatobyte(dataVcanList[3])
-            vcan4 = datatobyte(dataVcanList[4])
-            vcan5 = datatobyte(dataVcanList[5])
-            vcan6 = datatobyte(dataVcanList[6])
-            vcan7 = datatobyte(dataVcanList[7])
+            vcan0 = (dataVcanList[0])
+            vcan1 = (dataVcanList[1])
+            vcan2 = (dataVcanList[2])
+            vcan3 = (dataVcanList[3])
+            vcan4 = (dataVcanList[4])
+            vcan5 = (dataVcanList[5])
+            vcan6 = (dataVcanList[6])
+            vcan7 = (dataVcanList[7])
             # print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + "" + str(status))
             if status is not None:
-                pass
-                # p0 = subprocess.Popen(
-                #     [
-                #         "/home/www/code/testing",
-                #         str(tmIndex),
-                #         f"{status}",
-                #         vcan0, vcan1, vcan2, vcan3, vcan4, vcan5, vcan6, vcan7
-                #     ])
-                # if status == 0:
-                #     os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
+                p0 = subprocess.Popen(
+                    [
+                        "/home/www/code/testing",
+                        str(tmIndex),
+                        f"{status}",
+                        vcan0, vcan1, vcan2, vcan3, vcan4, vcan5, vcan6, vcan7
+                    ])
+                if status == 0:
+                    os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     with open("/home/www/code/data.txt") as f:
         for line in f:
             dataFile.append(line.strip())
