@@ -27,7 +27,7 @@ def terminalPage(request, tmIndex):
         if operation == 'stopsending':
             status = 0
         if operation == 'dataVcanPost':
-            dataVcanList = request.POST.getlist('dataVcan')
+            dataVcanList = request.POST.getlist('dataVcan[]')
             vcan0 = (dataVcanList[0])
             vcan1 = (dataVcanList[1])
             vcan2 = (dataVcanList[2])
