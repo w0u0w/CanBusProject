@@ -45,7 +45,7 @@ def terminalPage(request, tmIndex):
             #         str(status),
             #         vcan0, vcan1, vcan2, vcan3, vcan4, vcan5, vcan6, vcan7
             #     ])
-            call(["/home/www/code/testing", str(tmIndex), str(status), vcan0, vcan1, vcan2, vcan3, vcan4, vcan5, vcan6, vcan7])
+            call(["/home/www/code/testing", str(tmIndex), str(status), str(vcan0), str(vcan1), str(vcan2), str(vcan3), str(vcan4), str(vcan5), str(vcan6), str(vcan7)])
             # print('exit status code:', p0.returncode)
             # if status == 0:
             #     os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
