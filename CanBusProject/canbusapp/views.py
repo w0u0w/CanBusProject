@@ -28,14 +28,14 @@ def terminalPage(request, tmIndex):
             status = 0
         if operation == 'dataVcanPost':
             dataVcanList = request.POST.getlist('dataVcan[]')
-            vcan0 = dataVcanList[0]
-            vcan1 = dataVcanList[1]
-            vcan2 = dataVcanList[2]
-            vcan3 = dataVcanList[3]
-            vcan4 = dataVcanList[4]
-            vcan5 = dataVcanList[5]
-            vcan6 = dataVcanList[6]
-            vcan7 = dataVcanList[7]
+            vcan0 = int(dataVcanList[0])
+            vcan1 = int(dataVcanList[1])
+            vcan2 = int(dataVcanList[2])
+            vcan3 = int(dataVcanList[3])
+            vcan4 = int(dataVcanList[4])
+            vcan5 = int(dataVcanList[5])
+            vcan6 = int(dataVcanList[6])
+            vcan7 = int(dataVcanList[7])
             # print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + "" + str(status))
             print(vcan0)
             # p0 = subprocess.Popen(
