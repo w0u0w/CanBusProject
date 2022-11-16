@@ -45,6 +45,7 @@ def terminalPage(request, tmIndex):
                     str(status),
                     vcan0, vcan1, vcan2, vcan3, vcan4, vcan5, vcan6, vcan7
                 ])
+            print('exit status code:', p0.returncode)
             if status == 0:
                 os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     with open("/home/www/code/data.txt") as f:
