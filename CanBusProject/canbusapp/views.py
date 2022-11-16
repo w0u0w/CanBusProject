@@ -38,16 +38,17 @@ def terminalPage(request, tmIndex):
             vcan7 = dataVcanList[7]
             # print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + "" + str(status))
             print(vcan0)
-            p0 = subprocess.Popen(
-                [
-                    "/home/www/code/testing",
-                    str(tmIndex),
-                    str(status),
-                    vcan0, vcan1, vcan2, vcan3, vcan4, vcan5, vcan6, vcan7
-                ])
-            print('exit status code:', p0.returncode)
-            if status == 0:
-                os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
+            # p0 = subprocess.Popen(
+            #     [
+            #         "/home/www/code/testing",
+            #         str(tmIndex),
+            #         str(status),
+            #         vcan0, vcan1, vcan2, vcan3, vcan4, vcan5, vcan6, vcan7
+            #     ])
+            call(["./testing", str(tmIndex), str(status), vcan0, vcan1, vcan2, vcan3, vcan4, vcan5, vcan6, vcan7])
+            # print('exit status code:', p0.returncode)
+            # if status == 0:
+            #     os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     with open("/home/www/code/data.txt") as f:
         for line in f:
             dataFile.append(line.strip())
