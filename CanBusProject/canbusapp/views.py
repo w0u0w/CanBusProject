@@ -37,6 +37,7 @@ def terminalPage(request, tmIndex):
             vcan6 = (dataVcanList[6])
             vcan7 = (dataVcanList[7])
             # print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + "" + str(status))
+            print(vcan0)
             p0 = subprocess.Popen(
                 [
                     "/home/www/code/testing",
