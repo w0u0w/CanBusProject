@@ -42,7 +42,7 @@ def terminalPage(request, tmIndex):
                 [
                     "/home/www/code/testing",
                     str(tmIndex),
-                    1,
+                    str(status),
                     vcan0, vcan1, vcan2, vcan3, vcan4, vcan5, vcan6, vcan7
                 ])
             if status == 0:
