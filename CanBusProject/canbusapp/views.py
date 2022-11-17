@@ -12,7 +12,7 @@ import random
 def calcBytes(dataFromPage):
     res = float(dataFromPage) * 655.35
     print(res)
-    return res
+    return str(res)
 
 def base(request):
     return render(request, 'base.html')
