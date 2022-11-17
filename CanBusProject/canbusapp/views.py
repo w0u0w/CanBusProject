@@ -10,8 +10,7 @@ import random
 
 
 def calcBytes(dataFromPage):
-    print(type(dataFromPage))
-    res = dataFromPage * 655.35
+    res = float(dataFromPage) * 655.35
     print(res)
 
 def base(request):
