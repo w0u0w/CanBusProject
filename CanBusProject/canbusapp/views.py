@@ -12,6 +12,7 @@ import random
 def calcBytes(dataFromPage):
     res = float(dataFromPage) * 655.35
     print(res)
+    return res
 
 def base(request):
     return render(request, 'base.html')
@@ -33,14 +34,14 @@ def terminalPage(request, tmIndex):
         if operation == 'dataVcanPost':
             dataVcanList = request.POST.getlist('dataVcan[]')
             calcBytes(dataVcanList[0])
-            vcan0 = dataVcanList[0]
-            vcan1 = dataVcanList[1]
-            vcan2 = dataVcanList[2]
-            vcan3 = dataVcanList[3]
-            vcan4 = dataVcanList[4]
-            vcan5 = dataVcanList[5]
-            vcan6 = dataVcanList[6]
-            vcan7 = dataVcanList[7]
+            vcan0 = calcBytes(dataVcanList[0])
+            vcan1 = calcBytes(dataVcanList[1])
+            vcan2 = calcBytes(dataVcanList[2])
+            vcan3 = calcBytes(dataVcanList[3])
+            vcan4 = calcBytes(dataVcanList[4])
+            vcan5 = calcBytes(dataVcanList[5])
+            vcan6 = calcBytes(dataVcanList[6])
+            vcan7 = calcBytes(dataVcanList[7])
             p0 = subprocess.Popen(
                 [
                     "/home/www/code/testing",
