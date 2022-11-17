@@ -9,6 +9,10 @@ import can
 import random
 
 
+def calcBytes(dataFromPage):
+    res = dataFromPage * 655.35
+    print(res)
+
 def base(request):
     return render(request, 'base.html')
 
@@ -36,8 +40,6 @@ def terminalPage(request, tmIndex):
             vcan5 = dataVcanList[5]
             vcan6 = dataVcanList[6]
             vcan7 = dataVcanList[7]
-            # print("TERMINAL" + str(tmIndex) + ": STATUS OF INTERFACE VCAN" + "" + str(status))
-            print(vcan0)
             p0 = subprocess.Popen(
                 [
                     "/home/www/code/testing",
