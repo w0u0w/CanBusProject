@@ -277,9 +277,8 @@
                               success: function(data) {
                                   var old_table_data = $('.log_get');
                                   var htmlObject = $(data);
-                                  var new_table_data = htmlObject.find('.log_get').html();
-                                  //ffff
-                                  old_table_data.innerHTML = new_table_data;
+                                  old_table_data.innerHTML = htmlObject.find('.log_get').html();
+                                  console.log(old_table_data.innerHTML);
                                   console.log(dataVcanList);
                               },
                               error: (error) => {
