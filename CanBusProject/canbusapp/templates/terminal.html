@@ -267,8 +267,8 @@
                         var old_table_data = $('.log_get');
                         var htmlObject = $(data);
                         old_table_data.innerHTML = htmlObject.find('.log_get').html();
-                        // console.log(old_table_data.innerHTML);
-                        console.log(dataVcanList);
+                        console.log(old_table_data.innerHTML);
+                        // console.log(dataVcanList);
                         $.ajax({
                            headers: {'X-CSRFToken': getCookie('csrftoken')},
                            url: '/terminal/'+ canterminal + '/',
