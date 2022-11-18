@@ -264,10 +264,9 @@
                               dataVcan6,
                               dataVcan7
                         ]
-                        var old_table_data = $('.log_get');
-                        var htmlObject = $(data);
-                        htmlObject.find('.log_get').html();
-
+                        // var old_table_data = $('.log_get');
+                        // var htmlObject = $(data);
+                        $('.log_get').html($(data).find('.log_get').html());
                         // console.log(dataVcanList);
                         $.ajax({
                            headers: {'X-CSRFToken': getCookie('csrftoken')},
