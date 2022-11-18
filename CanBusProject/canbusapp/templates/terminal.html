@@ -275,17 +275,18 @@
                                 'dataVcan': dataVcanList
                             },
                               success: function(data) {
-                                  var old_table_data = $('.log_get');
-                                  var htmlObject = $(data);
-                                  old_table_data.innerHTML = htmlObject.find('.log_get').html();
-                                  console.log(old_table_data.innerHTML);
+                                  // var old_table_data = $('.log_get');
+                                  // var htmlObject = $(data);
+                                  // old_table_data.innerHTML = htmlObject.find('.log_get').html();
+                                  // console.log(old_table_data.innerHTML);
+
                                   console.log(dataVcanList);
                               },
                               error: (error) => {
                                   console.log(error);
                                 }
                         });
-                    }, 1000);
+                    }, 500);
                 },
                 error: (error) => {
                     console.log(error);
