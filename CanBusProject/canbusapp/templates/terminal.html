@@ -279,7 +279,7 @@
                             },
                               success: function(data) {
 
-                                  $('.log_get').html($(data).find('.log_get').html());
+                                  $('.log_get').html($(data).find('.log_get').children('tbody').html());
                                   console.log(dataVcanList);
                               },
                               error: (error) => {
