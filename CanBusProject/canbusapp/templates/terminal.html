@@ -221,7 +221,7 @@
         return cookieValue;
     }
 
-    var timer = null, interval = 1000;
+    var timer = null, interval = 500;
 
     $(document).on("click", "button", function (event) {
        var clickedBtnName = event.target.name;
@@ -264,6 +264,10 @@
                               dataVcan6,
                               dataVcan7
                         ]
+                        var old_table_data = $('.log_get');
+                        var htmlObject = $(data);
+                        old_table_data.innerHTML = htmlObject.find('.log_get').html();
+                        // console.log(old_table_data.innerHTML);
                         console.log(dataVcanList);
                         $.ajax({
                            headers: {'X-CSRFToken': getCookie('csrftoken')},
@@ -275,10 +279,7 @@
                                 'dataVcan': dataVcanList
                             },
                               success: function(data) {
-                                  // var old_table_data = $('.log_get');
-                                  // var htmlObject = $(data);
-                                  // old_table_data.innerHTML = htmlObject.find('.log_get').html();
-                                  // console.log(old_table_data.innerHTML);
+
 
                                   console.log(dataVcanList);
                               },
@@ -286,7 +287,7 @@
                                   console.log(error);
                                 }
                         });
-                    }, 500);
+                    }, interval);
                 },
                 error: (error) => {
                     console.log(error);
