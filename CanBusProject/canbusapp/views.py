@@ -33,20 +33,20 @@ def terminalPage(request, tmIndex):
         if operation == 'dataVcanPost':
             dataVcanList = request.POST.getlist('dataVcan[]')
             calcBytes(dataVcanList[0])
-            vcan0 = calcBytes(dataVcanList[0])
-            vcan1 = calcBytes(dataVcanList[1])
-            vcan2 = calcBytes(dataVcanList[2])
-            vcan3 = calcBytes(dataVcanList[3])
-            vcan4 = calcBytes(dataVcanList[4])
-            vcan5 = calcBytes(dataVcanList[5])
-            vcan6 = calcBytes(dataVcanList[6])
-            vcan7 = calcBytes(dataVcanList[7])
+            module0 = calcBytes(dataVcanList[0])
+            module1 = calcBytes(dataVcanList[1])
+            module2 = calcBytes(dataVcanList[2])
+            module3 = calcBytes(dataVcanList[3])
+            module4 = calcBytes(dataVcanList[4])
+            module5 = calcBytes(dataVcanList[5])
+            module6 = calcBytes(dataVcanList[6])
+            module7 = calcBytes(dataVcanList[7])
             p0 = subprocess.Popen(
                 [
                     "/home/www/code/testing",
                     str(tmIndex),
                     "1",
-                    vcan0, vcan1, vcan2, vcan3, vcan4, vcan5, vcan6, vcan7
+                    module0, module1, module2, module3, module4, module5, module6, module7
                 ])
             # call(["/home/www/code/testing", str(tmIndex), str(status), str(vcan0), str(vcan1), str(vcan2), str(vcan3), str(vcan4), str(vcan5), str(vcan6), str(vcan7)])
             # print('exit status code:', p0.returncode)
