@@ -275,7 +275,10 @@
                                 'dataVcan': dataVcanList
                             },
                               success: function(data) {
-
+                                  var old_table_data = $('.log_get');
+                                  var htmlObject = $(data);
+                                  var new_table_data = htmlObject.find('.log_get').html();
+                                  old_table_data.innerHTML = new_table_data;
                                   console.log(dataVcanList);
                               },
                               error: (error) => {
