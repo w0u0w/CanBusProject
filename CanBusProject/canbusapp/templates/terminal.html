@@ -275,7 +275,7 @@
                                 'dataVcan': dataVcanList
                             },
                               success: function(data) {
-                              // $('.log_get').html(data.valueOf('.log'));
+
                                   console.log(dataVcanList);
                               },
                               error: (error) => {
@@ -305,6 +305,7 @@
             success: function (data) {
                 clearInterval(timer)
                 timer = null
+                $('.log_get').html(data)
                 console.log('VCAN on terminal ' + canterminal + ': stop sending')
             },
             error: (error) => {

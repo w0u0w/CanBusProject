@@ -11,7 +11,6 @@ import random
 
 def calcBytes(dataFromPage):
     res = float(dataFromPage) * 655.35
-    print(res)
     return str(res)
 
 def base(request):
@@ -53,7 +52,7 @@ def terminalPage(request, tmIndex):
             # print('exit status code:', p0.returncode)
             if status == 0:
                 os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
-    with open("/home/www/code/data.txt") as f:
+    with open("/home/www/code/data2.txt") as f:
         for line in f:
             dataFile.append(line.strip())
     for line in dataFile:
