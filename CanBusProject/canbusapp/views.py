@@ -26,6 +26,8 @@ def terminalPage(request, tmIndex):
         operation = request.POST.get('operation')
         if operation == 'startsending':
             status = 1
+            p1 = subprocess.Popen(["/home/www/code/cleardata"])
+            os.killpg(os.getpgid(p1.pid), signal.SIGTERM)
         if operation == 'stopsending':
             status = 0
         if operation == 'dataVcanPost':
@@ -75,14 +77,3 @@ def logs(request, icIndex, tmIndex):
         'tmIndex': tmIndex
     }
     return render(request, 'logs.html', context)
-
-
-@csrf_exempt
-def vcan(request, icIndex, tmIndex):
-
-    context = {
-        'icIndex': icIndex,
-        'tmIndex': tmIndex,
-        'interface': 'vcan0', #обязательно поменять
-    }
-    return render(request, "vcan0.html", context)
