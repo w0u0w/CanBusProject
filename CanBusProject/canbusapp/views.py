@@ -15,6 +15,7 @@ def base(request):
 
 
 def terminalPage(request, tmIndex):
+    tmfromlog = []
     dataFile = []
     idFrameList = []
     dlcFrameList = []
@@ -43,9 +44,10 @@ def terminalPage(request, tmIndex):
             module7 = calcBytes(dataVcanList[7])
             p0 = subprocess.Popen(
                 [
-                    "/home/www/code/testing",
+                    "/home/www/code/test2",
                     str(tmIndex),
                     "1",
+                    "2",
                     module0, module1, module2, module3, module4, module5, module6, module7
                 ])
             if status == 0:
@@ -55,9 +57,10 @@ def terminalPage(request, tmIndex):
             dataFile.append(line.strip())
     for line in dataFile:
         s1 = line.strip().split("#")
-        idFrameList.append(s1[0])
-        dlcFrameList.append(s1[1])
-        dataFrameList.append(s1[2])
+        if s1[0] == tmIndex:
+            idFrameList.append(s1[1])
+            dlcFrameList.append(s1[2])
+            dataFrameList.append(s1[3])
     queue = {
         'idList': idFrameList,
         'dlcList': dlcFrameList,
