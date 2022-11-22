@@ -58,7 +58,7 @@ def terminalPage(request, tmIndex):
     for line in dataFile:
         s1 = line.strip().split("#")
         print(s1[0], tmIndex)
-        if s1[0] == tmIndex:
+        if str(s1[0]) == str(tmIndex):
             idFrameList.append(s1[1])
             dlcFrameList.append(s1[2])
             dataFrameList.append(s1[3])
