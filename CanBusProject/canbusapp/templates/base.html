@@ -74,7 +74,7 @@
 </body>
 <script type="text/javascript">
     const itemList = document.querySelector(".dropdown-menu");
-    const item = localStorage.getItem('newlink') || [];
+    const items = [];
     function displayItems(items, itemList) {
         itemList.innerHTML = item
     }
@@ -82,9 +82,7 @@
     {
        var termIndexVal =  $("#terminal-nunmber").val();
        var newstr = "<li><a class=\"dropdown-item\" id=\"tm" + termIndexVal + "\" href=\"/terminal/" + termIndexVal + "/\">TM" + termIndexVal + "</a></li>"
-       localStorage.setItem("newlink", newstr.toString());
-       displayItems(item, itemList);
-       this.reset();
+       localStorage.setItem("newlink" + termIndexVal, newstr.toString());
     });
 
     displayItems(item, itemList)
