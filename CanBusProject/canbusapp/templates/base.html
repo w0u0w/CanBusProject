@@ -74,9 +74,7 @@
 <script type="text/javascript">
     $("#addterminalbtn").click(function()
     {
-        var newstr = "<p>Test</p>"
-       $( newstr ).insertBefore( "#addtermlink" );
-
+       var newstr = "<p>Test</p>"
        if (localStorage.appendedItem)
         {
             localStorage.appendedItem+=newstr;
@@ -85,5 +83,6 @@
         {
             localStorage.appendedItem=newstr;
         }
+        $(localStorage.appendedItem).insertBefore( "#addtermlink" );
     });
 </script>
