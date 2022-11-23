@@ -75,8 +75,13 @@
 <script type="text/javascript">
     const itemList = document.querySelector(".dropdown-menu");
     const item = localStorage.getItem('newlink') || [];
-    function displayItems(item, itemList) {
-        itemList.innerHTML = item
+    function displayItems(items, itemList) {
+        itemList.innerHTML = items.map((item, index) => {
+            return `<li>
+                    <label>${item.text}</label>
+                    </li>`
+
+        })
     }
     $("#addterminalbtn").click(function()
     {
@@ -84,7 +89,7 @@
        var newstr = "<li><a class=\"dropdown-item\" id=\"tm" + termIndexVal + "\" href=\"/terminal/" + termIndexVal + "/\">TM" + termIndexVal + "</a></li>"
        localStorage.setItem("newlink", newstr.toString());
        displayItems(item, itemList);
-
+       this.reset();
     });
 
     displayItems(item, itemList)
