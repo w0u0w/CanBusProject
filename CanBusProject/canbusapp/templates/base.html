@@ -74,17 +74,17 @@
 </body>
 <script type="text/javascript">
     const itemList = document.querySelector(".dropdown-menu");
-    const item = localStorage.getItem('items') || [];
+    const item = localStorage.getItem('newlink') || [];
     function displayItems(item, itemList) {
         itemList.innerHTML = item
     }
     $("#addterminalbtn").click(function()
     {
        var termIndexVal =  $("#terminal-nunmber").val();
-       console.log(termIndexVal)
        var newstr = "<li><a class=\"dropdown-item\" id=\"tm" + termIndexVal + "\" href=\"/terminal/" + termIndexVal + "/\">TM" + termIndexVal + "</a></li>"
        localStorage.setItem("newlink", newstr.toString());
        displayItems(item, itemList);
+
     });
 
     displayItems(item, itemList)
