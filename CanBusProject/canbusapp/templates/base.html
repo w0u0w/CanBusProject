@@ -77,6 +77,8 @@
     const item = localStorage.getItem("newlink")
     $("#addterminalbtn").click(function()
     {
+       var termIndexVal =  $("#terminal-nunmber").text().val();
+       console.log(termIndexVal)
        var newstr = "<li><a class=\"dropdown-item\" id=\"tm1\" href=\"/terminal/1/\">TM1</a></li>"
        localStorage.setItem("newlink", newstr.toString())
     });
