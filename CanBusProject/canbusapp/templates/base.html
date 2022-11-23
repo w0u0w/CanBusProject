@@ -83,7 +83,10 @@
             console.log(key, value);
             const nodeList = document.createElement("li");
             const nodeA = document.createElement("a");
-            const nodeName = document.createTextNode("TM" + key);
+            nodeA.className = 'dropdown-item';
+            nodeA.id = "tm" + (i+1)
+            nodeA.hreflang = "/terminal/" + (i + 1) + "/";
+            const nodeName = document.createTextNode("TM" + (i + 1));
             nodeA.appendChild(nodeName);
             nodeList.appendChild(nodeA);
             itemList.appendChild(nodeList);
