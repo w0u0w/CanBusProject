@@ -81,7 +81,7 @@
        localStorage.setItem("newlink", newstr.toString())
     });
     function displayItems(item, itemList) {
-        itemList.innerHTML = $(localStorage.getItem(item)).innerHTML;
+        itemList.innerHTML = item
     }
     displayItems(item, itemList)
 </script>
