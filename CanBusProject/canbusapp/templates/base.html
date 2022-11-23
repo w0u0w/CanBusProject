@@ -80,8 +80,7 @@
        localStorage.setItem("newlink", newstr.toString())
     });
     function displayItems(item, itemList) {
-        // itemList.innerHTML = item
-        $(localStorage.getItem(item)).insertBefore( "#addtermlink" );
+        itemList.innerHTML = $(localStorage.getItem(item)).insertBefore( "#addtermlink" );
     }
     displayItems(item, itemList)
 </script>
