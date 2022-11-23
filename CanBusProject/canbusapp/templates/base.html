@@ -81,7 +81,8 @@
             const key = localStorage.key(i);
             const value = localStorage.getItem(key);
             console.log(key, value);
-            itemList.appendChild(value);
+            const node = document.createElement(value);
+            itemList.appendChild(node);
         }
     }
     $("#addterminalbtn").click(function()
