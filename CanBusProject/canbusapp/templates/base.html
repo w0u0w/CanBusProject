@@ -78,10 +78,10 @@
     {
        var newstr = "<p>Test</p>"
        localStorage.setItem("newlink", newstr.toString())
-        $(localStorage.getItem("newlink")).insertBefore( "#addtermlink" );
     });
     function displayItems(item, itemList) {
-        itemList.innerHTML = item
+        // itemList.innerHTML = item
+        $(localStorage.getItem(item)).insertBefore( "#addtermlink" );
     }
     displayItems(item, itemList)
 </script>
