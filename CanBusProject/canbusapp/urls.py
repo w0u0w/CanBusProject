@@ -4,7 +4,7 @@ from . import views
 
 
 class TerminalChecker:
-    regex = '[1-2]'
+    regex = '[1-10]'
 
     def to_python(self, value):
         return int(value)
