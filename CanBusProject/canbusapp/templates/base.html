@@ -95,7 +95,7 @@
     $("#addterminalbtn").click(function()
     {
        var termIndexVal =  $("#terminal-nunmber").val();
-       //var newstr = "<li><a class=\"dropdown-item\" id=\"tm" + termIndexVal + "\" href=\"/terminal/" + termIndexVal + "/\">TM" + termIndexVal + "</a></li>"
+       var newstr = "<li><a class=\"dropdown-item\" id=\"tm" + termIndexVal + "\" href=\"/terminal/" + termIndexVal + "/\">TM" + termIndexVal + "</a></li>"
        localStorage.setItem("newlink" + termIndexVal, newstr.toString());
     });
 
