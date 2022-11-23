@@ -76,12 +76,7 @@
     const itemList = document.querySelector(".dropdown-menu");
     const item = localStorage.getItem('newlink') || [];
     function displayItems(items, itemList) {
-        itemList.innerHTML = items.map((item, index) => {
-            return `<li>
-                    <label>${item.text}</label>
-                    </li>`
-
-        })
+        itemList.innerHTML = item
     }
     $("#addterminalbtn").click(function()
     {
