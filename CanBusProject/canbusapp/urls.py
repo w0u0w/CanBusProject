@@ -30,5 +30,5 @@ register_converter(TerminalChecker, 'ic')
 
 urlpatterns = [
     path('', views.base, name='base'),
-    path('terminal/<tm:tmIndex>/', views.terminalPage, name='terminalNumber'),
+    path('terminal/<int:tmIndex>/', views.terminalPage, name='terminalNumber'),
     ]
