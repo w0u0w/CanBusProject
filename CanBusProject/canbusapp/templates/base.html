@@ -84,8 +84,8 @@
             const nodeList = document.createElement("li");
             const nodeA = document.createElement("a");
             nodeA.className = 'dropdown-item';
-            nodeA.id = "tm" + (i+1)
-            nodeA.hreflang = "/terminal/" + (i + 1) + "/";
+            nodeA.id = "tm" + (i+1);
+            nodeA.setAttribute('href', "/terminal/" + (i + 1) + "/");
             const nodeName = document.createTextNode("TM" + (i + 1));
             nodeA.appendChild(nodeName);
             nodeList.appendChild(nodeA);
@@ -95,7 +95,7 @@
     $("#addterminalbtn").click(function()
     {
        var termIndexVal =  $("#terminal-nunmber").val();
-       var newstr = "<li><a class=\"dropdown-item\" id=\"tm" + termIndexVal + "\" href=\"/terminal/" + termIndexVal + "/\">TM" + termIndexVal + "</a></li>"
+       //var newstr = "<li><a class=\"dropdown-item\" id=\"tm" + termIndexVal + "\" href=\"/terminal/" + termIndexVal + "/\">TM" + termIndexVal + "</a></li>"
        localStorage.setItem("newlink" + termIndexVal, newstr.toString());
     });
 
