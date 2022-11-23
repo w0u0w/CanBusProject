@@ -81,9 +81,7 @@
         $(localStorage.getItem("newlink")).insertBefore( "#addtermlink" );
     });
     function displayItems(item, itemList) {
-        itemList.innerHTML = item.map((item, index) => {
-            return `<li><a class="dropdown-item" id="tm1" href="/terminal/1/">1</a></li>`
-        })
+        itemList.innerHTML = item
     }
     displayItems(item, itemList)
 </script>
