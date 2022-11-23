@@ -75,14 +75,7 @@
     $("#addterminalbtn").click(function()
     {
        var newstr = "<p>Test</p>"
-       if (localStorage.appendedItem)
-        {
-            localStorage.appendedItem+=newstr;
-        }
-        else
-        {
-            localStorage.appendedItem=newstr;
-        }
-        $(localStorage.appendedItem).insertBefore( "#addtermlink" );
+       localStorage.setItem("newlink", newstr.toString())
+        $(localStorage.getItem("newlink")).insertBefore( "#addtermlink" );
     });
 </script>
