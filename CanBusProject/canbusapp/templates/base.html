@@ -83,8 +83,7 @@
        localStorage.setItem("newlink", newstr.toString())
     });
     function displayItems(item, itemList) {
-        itemList.innerHTML = item
-        itemList.innerHTML.reset();
+        itemList.innerHTML = item.join('')
     }
     displayItems(item, itemList)
 </script>
