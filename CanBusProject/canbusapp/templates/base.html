@@ -80,6 +80,7 @@
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
             const value = localStorage.getItem(key);
+            console.log(key, value)
             itemList.append(value)
         }
     }
@@ -90,5 +91,5 @@
        localStorage.setItem("newlink" + termIndexVal, newstr.toString());
     });
 
-    displayItems(item, itemList)
+    displayItems(items, itemList)
 </script>
