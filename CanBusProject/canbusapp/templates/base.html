@@ -39,7 +39,7 @@
               </ul>
             </li>
           </ul>
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addterminal" id="addtermlink">Add new terminal</button>
         </div>
       </div>
     </nav>
@@ -83,5 +83,5 @@
     function displayItems(item, itemList) {
         itemList.innerHTML = $(localStorage.getItem(item)).insertBefore( "#addtermlink" );
     }
-    displayItems(item, itemList)
+    // displayItems(item, itemList)
 </script>
