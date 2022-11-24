@@ -75,10 +75,11 @@
 <script type="text/javascript">
     const itemList = document.querySelector(".dropdown-menu");
     const items = [];
+    var cnt = 0;
     var lastDataOnTm = JSON.parse(localStorage.getItem("dictData")) || [];
     function displayItems(items, itemList) {
         //itemList.innerHTML = items
-        var cnt = 0
+
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
             const value = localStorage.getItem(key);
