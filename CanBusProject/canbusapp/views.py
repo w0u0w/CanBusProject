@@ -7,10 +7,18 @@ from django.shortcuts import render
 import threading
 from django.views.decorators.csrf import csrf_exempt
 
-def worker(num):
-    print(f'Start thread #{num}')
-    time.sleep(2)
-    print(f'Finish thread #{num}')
+
+def worker(tmIndex, module0, module1, module2, module3, module4, module5, module6, module7):
+    print(f'Start thread for terminal #{tmIndex}')
+    p0 = subprocess.Popen(
+        [
+            "/home/www/code/test2",
+            str(tmIndex),
+            "1",
+            "2",
+            module0, module1, module2, module3, module4, module5, module6, module7
+        ])
+    print(f'Finish thread for terminal #{tmIndex}')
 
 
 def calcBytes(dataFromPage):
@@ -50,24 +58,18 @@ def terminalPage(request, tmIndex):
             module5 = calcBytes(dataVcanList[5])
             module6 = calcBytes(dataVcanList[6])
             module7 = calcBytes(dataVcanList[7])
-            thread = threading.Thread(target=worker, args=(tmIndex,), daemon=True)
+            thread = threading.Thread(target=worker, args=(tmIndex, module0, module1, module2, module3, module4, module5, module6, module7), daemon=True)
             thread.start()
-            p0 = subprocess.Popen(
-                [
-                    "/home/www/code/test2",
-                    str(tmIndex),
-                    "1",
-                    "2",
-                    module0, module1, module2, module3, module4, module5, module6, module7
-                ])
+
             if status == 0:
-                os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
+                pass
+                # os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     with open("/home/www/code/data2.txt") as f:
         for line in f:
             dataFile.append(line.strip())
     for line in dataFile:
         s1 = line.strip().split("#")
-        print(s1[0], tmIndex)
+        # print(s1[0], tmIndex)
         if str(s1[0]) == str(tmIndex):
             idFrameList.append(s1[1])
             dlcFrameList.append(s1[2])
