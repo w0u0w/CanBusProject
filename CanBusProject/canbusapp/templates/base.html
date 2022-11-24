@@ -75,6 +75,7 @@
 <script type="text/javascript">
     const itemList = document.querySelector(".dropdown-menu");
     const items = [];
+    var lastDataOnTm = {};
     function displayItems(items, itemList) {
         //itemList.innerHTML = items
         for (let i = 0; i < localStorage.length; i++) {
@@ -93,8 +94,31 @@
                 nodeList.addEventListener(
                     'click', function(e) {
                         var target = e.target;
-                        var text = target.textContent || target.innerText;
-                        alert(text)
+                        var dataVcan0Save = parseFloat($('#t' + canterminal + 'vcan0value').val());
+                        var dataVcan1Save = parseFloat($('#t' + canterminal + 'vcan1value').val());
+                        var dataVcan2Save = parseFloat($('#t' + canterminal + 'vcan2value').val());
+                        var dataVcan3Save = parseFloat($('#t' + canterminal + 'vcan3value').val());
+                        var dataVcan0Save = parseFloat($('#t' + canterminal + 'vcan4value').val());
+                        var dataVcan4Save = parseFloat($('#t' + canterminal + 'vcan5value').val());
+                        var dataVcan6Save = parseFloat($('#t' + canterminal + 'vcan6value').val());
+                        var dataVcan7Save = parseFloat($('#t' + canterminal + 'vcan7value').val());
+                        var dataVcanSaveList = [
+                              dataVcan0Save,
+                              dataVcan1Save,
+                              dataVcan2Save,
+                              dataVcan3Save,
+                              dataVcan4Save,
+                              dataVcan5Save,
+                              dataVcan6Save,
+                              dataVcan7Save
+                        ]
+                        console.log(dataVcanSaveList)
+                        // localStorage.setItem("dictData", lastDataOnTm);
+                        if (tmList.length > 0) {
+                            for (const tm in tmList) {
+
+                            }
+                        }
                     }
                 );
                 itemList.appendChild(nodeList);
