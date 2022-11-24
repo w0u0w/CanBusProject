@@ -8,19 +8,6 @@ import threading
 from django.views.decorators.csrf import csrf_exempt
 
 
-def worker(tmIndex, module0, module1, module2, module3, module4, module5, module6, module7):
-    print(f'Start thread for terminal #{tmIndex}')
-    p0 = subprocess.Popen(
-        [
-            "/home/www/code/test2",
-            str(tmIndex),
-            "1",
-            "2",
-            module0, module1, module2, module3, module4, module5, module6, module7
-        ])
-    print(f'Finish thread for terminal #{tmIndex}')
-
-
 def calcBytes(dataFromPage):
     res = float(dataFromPage) * 655.35
     return str(res)
@@ -43,27 +30,29 @@ def terminalPage(request, tmIndex):
         operation = request.POST.get('operation')
         if operation == 'startsending':
             status = 1
-            p1 = subprocess.Popen(["/home/www/code/cleardata"])
-            os.killpg(os.getpgid(p1.pid), signal.SIGTERM)
         if operation == 'stopsending':
             status = 0
         if operation == 'dataVcanPost':
-            dataVcanList = request.POST.getlist('dataVcan[]')
-            calcBytes(dataVcanList[0])
-            module0 = calcBytes(dataVcanList[0])
-            module1 = calcBytes(dataVcanList[1])
-            module2 = calcBytes(dataVcanList[2])
-            module3 = calcBytes(dataVcanList[3])
-            module4 = calcBytes(dataVcanList[4])
-            module5 = calcBytes(dataVcanList[5])
-            module6 = calcBytes(dataVcanList[6])
-            module7 = calcBytes(dataVcanList[7])
-            thread = threading.Thread(target=worker, args=(tmIndex, module0, module1, module2, module3, module4, module5, module6, module7), daemon=True)
-            thread.start()
-
+            dataModuleList = request.POST.getlist('dataVcan[]')
+            module0 = calcBytes(dataModuleList[0])
+            module1 = calcBytes(dataModuleList[1])
+            module2 = calcBytes(dataModuleList[2])
+            module3 = calcBytes(dataModuleList[3])
+            module4 = calcBytes(dataModuleList[4])
+            module5 = calcBytes(dataModuleList[5])
+            module6 = calcBytes(dataModuleList[6])
+            module7 = calcBytes(dataModuleList[7])
+            p0 = subprocess.Popen(
+                [
+                    "/home/www/code/test2",
+                    str(tmIndex),
+                    "1",
+                    "2",
+                    module0, module1, module2, module3, module4, module5, module6, module7
+                ])
             if status == 0:
                 pass
-                # os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
+                os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     with open("/home/www/code/data2.txt") as f:
         for line in f:
             dataFile.append(line.strip())

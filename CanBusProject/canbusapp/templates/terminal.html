@@ -193,6 +193,7 @@
 </main>
 
 <script type="text/javascript">
+    var tmList = localStorage.getItem("tmIndexList")
     //Functions for number and range inputs
     function updateTextInput(terminalIndex, interfaceIndex, val) {
         var tmIndex = terminalIndex;
@@ -236,6 +237,10 @@
        if (actionBtn === 'start') {
          if (currentStatusOfInterface.text() === 'Sleep') {
            currentStatusOfInterface.text('Sending');
+           if(!tmList.includes(canterminal)) {
+               tmList.append(canterminal);
+               localStorage.setItem("tmIndexList", JSON.stringify(tmList));
+           }
            $.ajax({
                 url: '/terminal/'+ canterminal + '/',
                 headers: {'X-CSRFToken': getCookie('csrftoken')},
@@ -318,6 +323,7 @@
          }
        }
       });
+
 
 </script>
 {% endblock terminalsContent %}
