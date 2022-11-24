@@ -81,15 +81,17 @@
             const key = localStorage.key(i);
             const value = localStorage.getItem(key);
             console.log(key, value);
-            const nodeList = document.createElement("li");
-            const nodeA = document.createElement("a");
-            nodeA.className = 'dropdown-item';
-            nodeA.id = "tm" + (i+1);
-            nodeA.setAttribute('href', "/terminal/" + (i + 1) + "/");
-            const nodeName = document.createTextNode("TM" + (i + 1));
-            nodeA.appendChild(nodeName);
-            nodeList.appendChild(nodeA);
-            itemList.appendChild(nodeList);
+            if (key.includes("newlink")) {
+                const nodeList = document.createElement("li");
+                const nodeA = document.createElement("a");
+                nodeA.className = 'dropdown-item';
+                nodeA.id = "tm" + (i+1);
+                nodeA.setAttribute('href', "/terminal/" + (i + 1) + "/");
+                const nodeName = document.createTextNode("TM" + (i + 1));
+                nodeA.appendChild(nodeName);
+                nodeList.appendChild(nodeA);
+                itemList.appendChild(nodeList);
+            }
         }
     }
     $("#addterminalbtn").click(function()
