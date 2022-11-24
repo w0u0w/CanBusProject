@@ -1,8 +1,16 @@
 import os
 import subprocess
 import signal
+import time
+
 from django.shortcuts import render
+import threading
 from django.views.decorators.csrf import csrf_exempt
+
+def worker(num):
+    print(f'Start thread #{num}')
+    time.sleep(2)
+    print(f'Finish thread #{num}')
 
 
 def calcBytes(dataFromPage):
@@ -42,6 +50,8 @@ def terminalPage(request, tmIndex):
             module5 = calcBytes(dataVcanList[5])
             module6 = calcBytes(dataVcanList[6])
             module7 = calcBytes(dataVcanList[7])
+            thread = threading.Thread(target=worker, args=(tmIndex,), daemon=True)
+            thread.start()
             p0 = subprocess.Popen(
                 [
                     "/home/www/code/test2",
