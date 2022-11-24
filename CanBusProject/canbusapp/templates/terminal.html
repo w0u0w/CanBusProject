@@ -334,11 +334,10 @@
          }
        }
       });
-
-$( ".dropdown-menu a" ).on( "click", function() {
-  console.log(1);
-});
-
+    var all = $(".dropdown-item").map(function() {
+        return this.innerHTML;
+    }).get();
+    console.log(all.join());
 
 </script>
 {% endblock terminalsContent %}
