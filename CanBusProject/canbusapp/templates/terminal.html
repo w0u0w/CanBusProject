@@ -239,7 +239,7 @@
            currentStatusOfInterface.text('Sending');
            console.log(canterminal)
            if(!tmList.includes(canterminal)) {
-               tmList.append(canterminal);
+               tmList.push(canterminal);
                localStorage.setItem("tmIndexList", JSON.stringify(tmList));
            }
            $.ajax({
