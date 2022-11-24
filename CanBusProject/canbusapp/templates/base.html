@@ -75,12 +75,17 @@
 <script type="text/javascript">
     const itemList = document.querySelector(".dropdown-menu");
     const items = [];
-    var cnt = 0;
+    const forLngth = [];
     var lastDataOnTm = JSON.parse(localStorage.getItem("dictData")) || [];
     function displayItems(items, itemList) {
         //itemList.innerHTML = items
-
         for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key.includes("newlink")) {
+                forLngth.push(1)
+            }
+        }
+        for (let i = 0; i < forLngth.length; i++) {
             const key = localStorage.key(i);
             const value = localStorage.getItem(key);
             //console.log(key, value);
@@ -88,22 +93,22 @@
                 const nodeList = document.createElement("li");
                 const nodeA = document.createElement("a");
                 nodeA.className = 'dropdown-item';
-                nodeA.id = "tm" + (cnt+1);
-                nodeA.setAttribute('href', "/terminal/" + (cnt + 1) + "/");
-                const nodeName = document.createTextNode("TM" + (cnt + 1));
+                nodeA.id = "tm" + (i+1);
+                nodeA.setAttribute('href', "/terminal/" + (i + 1) + "/");
+                const nodeName = document.createTextNode("TM" + (i + 1));
                 nodeA.appendChild(nodeName);
                 nodeList.appendChild(nodeA);
                 nodeList.addEventListener(
                     'click', function(e) {
                         var target = e.target;
-                        var dataVcan0Save = parseFloat($('#t' + (cnt + 1) + 'vcan0value').val());
-                        var dataVcan1Save = parseFloat($('#t' + (cnt + 1) + 'vcan1value').val());
-                        var dataVcan2Save = parseFloat($('#t' + (cnt + 1) + 'vcan2value').val());
-                        var dataVcan3Save = parseFloat($('#t' + (cnt + 1) + 'vcan3value').val());
-                        var dataVcan4Save = parseFloat($('#t' + (cnt + 1) + 'vcan4value').val());
-                        var dataVcan5Save = parseFloat($('#t' + (cnt + 1) + 'vcan5value').val());
-                        var dataVcan6Save = parseFloat($('#t' + (cnt + 1) + 'vcan6value').val());
-                        var dataVcan7Save = parseFloat($('#t' + (cnt + 1) + 'vcan7value').val());
+                        var dataVcan0Save = parseFloat($('#t' + (i + 1) + 'vcan0value').val());
+                        var dataVcan1Save = parseFloat($('#t' + (i + 1) + 'vcan1value').val());
+                        var dataVcan2Save = parseFloat($('#t' + (i + 1) + 'vcan2value').val());
+                        var dataVcan3Save = parseFloat($('#t' + (i + 1) + 'vcan3value').val());
+                        var dataVcan4Save = parseFloat($('#t' + (i + 1) + 'vcan4value').val());
+                        var dataVcan5Save = parseFloat($('#t' + (i + 1) + 'vcan5value').val());
+                        var dataVcan6Save = parseFloat($('#t' + (i + 1) + 'vcan6value').val());
+                        var dataVcan7Save = parseFloat($('#t' + (i + 1) + 'vcan7value').val());
                         var dataVcanSaveList = [
                               dataVcan0Save,
                               dataVcan1Save,
