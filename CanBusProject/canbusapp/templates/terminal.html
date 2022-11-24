@@ -308,6 +308,7 @@
                console.log(tmList)
                tmList.splice(index, 1);
                console.log(tmList)
+               localStorage.setItem("tmIndexList", JSON.stringify(tmList));
            }
            $.ajax({
             url: '/terminal/'+ canterminal + '/',
