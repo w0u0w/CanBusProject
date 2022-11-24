@@ -302,6 +302,10 @@
        if (actionBtn === 'stop') {
          if (currentStatusOfInterface.text() === 'Sending') {
            currentStatusOfInterface.text('Sleep');
+           if(tmList.includes(canterminal)) {
+               const index = tmList.indexOf(canterminal);
+               tmList.splice(index, 1);
+           }
            $.ajax({
             url: '/terminal/'+ canterminal + '/',
             headers: {'X-CSRFToken': getCookie('csrftoken')},
