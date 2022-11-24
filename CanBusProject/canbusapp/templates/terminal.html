@@ -334,10 +334,7 @@
          }
        }
       });
-    var all = $(".dropdown-item").map(function() {
-        return this.innerHTML;
-    }).get();
-    console.log(all.join());
-
+    var lis = document.getElementsByClassName("dropdown-item").getElementsByTagName("a");
+    console.log(lis)
 </script>
 {% endblock terminalsContent %}
