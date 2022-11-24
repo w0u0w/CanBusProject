@@ -112,8 +112,7 @@
                               dataVcan6Save,
                               dataVcan7Save
                         ]
-                        lastDataOnTm[i].push(dataVcanSaveList)
-                        localStorage.setItem("dictData", lastDataOnTm);
+                        localStorage.setItem("dictData", JSON.stringify(dataVcanSaveList));
                         if (tmList.length > 0) {
                             for (const tm in tmList) {
 
