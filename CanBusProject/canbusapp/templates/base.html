@@ -90,11 +90,10 @@
                 const nodeName = document.createTextNode("TM" + (i + 1));
                 nodeA.appendChild(nodeName);
                 nodeList.appendChild(nodeA);
-                nodeList.addEventListener(
-                    'click', function(e) {
-                        alert(e)
-                    }
-                );
+                nodeList.click(function(event) {
+                    var text = $(event.target).text();
+                    alert(text)
+                });
                 itemList.appendChild(nodeList);
             }
         }
