@@ -89,46 +89,40 @@
             const key = localStorage.key(i);
             const value = localStorage.getItem(key);
             //console.log(key, value);
-            if (key.includes("newlink")) {
-                const nodeList = document.createElement("li");
-                const nodeA = document.createElement("a");
-                nodeA.className = 'dropdown-item';
-                nodeA.id = "tm" + (i+1);
-                nodeA.setAttribute('href', "/terminal/" + (i + 1) + "/");
-                const nodeName = document.createTextNode("TM" + (i + 1));
-                nodeA.appendChild(nodeName);
-                nodeList.appendChild(nodeA);
-                nodeList.addEventListener(
-                    'click', function(e) {
-                        var target = e.target;
-                        var dataVcan0Save = parseFloat($('#t' + (i + 1) + 'vcan0value').val());
-                        var dataVcan1Save = parseFloat($('#t' + (i + 1) + 'vcan1value').val());
-                        var dataVcan2Save = parseFloat($('#t' + (i + 1) + 'vcan2value').val());
-                        var dataVcan3Save = parseFloat($('#t' + (i + 1) + 'vcan3value').val());
-                        var dataVcan4Save = parseFloat($('#t' + (i + 1) + 'vcan4value').val());
-                        var dataVcan5Save = parseFloat($('#t' + (i + 1) + 'vcan5value').val());
-                        var dataVcan6Save = parseFloat($('#t' + (i + 1) + 'vcan6value').val());
-                        var dataVcan7Save = parseFloat($('#t' + (i + 1) + 'vcan7value').val());
-                        var dataVcanSaveList = [
-                              dataVcan0Save,
-                              dataVcan1Save,
-                              dataVcan2Save,
-                              dataVcan3Save,
-                              dataVcan4Save,
-                              dataVcan5Save,
-                              dataVcan6Save,
-                              dataVcan7Save
-                        ]
-                        localStorage.setItem("dictData", JSON.stringify(dataVcanSaveList));
-                        if (tmList.length > 0) {
-                            for (const tm in tmList) {
+            const nodeList = document.createElement("li");
+            const nodeA = document.createElement("a");
+            nodeA.className = 'dropdown-item';
+            nodeA.id = "tm" + (i+1);
+            nodeA.setAttribute('href', "/terminal/" + (i + 1) + "/");
+            const nodeName = document.createTextNode("TM" + (i + 1));
+            nodeA.appendChild(nodeName);
+            nodeList.appendChild(nodeA);
+            nodeList.addEventListener(
+                'click', function(e) {
+                    var target = e.target;
+                    var dataVcan0Save = parseFloat($('#t' + (i + 1) + 'vcan0value').val());
+                    var dataVcan1Save = parseFloat($('#t' + (i + 1) + 'vcan1value').val());
+                    var dataVcan2Save = parseFloat($('#t' + (i + 1) + 'vcan2value').val());
+                    var dataVcan3Save = parseFloat($('#t' + (i + 1) + 'vcan3value').val());
+                    var dataVcan4Save = parseFloat($('#t' + (i + 1) + 'vcan4value').val());
+                    var dataVcan5Save = parseFloat($('#t' + (i + 1) + 'vcan5value').val());
+                    var dataVcan6Save = parseFloat($('#t' + (i + 1) + 'vcan6value').val());
+                    var dataVcan7Save = parseFloat($('#t' + (i + 1) + 'vcan7value').val());
+                    var dataVcanSaveList = [
+                          dataVcan0Save,
+                          dataVcan1Save,
+                          dataVcan2Save,
+                          dataVcan3Save,
+                          dataVcan4Save,
+                          dataVcan5Save,
+                          dataVcan6Save,
+                          dataVcan7Save
+                    ]
+                    localStorage.setItem("dictData", JSON.stringify(dataVcanSaveList));
+                }
+            );
+            itemList.appendChild(nodeList);
 
-                            }
-                        }
-                    }
-                );
-                itemList.appendChild(nodeList);
-            }
         }
     }
     $("#addterminalbtn").click(function()
