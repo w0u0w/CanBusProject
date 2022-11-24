@@ -100,14 +100,14 @@
             nodeList.addEventListener(
                 'click', function(e) {
                     var target = e.target;
-                    var dataVcan0Save = parseFloat($('#t' + (i + 1) + 'vcan0value').val());
-                    var dataVcan1Save = parseFloat($('#t' + (i + 1) + 'vcan1value').val());
-                    var dataVcan2Save = parseFloat($('#t' + (i + 1) + 'vcan2value').val());
-                    var dataVcan3Save = parseFloat($('#t' + (i + 1) + 'vcan3value').val());
-                    var dataVcan4Save = parseFloat($('#t' + (i + 1) + 'vcan4value').val());
-                    var dataVcan5Save = parseFloat($('#t' + (i + 1) + 'vcan5value').val());
-                    var dataVcan6Save = parseFloat($('#t' + (i + 1) + 'vcan6value').val());
-                    var dataVcan7Save = parseFloat($('#t' + (i + 1) + 'vcan7value').val());
+                    var dataVcan0Save = parseFloat($('#t' + nodeA.id.slice(-1) + 'vcan0value').val());
+                    var dataVcan1Save = parseFloat($('#t' + nodeA.id.slice(-1) + 'vcan1value').val());
+                    var dataVcan2Save = parseFloat($('#t' + nodeA.id.slice(-1) + 'vcan2value').val());
+                    var dataVcan3Save = parseFloat($('#t' + nodeA.id.slice(-1) + 'vcan3value').val());
+                    var dataVcan4Save = parseFloat($('#t' + nodeA.id.slice(-1) + 'vcan4value').val());
+                    var dataVcan5Save = parseFloat($('#t' + nodeA.id.slice(-1) + 'vcan5value').val());
+                    var dataVcan6Save = parseFloat($('#t' + nodeA.id.slice(-1) + 'vcan6value').val());
+                    var dataVcan7Save = parseFloat($('#t' + nodeA.id.slice(-1) + 'vcan7value').val());
                     var dataVcanSaveList = [
                           dataVcan0Save,
                           dataVcan1Save,
