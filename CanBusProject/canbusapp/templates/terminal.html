@@ -229,6 +229,7 @@
     var timer = null, interval = 500;
 
     $(document).on("click", "button", function (event) {
+        alert(event)
        var clickedBtnName = event.target.name;
        var getTerminalAndInterface = clickedBtnName.split(" ");
        var canterminal = getTerminalAndInterface[1];
