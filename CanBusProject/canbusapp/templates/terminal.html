@@ -193,7 +193,7 @@
 </main>
 
 <script type="text/javascript">
-    var tmList = localStorage.getItem("tmIndexList")
+    var tmList = localStorage.getItem("tmIndexList") || []
     //Functions for number and range inputs
     function updateTextInput(terminalIndex, interfaceIndex, val) {
         var tmIndex = terminalIndex;
@@ -237,6 +237,7 @@
        if (actionBtn === 'start') {
          if (currentStatusOfInterface.text() === 'Sleep') {
            currentStatusOfInterface.text('Sending');
+           console.log(canterminal)
            if(!tmList.includes(canterminal)) {
                tmList.append(canterminal);
                localStorage.setItem("tmIndexList", JSON.stringify(tmList));
