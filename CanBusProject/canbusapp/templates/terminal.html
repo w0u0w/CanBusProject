@@ -334,7 +334,9 @@
          }
        }
       });
-    var lis = document.getElementsByClassName("dropdown-item")
-    console.log(lis)
+
+    $( ".dropdown-menu li a" ).on( "click", function() {
+      console.log( $( this ).text() );
+    });
 </script>
 {% endblock terminalsContent %}
