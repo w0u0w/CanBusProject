@@ -75,7 +75,7 @@
 <script type="text/javascript">
     const itemList = document.querySelector(".dropdown-menu");
     const items = [];
-    var lastDataOnTm = {};
+    var lastDataOnTm = JSON.parse(localStorage.getItem("dictData")) || [];
     function displayItems(items, itemList) {
         //itemList.innerHTML = items
         for (let i = 0; i < localStorage.length; i++) {
