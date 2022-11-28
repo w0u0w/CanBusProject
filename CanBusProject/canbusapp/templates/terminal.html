@@ -344,7 +344,7 @@
             for (let i = 0; i <=7; i++) {
                 data.push(document.getElementById('#t' + text.slice(-1) + 'vcan' + i + 'value').value)
             }
-            lastData = localStorage.setItem("dataTM", JSON.stringify(data));
+            localStorage.setItem("dataTM", JSON.stringify(data));
         }
     });
 </script>
