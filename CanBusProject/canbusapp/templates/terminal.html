@@ -194,6 +194,8 @@
 
 <script type="text/javascript">
     var tmList = JSON.parse(localStorage.getItem("tmIndexList")) || [];
+    var lastData= localStorage.getItem("dataTM") || [];
+    var data = []
 
     //Functions for number and range inputs
     function updateTextInput(terminalIndex, interfaceIndex, val) {
@@ -339,6 +341,10 @@
         var text = $(event.target).text();
         if (text.includes("TM")) {
             console.log(text.slice(-1))
+            for (let i = 0; i <=7; i++) {
+                data.push(document.getElementById('#t' + text.slice(-1) + 'vcan' + i + 'value').value)
+            }
+            lastData = localStorage.setItem("dataTM", JSON.stringify(data));
         }
     });
 </script>
