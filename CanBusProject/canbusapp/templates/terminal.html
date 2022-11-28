@@ -339,10 +339,8 @@
 
     $(document).click(function(event) {
         var text = $(event.target).text();
-        var range = document.querySelectorAll("input[type=number]");
-        for (index = 0; index < range.length; ++index) {
-            console.log(range.values())
-        }
+        var data = document.getElementById("t1customRange3vcan1")
+        console.log(data)
         if (text.includes("TM")) {
             console.log(text.slice(-1))
 
