@@ -343,10 +343,7 @@
         console.log(range.val())
         if (text.includes("TM")) {
             console.log(text.slice(-1))
-            for (let i = 0; i <=7; i++) {
-
-                // data.push(12)
-            }
+            range.forEach(elem => console.log(elem))
             localStorage.setItem("dataTM", JSON.stringify(data));
         }
     });
