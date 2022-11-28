@@ -228,112 +228,112 @@
 
     var timer = null, interval = 500;
 
-    $(document).on("click", "button", function (event) {
+    $(document).on("click", "button", async function (event) {
         alert(event)
-       var clickedBtnName = event.target.name;
-       var getTerminalAndInterface = clickedBtnName.split(" ");
-       var canterminal = getTerminalAndInterface[1];
-       var actionBtn = getTerminalAndInterface[3];
-       var currentStatusOfInterface = $('.t'+ canterminal +'statusvcan');
+        var clickedBtnName = event.target.name;
+        var getTerminalAndInterface = clickedBtnName.split(" ");
+        var canterminal = getTerminalAndInterface[1];
+        var actionBtn = getTerminalAndInterface[3];
+        var currentStatusOfInterface = $('.t' + canterminal + 'statusvcan');
 
-       if (actionBtn === 'start') {
-         if (currentStatusOfInterface.text() === 'Sleep') {
-           currentStatusOfInterface.text('Sending');
-           console.log(canterminal)
-           if(!tmList.includes(canterminal)) {
-               tmList.push(canterminal);
-               localStorage.setItem("tmIndexList", JSON.stringify(tmList));
-           }
-           $.ajax({
-                url: '/terminal/'+ canterminal + '/',
-                headers: {'X-CSRFToken': getCookie('csrftoken')},
-                method: 'POST',
-                data: {
-                    click: true,
-                    'operation': "startsending",
-                    'terminal': canterminal
-                },
-                success: function (data) {
-                    console.log('Module on terminal ' + canterminal + ': start sending')
-                    if (timer !== null) return;
-                    timer =  setInterval (function(){
-                        var dataVcan0 = parseFloat($('#t' + canterminal + 'vcan0value').val());
-                        var dataVcan1 = parseFloat($('#t' + canterminal + 'vcan1value').val());
-                        var dataVcan2 = parseFloat($('#t' + canterminal + 'vcan2value').val());
-                        var dataVcan3 = parseFloat($('#t' + canterminal + 'vcan3value').val());
-                        var dataVcan4 = parseFloat($('#t' + canterminal + 'vcan4value').val());
-                        var dataVcan5 = parseFloat($('#t' + canterminal + 'vcan5value').val());
-                        var dataVcan6 = parseFloat($('#t' + canterminal + 'vcan6value').val());
-                        var dataVcan7 = parseFloat($('#t' + canterminal + 'vcan7value').val());
-                        var dataVcanList = [
-                              dataVcan0,
-                              dataVcan1,
-                              dataVcan2,
-                              dataVcan3,
-                              dataVcan4,
-                              dataVcan5,
-                              dataVcan6,
-                              dataVcan7
-                        ]
-                        $.ajax({
-                           headers: {'X-CSRFToken': getCookie('csrftoken')},
-                           url: '/terminal/'+ canterminal + '/',
-                           method: 'POST',
-                           data: {
-                                'operation': "dataVcanPost",
-                                'terminal': canterminal,
-                                'dataVcan': dataVcanList
-                            },
-                              success: function(data) {
-
-                                  $('.log_get tbody').html($(data).find('.log_get tbody').html());
-                                  console.log(dataVcanList);
-                              },
-                              error: (error) => {
-                                  console.log(error);
-                                }
-                        });
-                    }, interval);
-                },
-                error: (error) => {
-                    console.log(error);
+        if (actionBtn === 'start') {
+            if (currentStatusOfInterface.text() === 'Sleep') {
+                currentStatusOfInterface.text('Sending');
+                console.log(canterminal)
+                if (!tmList.includes(canterminal)) {
+                    tmList.push(canterminal);
+                    localStorage.setItem("tmIndexList", JSON.stringify(tmList));
                 }
-                });
-         }
-       }
-       if (actionBtn === 'stop') {
-         if (currentStatusOfInterface.text() === 'Sending') {
-           currentStatusOfInterface.text('Sleep');
-           if(tmList.includes(canterminal)) {
+                const res = await Promise.all(ajax({
+                    url: '/terminal/' + canterminal + '/',
+                    headers: {'X-CSRFToken': getCookie('csrftoken')},
+                    method: 'POST',
+                    data: {
+                        click: true,
+                        'operation': "startsending",
+                        'terminal': canterminal
+                    },
+                    success: function (data) {
+                        console.log('Module on terminal ' + canterminal + ': start sending')
+                        if (timer !== null) return;
+                        timer = setInterval(function () {
+                            var dataVcan0 = parseFloat($('#t' + canterminal + 'vcan0value').val());
+                            var dataVcan1 = parseFloat($('#t' + canterminal + 'vcan1value').val());
+                            var dataVcan2 = parseFloat($('#t' + canterminal + 'vcan2value').val());
+                            var dataVcan3 = parseFloat($('#t' + canterminal + 'vcan3value').val());
+                            var dataVcan4 = parseFloat($('#t' + canterminal + 'vcan4value').val());
+                            var dataVcan5 = parseFloat($('#t' + canterminal + 'vcan5value').val());
+                            var dataVcan6 = parseFloat($('#t' + canterminal + 'vcan6value').val());
+                            var dataVcan7 = parseFloat($('#t' + canterminal + 'vcan7value').val());
+                            var dataVcanList = [
+                                dataVcan0,
+                                dataVcan1,
+                                dataVcan2,
+                                dataVcan3,
+                                dataVcan4,
+                                dataVcan5,
+                                dataVcan6,
+                                dataVcan7
+                            ]
+                            $.ajax({
+                                headers: {'X-CSRFToken': getCookie('csrftoken')},
+                                url: '/terminal/' + canterminal + '/',
+                                method: 'POST',
+                                data: {
+                                    'operation': "dataVcanPost",
+                                    'terminal': canterminal,
+                                    'dataVcan': dataVcanList
+                                },
+                                success: function (data) {
 
-               const index = tmList.indexOf(canterminal);
-               console.log(tmList)
-               tmList.splice(index, 1);
-               console.log(tmList)
-               localStorage.setItem("tmIndexList", JSON.stringify(tmList));
-           }
-           $.ajax({
-            url: '/terminal/'+ canterminal + '/',
-            headers: {'X-CSRFToken': getCookie('csrftoken')},
-            method: 'POST',
-            data: {
-                click: true,
-                'operation': "stopsending",
-                'terminal': canterminal
-            },
-            success: function (data) {
-                clearInterval(timer)
-                timer = null
-                // $('.log_get').html(data)
-                console.log('Module on terminal ' + canterminal + ': stop sending')
-            },
-            error: (error) => {
-                console.log(error);
+                                    $('.log_get tbody').html($(data).find('.log_get tbody').html());
+                                    console.log(dataVcanList);
+                                },
+                                error: (error) => {
+                                    console.log(error);
+                                }
+                            });
+                        }, interval);
+                    },
+                    error: (error) => {
+                        console.log(error);
+                    }
+                }));
             }
-            });
-         }
-       }
-      });
+        }
+        if (actionBtn === 'stop') {
+            if (currentStatusOfInterface.text() === 'Sending') {
+                currentStatusOfInterface.text('Sleep');
+                if (tmList.includes(canterminal)) {
+
+                    const index = tmList.indexOf(canterminal);
+                    console.log(tmList)
+                    tmList.splice(index, 1);
+                    console.log(tmList)
+                    localStorage.setItem("tmIndexList", JSON.stringify(tmList));
+                }
+                $.ajax({
+                    url: '/terminal/' + canterminal + '/',
+                    headers: {'X-CSRFToken': getCookie('csrftoken')},
+                    method: 'POST',
+                    data: {
+                        click: true,
+                        'operation': "stopsending",
+                        'terminal': canterminal
+                    },
+                    success: function (data) {
+                        clearInterval(timer)
+                        timer = null
+                        // $('.log_get').html(data)
+                        console.log('Module on terminal ' + canterminal + ': stop sending')
+                    },
+                    error: (error) => {
+                        console.log(error);
+                    }
+                });
+            }
+        }
+    });
 
     $(document).click(function(event) {
         var text = $(event.target).text();
