@@ -342,7 +342,8 @@
         var range = document.querySelectorAll("input[type=number]");
         if (text.includes("TM")) {
             console.log(text.slice(-1))
-            range.forEach(elem => console.log(elem.val()))
+            var values = range.map(function(){return $(this).val();}).get();
+            console.log(values)
             localStorage.setItem("dataTM", JSON.stringify(data));
         }
     });
