@@ -340,10 +340,11 @@
     $(document).click(function(event) {
         var text = $(event.target).text();
         var range = document.querySelectorAll("input[type=range]");
+        console.log(range)
         if (text.includes("TM")) {
             console.log(text.slice(-1))
             for (let i = 0; i <=7; i++) {
-                console.log(range)
+
                 // data.push(12)
             }
             localStorage.setItem("dataTM", JSON.stringify(data));
