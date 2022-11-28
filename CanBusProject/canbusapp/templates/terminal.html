@@ -339,7 +339,12 @@
 
     $(document).click(function(event) {
         var text = $(event.target).text();
-        var data = document.getElementById("t1customRange3vcan1").value
+
+        for(let i = 0; i < 7; i++) {
+            var dataOne = document.getElementById("t1customRange3vcan" + i).value
+            data.push(dataOne)
+        }
+
         console.log(data)
         if (text.includes("TM")) {
             console.log(text.slice(-1))
