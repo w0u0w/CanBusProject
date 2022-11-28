@@ -340,15 +340,15 @@
     $(document).click(function(event) {
         var text = $(event.target).text();
         var range = document.querySelectorAll("input[type=number]");
+        for (index = 0; index < range.length; ++index) {
+            console.log(range)
+        }
         if (text.includes("TM")) {
             console.log(text.slice(-1))
-            var values = range.map(function(){
-                console.log($(this).val())
-                return $(this).val();
-            }).get();
 
             localStorage.setItem("dataTM", JSON.stringify(data));
         }
+
     });
 </script>
 {% endblock terminalsContent %}
