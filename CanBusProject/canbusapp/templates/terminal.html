@@ -341,7 +341,7 @@
         var text = $(event.target).text();
         var range = document.querySelectorAll("input[type=number]");
         for (index = 0; index < range.length; ++index) {
-            console.log(range)
+            console.log(range.values())
         }
         if (text.includes("TM")) {
             console.log(text.slice(-1))
