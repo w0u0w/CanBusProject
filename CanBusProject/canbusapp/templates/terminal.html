@@ -335,8 +335,8 @@
        }
       });
 
-    $( ".dropdown-menu" ).children().on( "click", function() {
-      console.log(1);
+    $(document).click(function(event) {
+        var text = $(event.target).text();
     });
 </script>
 {% endblock terminalsContent %}
