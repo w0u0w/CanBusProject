@@ -353,7 +353,7 @@
         // console.log(data)
         if (text.includes("TM")) {
             // console.log(text.slice(-1))
-            if (status === "Sending") {
+            if (status.includes("Sending")) {
                 var listOfDataVal = []
                 for(let i = 0; i <= 7; i++) {
                             var dataOne = document.getElementById("t"+ terminal +"customRange3vcan" + i).value
