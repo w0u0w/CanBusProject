@@ -349,11 +349,11 @@
     $(document).click(function(event) {
         var terminal = document.getElementById("home").textContent.slice(-1)
         var text = $(event.target).text();
-        var status = document.getElementsByClassName("")
+        var status = document.getElementsByClassName(("t"+ terminal +"statusvcan"))
         // console.log(data)
         if (text.includes("TM")) {
             // console.log(text.slice(-1))
-            if (("t"+ terminal +"statusvcan") === "Sending") {
+            if (status === "Sending") {
                 var listOfDataVal = []
                 for(let i = 0; i <= 7; i++) {
                             var dataOne = document.getElementById("t"+ terminal +"customRange3vcan" + i).value
