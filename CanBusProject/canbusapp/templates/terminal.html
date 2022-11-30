@@ -198,14 +198,13 @@
 
     var data = []
     window.addEventListener('load', () => {
-        var cnt = 0
         for (var key in lastData){
             var values = lastData[key]
             console.log(values)
-            for (let i = 0; i <= values.length; i++) {
-                console.log(values)
-                document.getElementById("t1vcan" + i + "value").value = values[i]
-            }
+            // for (let i = 0; i <= values.length; i++) {
+            //     console.log(values)
+            //     document.getElementById("t1vcan" + i + "value").value = values[i]
+            // }
         }
     });
     //Functions for number and range inputs
