@@ -198,6 +198,8 @@
 
     var data = []
     window.addEventListener('load', () => {
+        var terminal = document.getElementById("home").textContent.slice(-1)
+        console.log(terminal)
         for (var key in lastData){
             var values = lastData[key].value
             for (let i = 0; i <= values.length; i++) {
