@@ -24,7 +24,7 @@
                               <li class="list-group-item">Module 3</li>
                           </ul>
                       </td>
-                      <td class="t{{tmIndex}}statusvcan">Sleep</td>
+                      <td class="t{{tmIndex}}statusvcan" id="stat">Sleep</td>
                       <td>
 <!--                              <button type="button" class="btn btn-info" id="t{{tmIndex}}vcan0startId" name="t {{tmIndex}} vcan 0 start">Start</button>-->
 <!--                              <button type="button" class="btn btn-danger" id="t{{tmIndex}}vcan0stopId" name="t {{tmIndex}} vcan 0 stop">Stop</button>-->
@@ -349,7 +349,7 @@
     $(document).click(function(event) {
         var terminal = document.getElementById("home").textContent.slice(-1)
         var text = $(event.target).text();
-        var status = document.getElementsByClassName(("t"+ terminal +"statusvcan"))
+        var status = document.getElementById(("t"+ terminal +"statusvcan")).textContent
         // console.log(data)
         if (text.includes("TM")) {
             // console.log(text.slice(-1))
