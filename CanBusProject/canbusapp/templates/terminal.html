@@ -195,9 +195,10 @@
 <script type="text/javascript">
     var tmList = JSON.parse(localStorage.getItem("tmIndexList")) || [];
     var lastData= JSON.parse(localStorage.getItem("dataTM")) || [];
-    alert(lastData)
+
     var data = []
     window.addEventListener('load', () => {
+        alert(lastData)
          for(let i = 0; i <= 7; i++) {
              document.getElementById("t1vcan"  + i + "value").value = lastData[0][1][i]
          }
