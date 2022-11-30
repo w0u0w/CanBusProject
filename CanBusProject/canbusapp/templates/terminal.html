@@ -347,7 +347,7 @@
 
                         data.push({key:"1", value:dataOne})
                     }
-            console.log(data.keys())
+            console.log(("key" === 1) in data)
             localStorage.setItem("dataTM", JSON.stringify(data));
         }
     });
