@@ -199,12 +199,11 @@
     var data = []
     window.addEventListener('load', () => {
         var terminal = document.getElementById("home").textContent.slice(-1)
-        console.log(terminal)
         for (var key in lastData){
             var values = lastData[key].value
             for (let i = 0; i <= values.length; i++) {
-                 document.getElementById("t1vcan"+ i +"value").value = values[i]
-                 document.getElementById("t1customRange3vcan" + i).value = values[i]
+                 document.getElementById("t" + terminal + "vcan"+ i +"value").value = values[i]
+                 document.getElementById("t"+ terminal +"customRange3vcan" + i).value = values[i]
             }
         }
     });
@@ -349,16 +348,17 @@
       });
 
     $(document).click(function(event) {
+        var terminal = document.getElementById("home").textContent.slice(-1)
         var text = $(event.target).text();
         // console.log(data)
         if (text.includes("TM")) {
             // console.log(text.slice(-1))
             var listOfDataVal = []
             for(let i = 0; i <= 7; i++) {
-                        var dataOne = document.getElementById("t1customRange3vcan" + i).value
+                        var dataOne = document.getElementById("t"+ terminal +"customRange3vcan" + i).value
                         listOfDataVal.push(dataOne)
                     }
-            data.push({key: 1, value: listOfDataVal})
+            data.push({key: terminal, value: listOfDataVal})
             if (data.length !== 0) {
 
             }
