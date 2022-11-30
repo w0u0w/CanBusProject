@@ -194,9 +194,14 @@
 
 <script type="text/javascript">
     var tmList = JSON.parse(localStorage.getItem("tmIndexList")) || [];
-    var lastData= localStorage.getItem("dataTM") || [];
+    var lastData= JSON.parse(localStorage.getItem("dataTM")) || [];
+    alert(lastData)
     var data = []
-
+    window.addEventListener('load', () => {
+         for(let i = 0; i <= 7; i++) {
+             document.getElementById("t1vcan"  + i + "value").value = lastData[0][1][i]
+         }
+    });
     //Functions for number and range inputs
     function updateTextInput(terminalIndex, interfaceIndex, val) {
         var tmIndex = terminalIndex;
@@ -349,7 +354,7 @@
                     }
             data.push({key: 1, value: listOfDataVal})
             if (data.length !== 0) {
-                console.log(data[0][1])
+
             }
             localStorage.setItem("dataTM", JSON.stringify(data));
         }
