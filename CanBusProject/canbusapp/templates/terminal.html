@@ -342,10 +342,12 @@
         console.log(data)
         if (text.includes("TM")) {
             console.log(text.slice(-1))
+            var listOfDataVal = []
             for(let i = 0; i <= 7; i++) {
                         var dataOne = document.getElementById("t1customRange3vcan" + i).value
-                        data.push({key: 1, value: dataOne})
+                        listOfDataVal.push(dataOne)
                     }
+            data.push({key: 1, value: listOfDataVal})
             if (data.length !== 0) {
                 console.log(data[0])
             }
