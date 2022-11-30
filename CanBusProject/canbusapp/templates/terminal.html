@@ -195,7 +195,6 @@
 <script type="text/javascript">
     var tmList = JSON.parse(localStorage.getItem("tmIndexList")) || [];
     var lastData= JSON.parse(localStorage.getItem("dataTM")) || [];
-
     var data = [];
     window.addEventListener('load', () => {
         var terminal = document.getElementById("home").textContent.slice(-1)
@@ -359,7 +358,7 @@
                         listOfDataVal.push(dataOne)
                     }
             data.push({key: terminal, value: listOfDataVal})
-            localStorage.setItem("data", JSON.stringify(data));
+            // localStorage.setItem("data", JSON.stringify(data));
             localStorage.setItem("dataTM", JSON.stringify(data));
         }
     });
