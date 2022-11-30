@@ -198,12 +198,13 @@
 
     var data = []
     window.addEventListener('load', () => {
+        var cnt = 0
         for (var key in lastData){
-            console.log(lastData[key])
+            for (var value in lastData[key]) {
+                document.getElementById("t1vcan"  + cnt + "value").value = value
+                cnt++
+            }
         }
-         for(let i = 0; i <= 7; i++) {
-             document.getElementById("t1vcan"  + i + "value").value = lastData[0][1]
-         }
     });
     //Functions for number and range inputs
     function updateTextInput(terminalIndex, interfaceIndex, val) {
