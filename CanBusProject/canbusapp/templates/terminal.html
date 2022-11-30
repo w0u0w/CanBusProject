@@ -251,7 +251,7 @@
        if (actionBtn === 'start') {
          if (currentStatusOfInterface.text() === 'Sleep') {
            currentStatusOfInterface.text('Sending');
-           console.log(canterminal)
+           // console.log(canterminal)
            if(!tmList.includes(canterminal)) {
                tmList.push(canterminal);
                localStorage.setItem("tmIndexList", JSON.stringify(tmList));
@@ -319,9 +319,9 @@
            if(tmList.includes(canterminal)) {
 
                const index = tmList.indexOf(canterminal);
-               console.log(tmList)
+               // console.log(tmList)
                tmList.splice(index, 1);
-               console.log(tmList)
+               // console.log(tmList)
                localStorage.setItem("tmIndexList", JSON.stringify(tmList));
            }
            $.ajax({
@@ -349,9 +349,9 @@
 
     $(document).click(function(event) {
         var text = $(event.target).text();
-        console.log(data)
+        // console.log(data)
         if (text.includes("TM")) {
-            console.log(text.slice(-1))
+            // console.log(text.slice(-1))
             var listOfDataVal = []
             for(let i = 0; i <= 7; i++) {
                         var dataOne = document.getElementById("t1customRange3vcan" + i).value
