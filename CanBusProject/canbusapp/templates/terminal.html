@@ -344,8 +344,10 @@
             console.log(text.slice(-1))
             for(let i = 0; i <= 7; i++) {
                         var dataOne = document.getElementById("t1customRange3vcan" + i).value
+
                         data.push({key:"1", value:dataOne})
                     }
+            console.log(data.keys())
             localStorage.setItem("dataTM", JSON.stringify(data));
         }
     });
