@@ -200,8 +200,9 @@
     window.addEventListener('load', () => {
         var cnt = 0
         for (var key in lastData){
-            for (var value in lastData[key]) {
-                console.log(value)
+            var values = lastData[key]
+            for (let i = 0; i <= values.length; i++) {
+                document.getElementById("t1vcan" + i + "value").value = values[i]
             }
         }
     });
