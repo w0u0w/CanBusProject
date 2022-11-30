@@ -196,7 +196,7 @@
     var tmList = JSON.parse(localStorage.getItem("tmIndexList")) || [];
     var lastData= JSON.parse(localStorage.getItem("dataTM")) || [];
 
-    var data = JSON.parse(localStorage.getItem("data")) || []
+    var data = [];
     window.addEventListener('load', () => {
         var terminal = document.getElementById("home").textContent.slice(-1)
         for (var key in lastData){
