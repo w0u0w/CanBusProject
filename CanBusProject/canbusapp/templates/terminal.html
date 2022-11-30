@@ -360,9 +360,7 @@
                     }
             data.push({key: terminal, value: listOfDataVal})
             localStorage.setItem("data", JSON.stringify(data))
-            if (data.length !== 0) {
-
-            }
+            console.log(Object.keys(lastData))
             localStorage.setItem("dataTM", JSON.stringify(data));
         }
     });
