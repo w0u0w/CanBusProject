@@ -249,7 +249,6 @@
        if (actionBtn === 'start') {
          if (currentStatusOfInterface.text() === 'Sleep') {
            currentStatusOfInterface.text('Sending');
-           // console.log(canterminal)
            if(!tmList.includes(canterminal)) {
                tmList.push(canterminal);
                localStorage.setItem("tmIndexList", JSON.stringify(tmList));
