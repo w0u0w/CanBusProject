@@ -202,6 +202,7 @@
 
     window.addEventListener('load', () => {
         var terminal = document.getElementById("home").textContent.slice(-1)
+        console.log(localStorage.getItem("dataTM" + terminal))
         for (let i = 0; i <= localStorage.getItem("dataTM" + terminal).length; i++) {
                  document.getElementById("t" + terminal + "vcan"+ i +"value").value = localStorage.getItem("dataTM" + terminal)[i]
                  document.getElementById("t"+ terminal +"customRange3vcan" + i).value = localStorage.getItem("dataTM" + terminal)[i]
