@@ -209,7 +209,8 @@
         //     cnt++;
         // }
         for (let i = 0; localStorage.getItem("dataTM" + terminal).length; i++) {
-            console.log(JSON.parse(localStorage.getItem("dataTM" + terminal))[i])
+            document.getElementById("t" + terminal + "vcan"+ cnt +"value").value = JSON.parse(localStorage.getItem("dataTM" + terminal))[i]
+            document.getElementById("t"+ terminal +"customRange3vcan" + cnt).value = JSON.parse(localStorage.getItem("dataTM" + terminal))[i]
         }
     });
     //Functions for number and range inputs
