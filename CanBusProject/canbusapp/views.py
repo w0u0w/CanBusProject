@@ -63,7 +63,7 @@ async def terminalPage(request, tmIndex):
             await asyncio.wait(task)
             if status == 0:
                 pass
-                os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
+                # os.killpg(os.getpgid(p0.pid), signal.SIGTERM)
     with open("/home/www/code/data2.txt") as f:
         for line in f:
             dataFile.append(line.strip())
