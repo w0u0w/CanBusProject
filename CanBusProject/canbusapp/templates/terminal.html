@@ -240,7 +240,6 @@
     var timer = null, interval = 500;
 
     $(document).on("click", "button", function (event) {
-        alert(event)
        var clickedBtnName = event.target.name;
        var getTerminalAndInterface = clickedBtnName.split(" ");
        var canterminal = getTerminalAndInterface[1];
@@ -350,20 +349,15 @@
         var terminal = document.getElementById("home").textContent.slice(-1)
         var text = $(event.target).text();
         var status = document.getElementById(("stat")).textContent
-        // console.log(data)
-        if (text.includes("TM")) {
-            // console.log(text.slice(-1))
-            if (status.includes("Sending")) {
-                console.log(1111)
-                var listOfDataVal = []
-                for(let i = 0; i <= 7; i++) {
-                            var dataOne = document.getElementById("t"+ terminal +"customRange3vcan" + i).value
-                            listOfDataVal.push(dataOne)
-                        }
-                data.push({key: terminal, value: listOfDataVal})
-                // localStorage.setItem("data", JSON.stringify(data));
-                localStorage.setItem("dataTM", JSON.stringify(data));
+        if (text.includes("TM") && status.includes("Sending")) {
+            var listOfDataVal = []
+            for(let i = 0; i <= 7; i++) {
+                var dataOne = document.getElementById("t"+ terminal +"customRange3vcan" + i).value
+                listOfDataVal.push(dataOne)
             }
+            data.push({key: terminal, value: listOfDataVal})
+            // localStorage.setItem("data", JSON.stringify(data));
+            localStorage.setItem("dataTM", JSON.stringify(data));
         }
     });
 </script>
