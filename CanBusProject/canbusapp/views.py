@@ -3,11 +3,7 @@ import os
 import subprocess
 import signal
 import time
-
 from django.shortcuts import render
-import threading
-from django.views.decorators.csrf import csrf_exempt
-from asgiref.sync import sync_to_async
 
 
 def calcBytes(dataFromPage):
