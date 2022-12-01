@@ -193,9 +193,12 @@
 </main>
 
 <script type="text/javascript">
-    console.log(JSON.stringify(localStorage))
     var tmList = JSON.parse(localStorage.getItem("tmIndexList")) || [];
-    var lastData= JSON.parse(localStorage.getItem("dataTM")) || [];
+    var cntOflastData = [];
+    for (let i = 0; i < cntOflastData.length; i++) {
+        var lastData= JSON.parse(localStorage.getItem("dataTM" + i)) || [];
+    }
+
     var data = [];
     window.addEventListener('load', () => {
         var terminal = document.getElementById("home").textContent.slice(-1)
@@ -357,6 +360,7 @@
                 listOfDataVal.push(dataOne)
             }
             localStorage.setItem("dataTM" + terminal, JSON.stringify(listOfDataVal));
+            cntOflastData.push(1);
         }
     });
 </script>
