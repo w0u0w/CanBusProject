@@ -301,7 +301,7 @@
                                 'terminal': canterminal,
                                 'dataVcan': dataVcanList,
                                 'oldData': JSON.parse(localStorage.getItem("dataTM" + canterminal))
-                            },
+                           },
                               success: function(data) {
                                   $('.log_get tbody').html($(data).find('.log_get tbody').html());
                                   console.log(dataVcanList);

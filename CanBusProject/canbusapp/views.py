@@ -17,7 +17,7 @@ def base(request):
     return render(request, 'base.html')
 
 
-def terminalPage(request, tmIndex):
+async def terminalPage(request, tmIndex):
     tmfromlog = []
     dataFile = []
     idFrameList = []
