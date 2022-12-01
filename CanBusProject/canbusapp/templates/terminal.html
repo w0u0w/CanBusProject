@@ -202,14 +202,10 @@
 
     window.addEventListener('load', () => {
         var terminal = document.getElementById("home").textContent.slice(-1)
-        for (var key in lastData){
-            var values = lastData[key].value
-            console.log(values)
-            for (let i = 0; i <= values.length; i++) {
-                 document.getElementById("t" + terminal + "vcan"+ i +"value").value = values[i]
-                 document.getElementById("t"+ terminal +"customRange3vcan" + i).value = values[i]
+        for (let i = 0; i <= localStorage.getItem("dataTM" + terminal).length; i++) {
+                 document.getElementById("t" + terminal + "vcan"+ i +"value").value = localStorage.getItem("dataTM" + terminal)[i]
+                 document.getElementById("t"+ terminal +"customRange3vcan" + i).value = localStorage.getItem("dataTM" + terminal)[i]
             }
-        }
     });
     //Functions for number and range inputs
     function updateTextInput(terminalIndex, interfaceIndex, val) {
