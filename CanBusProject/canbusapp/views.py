@@ -59,7 +59,7 @@ async def terminalPage(request, tmIndex):
             status = 0
         if operation == 'dataVcanPost':
             dataModuleList = request.POST.getlist('dataVcan[]')
-            task = asyncio.ensure_future(asyncTest(status, dataModuleList, tmIndex))
+            task = asyncio.ensure_future([asyncTest(status, dataModuleList, tmIndex)])
             await asyncio.wait(task)
             if status == 0:
                 pass
