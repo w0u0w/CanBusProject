@@ -198,12 +198,13 @@
     for (let i = 0; i < cntOflastData.length; i++) {
         var lastData= JSON.parse(localStorage.getItem("dataTM" + i)) || [];
     }
-
     var data = [];
+
     window.addEventListener('load', () => {
         var terminal = document.getElementById("home").textContent.slice(-1)
         for (var key in lastData){
             var values = lastData[key].value
+            console.log(values)
             for (let i = 0; i <= values.length; i++) {
                  document.getElementById("t" + terminal + "vcan"+ i +"value").value = values[i]
                  document.getElementById("t"+ terminal +"customRange3vcan" + i).value = values[i]
