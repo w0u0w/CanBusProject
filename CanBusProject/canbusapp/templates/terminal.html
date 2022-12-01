@@ -203,9 +203,11 @@
     window.addEventListener('load', () => {
         var terminal = document.getElementById("home").textContent.slice(-1)
         console.log(localStorage.getItem("dataTM" + terminal))
+        var cnt = 0
         for (let val in localStorage.getItem("dataTM" + terminal)) {
-            document.getElementById("t" + terminal + "vcan"+ i +"value").value = val
-            document.getElementById("t"+ terminal +"customRange3vcan" + i).value = val
+            document.getElementById("t" + terminal + "vcan"+ cnt +"value").value = val
+            document.getElementById("t"+ terminal +"customRange3vcan" + cnt).value = val
+            cnt++;
         }
     });
     //Functions for number and range inputs
