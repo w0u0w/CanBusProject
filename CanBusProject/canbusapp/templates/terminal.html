@@ -244,7 +244,7 @@
         return cookieValue;
     }
 
-    var timer = null, interval = 500;
+    var timer, timer2 = null, interval = 500;
 
     $(document).on("click", "button", function (event) {
        var clickedBtnName = event.target.name;
@@ -299,10 +299,10 @@
                            data: {
                                 'operation': "dataVcanPost",
                                 'terminal': canterminal,
-                                'dataVcan': dataVcanList
+                                'dataVcan': dataVcanList,
+                                'oldData': JSON.parse(localStorage.getItem("dataTM" + canterminal))
                             },
                               success: function(data) {
-
                                   $('.log_get tbody').html($(data).find('.log_get tbody').html());
                                   console.log(dataVcanList);
                               },
@@ -322,11 +322,8 @@
          if (currentStatusOfInterface.text() === 'Sending') {
            currentStatusOfInterface.text('Sleep');
            if(tmList.includes(canterminal)) {
-
                const index = tmList.indexOf(canterminal);
-               // console.log(tmList)
                tmList.splice(index, 1);
-               // console.log(tmList)
                localStorage.setItem("tmIndexList", JSON.stringify(tmList));
            }
            $.ajax({
@@ -341,7 +338,6 @@
             success: function (data) {
                 clearInterval(timer)
                 timer = null
-                // $('.log_get').html(data)
                 console.log('Module on terminal ' + canterminal + ': stop sending')
             },
             error: (error) => {
@@ -365,6 +361,25 @@
             localStorage.setItem("dataTM" + terminal, JSON.stringify(listOfDataVal));
             cntOflastData.push(1);
         }
+        // timer2 =  setInterval (function(){
+        //     for (let i = 0; i < tmList.length; i++) {
+        //         if (tmList[i] === JSON.parse(localStorage.key(i)))
+        //         $.ajax({
+        //            headers: {'X-CSRFToken': getCookie('csrftoken')},
+        //            url: '/terminal/'+ canterminal + '/',
+        //            method: 'POST',
+        //            data: {
+        //                 'operation': "dataVcanPost",
+        //                 'terminal': canterminal,
+        //                 'dataVcan': dataVcanList,
+        //                 'oldData': JSON.parse(localStorage.getItem("dataTM" + canterminal))
+        //            },
+        //             success: function(data) {},
+        //             error: (error) => {console.log(error);}
+        //         });
+        //     }
+        //     }, interval);
     });
+
 </script>
 {% endblock terminalsContent %}
