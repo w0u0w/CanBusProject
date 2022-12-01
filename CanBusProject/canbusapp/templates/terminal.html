@@ -199,7 +199,7 @@
         var lastData= JSON.parse(localStorage.getItem("dataTM" + i)) || [];
     }
     var data = [];
-    var socket = new WebSocket("192.168.51.168/terminal/1/")
+    var socket = new WebSocket("wss://localhost/terminal/1/")
     socket.onopen = function(e) {
       alert("[open] Соединение установлено");
 
