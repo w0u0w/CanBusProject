@@ -203,11 +203,13 @@
     window.addEventListener('load', () => {
         var terminal = document.getElementById("home").textContent.slice(-1)
         console.log(localStorage.getItem("dataTM" + terminal))
-        var cnt = 0
-        for (let val in localStorage.getItem("dataTM" + terminal)) {
-            document.getElementById("t" + terminal + "vcan"+ cnt +"value").value = val
-            document.getElementById("t"+ terminal +"customRange3vcan" + cnt).value = val
-            cnt++;
+        // for (let val in localStorage.getItem("dataTM" + terminal)) {
+        //     document.getElementById("t" + terminal + "vcan"+ cnt +"value").value = val
+        //     document.getElementById("t"+ terminal +"customRange3vcan" + cnt).value = val
+        //     cnt++;
+        // }
+        for (let i = 0; localStorage.getItem("dataTM" + terminal).length; i++) {
+            console.log(JSON.parse(localStorage.getItem("dataTM" + terminal)))
         }
     });
     //Functions for number and range inputs
