@@ -348,15 +348,14 @@
     $(document).click(function(event) {
         var terminal = document.getElementById("home").textContent.slice(-1)
         var text = $(event.target).text();
-        var status = document.getElementById(("stat")).textContent
+        var status = document.getElementById(("stat")).textContent;
         if (text.includes("TM") && status.includes("Sending")) {
             var listOfDataVal = []
             for(let i = 0; i <= 7; i++) {
                 var dataOne = document.getElementById("t"+ terminal +"customRange3vcan" + i).value
                 listOfDataVal.push(dataOne)
             }
-            data.push({key: terminal, value: listOfDataVal})
-            // localStorage.setItem("data", JSON.stringify(data));
+            data.push(listOfDataVal)
             localStorage.setItem("dataTM", JSON.stringify(data));
         }
     });
