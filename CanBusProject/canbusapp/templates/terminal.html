@@ -352,11 +352,10 @@
         if (text.includes("TM") && status.includes("Sending")) {
             var listOfDataVal = []
             for(let i = 0; i <= 7; i++) {
-                var dataOne = document.getElementById("t"+ terminal +"customRange3vcan" + i).value
+                var dataOne = document.getElementById("t" + terminal + "customRange3vcan" + i).value
                 listOfDataVal.push(dataOne)
             }
-            data.push(listOfDataVal)
-            localStorage.setItem("dataTM", JSON.stringify(data));
+            localStorage.setItem("dataTM", JSON.stringify(listOfDataVal));
         }
     });
 </script>
