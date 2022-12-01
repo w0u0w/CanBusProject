@@ -199,19 +199,9 @@
         var lastData= JSON.parse(localStorage.getItem("dataTM" + i)) || [];
     }
     var data = [];
-    var socket = new WebSocket("wss://localhost/terminal/1/")
-    socket.onopen = function(e) {
-      alert("[open] Соединение установлено");
-
-    };
     window.addEventListener('load', () => {
         var terminal = document.getElementById("home").textContent.slice(-1)
         console.log(localStorage.getItem("dataTM" + terminal))
-        // for (let val in localStorage.getItem("dataTM" + terminal)) {
-        //     document.getElementById("t" + terminal + "vcan"+ cnt +"value").value = val
-        //     document.getElementById("t"+ terminal +"customRange3vcan" + cnt).value = val
-        //     cnt++;
-        // }
         for (let i = 0; localStorage.getItem("dataTM" + terminal).length; i++) {
             document.getElementById("t" + terminal + "vcan"+ i +"value").value = JSON.parse(localStorage.getItem("dataTM" + terminal))[i]
             document.getElementById("t"+ terminal +"customRange3vcan" + i).value = JSON.parse(localStorage.getItem("dataTM" + terminal))[i]
@@ -248,8 +238,7 @@
         return cookieValue;
     }
 
-    var timer, timer2 = null, interval = 500;
-
+    var timer = null, interval = 500;
     $(document).on("click", "button", function (event) {
        var clickedBtnName = event.target.name;
        var getTerminalAndInterface = clickedBtnName.split(" ");
@@ -365,24 +354,6 @@
             localStorage.setItem("dataTM" + terminal, JSON.stringify(listOfDataVal));
             cntOflastData.push(1);
         }
-        // timer2 =  setInterval (function(){
-        //     for (let i = 0; i < tmList.length; i++) {
-        //         if (tmList[i] === JSON.parse(localStorage.key(i)))
-        //         $.ajax({
-        //            headers: {'X-CSRFToken': getCookie('csrftoken')},
-        //            url: '/terminal/'+ canterminal + '/',
-        //            method: 'POST',
-        //            data: {
-        //                 'operation': "dataVcanPost",
-        //                 'terminal': canterminal,
-        //                 'dataVcan': dataVcanList,
-        //                 'oldData': JSON.parse(localStorage.getItem("dataTM" + canterminal))
-        //            },
-        //             success: function(data) {},
-        //             error: (error) => {console.log(error);}
-        //         });
-        //     }
-        //     }, interval);
         for (let i = 0; i < tmList.length; i++) {
             console.log(tmList[i])
             console.log(terminal)
